@@ -1,6 +1,12 @@
 site_name: 一只烤鱼的笔记
-theme: 
+
+site_url: https://mooncreater.github.io/Notebook/
+repo_name: Mooncreater/Notebook 
+repo_url: https://github.com/Mooncreater/Notebook  
+
+theme:
   name: material
+
   custom_dir: custom_theme/
 
   features:
@@ -9,13 +15,6 @@ theme:
   icon:
     logo: material/book
 
-# ---------- 仓库配置 ----------
-repo_name: Mooncreater/Notebook 
-repo_url: https://github.com/Mooncreater/Notebook  
-
-# ---------- 主题配置 ----------
-theme:
-  name: material
   # ---------- 功能开关 (把搜索相关功能也加进来) ----------
   features:
     - navigation.tabs
@@ -59,6 +58,10 @@ markdown_extensions:
   # - [x] 任务列表拓展
   - pymdownx.tasklist:
       custom_checkbox: true 
+  # 启用提示框和详情框拓展
+  - admonition  
+  - pymdownx.details 
+  - pymdownx.superfences    
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -68,12 +71,22 @@ extra_css:
   - fonts/title.css
 
 nav:
-nav:
   - Home:
     - index.md
     - 更新记录: index.md
     - 友链: index.md
-  - 计算机基础:
   - AI相关:
-    - 机器学习：
-      - notes/perfessional/ML/ML.md 
+    - 机器学习: 
+      - notes/perfessional/ML/index.md
+      - 概念: notes/perfessional/ML/abstruct.md
+      - 基本术语和模型评估: notes/perfessional/ML/base.md 
+      - 线性模型: notes/perfessional/ML/chapter3.md
+      - 决策树: notes/perfessional/ML/chapter4.md
+      - 神经网络: notes/perfessional/ML/chapter5.md
+      - 支持向量机: notes/perfessional/ML/chapter6.md
+      - 贝叶斯分类器: notes/perfessional/ML/chapter7.md
+      - 集成方法: notes/perfessional/ML/chapter8.md
+      - 聚类: notes/perfessional/ML/chapter9.md
+      - 降维与度量学习: notes/perfessional/ML/chapter10.md
+      - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
+      - 半监督学习: notes/perfessional/ML/chapter12.md

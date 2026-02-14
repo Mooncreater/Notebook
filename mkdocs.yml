@@ -68,6 +68,12 @@ extra_css:
   - fonts/title.css
 
 nav:
-  - Home: index.md
-  - About: about.md
-  - ML: notes/perfessional/ML/ML.md  
+nav:
+  - Home:
+    - index.md
+    - 更新记录: index.md
+    - 友链: index.md
+  - 计算机基础:
+  - AI相关:
+    - 机器学习：
+      - notes/perfessional/ML/ML.md 

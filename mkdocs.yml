@@ -10,8 +10,8 @@ theme:
     logo: material/book
 
 # ---------- 仓库配置 ----------
-repo_name: Mooncreater/mynote  # 例如: "username/my-project"
-repo_url: https://github.com/Mooncreater/mynote  # 仓库的完整URL
+repo_name: Mooncreater/Notebook 
+repo_url: https://github.com/Mooncreater/Notebook  
 
 # ---------- 主题配置 ----------
 theme:

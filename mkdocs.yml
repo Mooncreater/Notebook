@@ -1,8 +1,4 @@
 site_name: 一只烤鱼的笔记
-nav:
-  - Home: index.md
-  - About: about.md
-  - ML: notes/perfessional/ML/ML.md
 theme: 
   name: material
   custom_dir: custom_theme/
@@ -14,8 +10,8 @@ theme:
     logo: material/book
 
 # ---------- 仓库配置 ----------
-repo_name: 你的GitHub用户名/仓库名  # 例如: "username/my-project"
-repo_url: https://github.com/你的GitHub用户名/仓库名  # 仓库的完整URL
+repo_name: Mooncreater/mynote  # 例如: "username/my-project"
+repo_url: https://github.com/Mooncreater/mynote  # 仓库的完整URL
 
 # ---------- 主题配置 ----------
 theme:
@@ -70,3 +66,8 @@ extra_javascript:
 
 extra_css:
   - fonts/title.css
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - ML: notes/perfessional/ML/ML.md  

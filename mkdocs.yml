@@ -1,0 +1,72 @@
+site_name: 一只烤鱼的笔记
+nav:
+  - Home: index.md
+  - About: about.md
+  - ML: notes/perfessional/ML/ML.md
+theme: 
+  name: material
+  custom_dir: custom_theme/
+
+  features:
+    - navigation.tabs 
+
+  icon:
+    logo: material/book
+
+# ---------- 仓库配置 ----------
+repo_name: 你的GitHub用户名/仓库名  # 例如: "username/my-project"
+repo_url: https://github.com/你的GitHub用户名/仓库名  # 仓库的完整URL
+
+# ---------- 主题配置 ----------
+theme:
+  name: material
+  # ---------- 功能开关 (把搜索相关功能也加进来) ----------
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky  # 如果你想要粘性标签页
+    - navigation.top          # 返回顶部按钮
+    - search.suggest          # 搜索建议
+    - search.highlight        # 搜索结果高亮
+    - content.code.copy       # 代码块复制按钮 (可选)
+  # ---------- 亮/暗色切换配置 (你已有的) ----------
+  palette:
+    # 亮色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: brown  # 👈 直接设为 brown
+      accent: brown   # 强调色也可以设 brown
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色模式
+
+    # 暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: brown
+      accent: brown
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+
+# ---------- 插件配置 (确保 search 插件被正确启用) ----------
+plugins:
+  - search  # 这是搜索功能的核心插件，必须显式列出
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  # 数学公式拓展
+  - pymdownx.arithmatex:
+      generic: true
+  # 脚注拓展
+  - footnotes 
+  # - [x] 任务列表拓展
+  - pymdownx.tasklist:
+      custom_checkbox: true 
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - fonts/title.css

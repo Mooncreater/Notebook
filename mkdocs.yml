@@ -112,12 +112,12 @@ extra_css:
   - fonts/title.css
 
 nav:
-  - Home:
-    - index.md
-    - 更新记录: index.md
-    - 友链: index.md
+  - Home: 
+    - 首页: index.md
+    - 许可证: license.md
+
   - AI相关:
-    - 机器学习: 
+    - 机器学习:
       - notes/perfessional/ML/index.md
       - 概念: notes/perfessional/ML/abstruct.md
       - 基本术语和模型评估: notes/perfessional/ML/base.md 

@@ -1,17 +1,24 @@
-# Welcome to MkDocs
+---
+counter: True   
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Welcome to 一只烤鱼's Notebook!  
 
-## Commands
+这里是 一只烤鱼 的笔记本📓~ 欢迎来玩捏~
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+!!! warning ""
+    <div style="text-align: center; font-size:20px"  markdown="1">
+    
+     待到秋来九月八，我花开后百花杀。
+      
+     冲天香阵透长安，满城尽带黄金甲。
 
-## Project layout
+    </div>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## About me
+
+#### [:fontawesome-regular-envelope:](mailto:2310305428@qq.com) [QQ邮箱](mailto:2310305428@qq.com)
+#### [:fontawesome-brands-github:](https://github.com/Mooncreater) [My GitHub](https://github.com/Mooncreater)
+
+
+[:fontawesome-solid-blog: 博客（待定）](#)

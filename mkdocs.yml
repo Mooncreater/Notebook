@@ -6,11 +6,19 @@ repo_url: https://github.com/Mooncreater/Notebook
 
 theme:
   name: material
-
-  custom_dir: custom_theme/
-
+  custom_dir: overrides
+  language: zh
+  favicon: log.ico
   features:
-    - navigation.tabs 
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+  font:
+    text: LXGW WenKai Screen
+    code: JetBrains Mono
+ # custom_dir: custom_theme/
 
   icon:
     logo: material/book
@@ -24,6 +32,7 @@ theme:
     - search.highlight        # 搜索结果高亮
     - content.code.copy       # 代码块复制按钮 (可选)
   # ---------- 亮/暗色切换配置 (你已有的) ----------
+
   palette:
     # 亮色模式
     - media: "(prefers-color-scheme: light)"
@@ -46,28 +55,60 @@ theme:
 # ---------- 插件配置 (确保 search 插件被正确启用) ----------
 plugins:
   - search  # 这是搜索功能的核心插件，必须显式列出
+  - statistics
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
 
 markdown_extensions:
   - toc:
       permalink: true
-  # 数学公式拓展
+      toc_depth: 4
+  - footnotes      
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols  #智能符号
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
-  # 脚注拓展
-  - footnotes 
-  # - [x] 任务列表拓展
-  - pymdownx.tasklist:
-      custom_checkbox: true 
-  # 启用提示框和详情框拓展
-  - admonition  
-  - pymdownx.details 
-  - pymdownx.superfences    
 
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - js/baidu-tongji.js
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
+  - js/katex.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - fonts/title.css
 
 nav:

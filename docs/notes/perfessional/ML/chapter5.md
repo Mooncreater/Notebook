@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第五章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 神经网络</h2>
 

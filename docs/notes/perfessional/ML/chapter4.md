@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第四章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 决策树</h2>
 

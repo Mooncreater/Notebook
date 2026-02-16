@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第七章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 贝叶斯分类器</h2>
 

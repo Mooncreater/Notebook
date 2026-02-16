@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第十一章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 特征选择与稀疏学习</h2>
 

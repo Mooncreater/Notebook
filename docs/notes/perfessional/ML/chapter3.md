@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第三章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 线性模型</h2>
 

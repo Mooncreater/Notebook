@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第八章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 集成学习</h2>
 

@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第六章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 支持向量机</h2>
 

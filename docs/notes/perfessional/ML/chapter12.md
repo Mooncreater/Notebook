@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## 第十二章
 <h2 style="color: #2931d9ff; font-weight: normal;"> 半监督学习</h2>
 

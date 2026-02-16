@@ -73,6 +73,7 @@ $Gain(D,a) = \max\limits_{t \in T_a}Gain(D,a,t) = \max\limits_{t\in T_a}Ent(D) -
 $\tilde{D}^v$ 表示 $\tilde{D}$ 中属性 $a$ 取值为 $a^v$ 的样本子集.
 $\tilde{D}_k$ 表示 $\tilde{D}$ 中属于第 $k$ 类 $(k = 1,2,\cdots, |\mathcal{Y}|)$ 的样本子集.
 假设对每个样本 $\bm{x}$ 赋予一个权重 $w_{\bm{x}}$ ,定义：
+
 -   无缺失值样本所占比例： $\rho = \frac{\sum\limits_{\bm{x}\in \tilde{D}}w_{\bm{x}}}{\sum\limits_{\bm{x}\in D}w_{\bm{x}}}$
 -   无缺失值样本中第 $k$ 类所占比例：$\tilde{p}_k = \frac{\sum\limits_{\bm{x}\in\tilde{D}_k}w_{\bm{x}}}{\sum\limits_{\bm{x}\in \tilde{D}}w_{\bm{x}}}$
 -   无缺失值样本属性 $a$ 上取值 $a^v$ 比例：$\tilde{r}_v = \frac{\sum\limits_{\bm{x}\in \tilde{D}^v}w_{\bm{x}}}{\sum\limits_{\bm{x}\in\tilde{D}}w_{\bm{x}}}$

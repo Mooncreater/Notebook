@@ -7,11 +7,11 @@ comments: true
 
 #### 1.神经元模型
 
-##### 1.1概念
+##### 1.1 概念
 $y = f( \sum\limits_{i=1}^{n}w_ix_i - \theta)$, $f$ 为激活函数， $\theta$ 为阈值.
 
 ![alt text](img/{AC904666-000C-44DA-8858-B1C3FAFD31C2}.png)
-##### 1.2激活函数
+##### 1.2 激活函数
 
 ![alt text](img/{124B192D-167E-4E35-91F1-C100E9EDF9B8}.png)
 
@@ -19,6 +19,7 @@ $y = f( \sum\limits_{i=1}^{n}w_ix_i - \theta)$, $f$ 为激活函数， $\theta$ 
 
 ##### 2.1 感知机
 $y = f( \sum\limits_{i=1}^{n}w_ix_i - \theta)$, 可以容易实现 "与","或","非".
+
 | 逻辑  |  实现  |
 |---|----|
 |“与” |  $w_1 = w_2 = 1, \theta = 2$  |
@@ -29,6 +30,7 @@ $y = f( \sum\limits_{i=1}^{n}w_ix_i - \theta)$, 可以容易实现 "与","或","
 
 ##### 2.2 感知机学习
 训练样例 $(\bm{x},y)$ ,当前感知机输出 $\hat{y}$.
+
 $w_i$ 变化 $\Delta w_i = \eta(y - \hat{y})x_i$, 学习率 $\eta \in (0,1)$ .
 
 ##### 2.3多层网络
@@ -52,7 +54,7 @@ $w_i$ 变化 $\Delta w_i = \eta(y - \hat{y})x_i$, 学习率 $\eta \in (0,1)$ .
 | $w_{hj}$ |隐层和输出层神经元之间的连接权重|
 | $b_h$ |第 $h$ 隐层输出 $b_h=f(\alpha_h - \gamma_h)$|
 |$\alpha_h$|第 $h$ 隐层输入 $\alpha_h=\sum\limits_{i=1}^{d}v_{ih}x_i$|
-|$\hat{y}_j^k $|第 $j$ 输出层输出 $\hat{y}_j^k = f(\beta_j - \theta_j)$|
+|$\hat{y}_j^k$|第 $j$ 输出层输出 $\hat{y}_j^k = f(\beta_j - \theta_j)$|
 |$\beta_j$|第 $j$ 输出层输入 $\beta_j=\sum\limits_{i=q}^{d}w_{hj}b_h$|
 
 ##### 3.3 思路
@@ -92,9 +94,11 @@ $\Delta \gamma_h = -\eta e_h$
 
 ##### 3.6 缓解过拟合
 早停：若训练误差降低，但验证误差升高，则停止训练
+
 正则化：$E = \lambda\frac{1}{m}\sum\limits_{k=1}^{m}E_k +(1-\lambda)\sum\limits_{i}w_i^2$
 
 #### 4.其他神经网络
 
 RBF 网络：单隐层前馈神经网络, 它使用径向基函数作为隐层神经元激活函数, 而输出层则是隐层神经元输出的线性组合.
+
 ART 网络：输出神经元一个激活其他全被抑制.

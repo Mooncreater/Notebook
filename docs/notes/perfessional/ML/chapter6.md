@@ -33,11 +33,12 @@ comments: true
 #### 2.对偶问题
 
 现在的问题：求 $\frac{1}{2}\|\bm{w}\|$ 最小值 $\iff$ 求 $\frac{1}{2}\|\bm{w}\|^2$ 最小值.
+
 约束条件：$y_i(\bm{w}^T\bm{x}_i +b) \geq 1$ $\iff$ $-(y_i(\bm{w}^T\bm{x}_i +b) - 1)\leq 0$
 ##### 拉格朗日乘子法
 拉格朗日函数： $L(\bm{w},b,\bm{\alpha}) = \frac{1}{2}\|\bm{w}\|^2 - \sum\limits_{i=1}^{m}\alpha_i\big(y_i(\bm{w}^T\bm{x}_i+b)-1\big)$
 
-分别对 $\bm{w}$ , $b$ 求偏导取零有：$\bm{w} = \sum\limits_{i=1}^{m}\alpha_iy_i\bm{x}_i$,$\sum\limits_{i=1}^{m}\alpha_iy_i = 0$.
+分别对 $\bm{w}$ , $b$ 求偏导取零有：$\bm{w} = \sum\limits_{i=1}^{m}\alpha_iy_i\bm{x}_i$ , $\sum\limits_{i=1}^{m}\alpha_iy_i = 0$.
 
 问题转化为：$\min\limits_{\alpha}\frac{1}{2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}\alpha_i\alpha_jy_iy_j\bm{x}_i^T\bm{x}_j -\sum\limits_{i=1}^{m}\alpha_i$
 
@@ -57,15 +58,15 @@ y_if(\bm{x}_i) \geq 1\\
 现在的约束：$\sum\limits_{i=1}^{m}\alpha_iy_i = 0$
 
 ###### 思路：
-1.选取需要更新的变量 $\alpha_i$ 和 $\alpha_j$
-2.固定其他 $\alpha$ 参数
+1. 选取需要更新的变量 $\alpha_i$ 和 $\alpha_j$
+2. 固定其他 $\alpha$ 参数
 
 #### 3.核函数
 无法找到能划分两类样本的超平面？
 - [x] 映射高维空间
 ![alt text](img/{86F840BF-24E4-4DD1-892F-A33B9CA9CDE1}.png)
 
-观察最终模型：$f(x) = \bm{w}^T\bm{x} + b = \sum\limits_{i=1}^{m}\alpha_i y_i \bm{x}_i^T\bm{x} + b$,仅与内积有关.
+观察最终模型：$f(x) = \bm{w}^T\bm{x} + b = \sum\limits_{i=1}^{m}\alpha_i y_i \bm{x}_i^T\bm{x} + b$ ,仅与内积有关.  
 所以将 $\bm{x}$ 映射为 $\phi(\bm{x})$ 也只和 $\phi(\bm{x_i})^T\phi(\bm{x_j})$ 有关
 
 ##### 3.1 基本想法
@@ -83,27 +84,26 @@ y_if(\bm{x}_i) \geq 1\\
 
 #### 4.软间隔与正则化
 还是难以找到线性可分？
+
 - [x] 软间隔
 - [x] 允许支持向量机有一些样本不满足约束
 ![alt text](img/{D4978882-0F8A-45EE-80B2-DD1B426CBA75}.png)
 
 ##### 4.1 0/1损失函数
 
-最大化间隔同时，不满足约束的样本尽可能少 
-$\min\limits_{\bm{w},b}\frac{1}{2}\|\bm{w}\|^2 + C\sum\limits_{i=1}^{m}l_{0/1}\big(y_i(\bm{w}^T\phi(\bm{x}_i)+b)-1\big)$
-
-$l_{0/1} = \begin{cases}
+最大化间隔同时，不满足约束的样本尽可能少 $loss =\min\limits_{\bm{w},b}\frac{1}{2}\|\bm{w}\|^2 + C\sum\limits_{i=1}^{m}l_{0/1}\big(y_i(\bm{w}^T\phi(\bm{x}_i)+b)-1\big)$
+其中 $l_{0/1} = \begin{cases}
 1 & z < 0\\
 0  &othrewise
 \end{cases}$
 
 ##### 4.2 正则化
 一般形式：
-$\min\limits_{f} \Omega(f) + C\sum\limits_{i=1}^{m}l(f(\bm{x}_i),y_i)$
-前者：结构风险，描述模型的一些性质
+$\min\limits_{f} \Omega(f) + C\sum\limits_{i=1}^{m}l(f(\bm{x}_i),y_i)$  
+前者：结构风险，描述模型的一些性质  
 后者：经验风险，描述模型和训练数据的契合度
 
 #### 5.支持向量回归
 允许模型输出和实际输出存在 $2\epsilon$ 偏差
-![alt text](img/{E78D9D82-69BD-44C0-99CF-47CDBCFA73B7}.png)
+![alt text](img/{E78D9D82-69BD-44C0-99CF-47CDBCFA73B7}.png)  
 落入中间 $2\epsilon$ 样本不计入损失

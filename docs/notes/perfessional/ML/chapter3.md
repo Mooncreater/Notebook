@@ -61,6 +61,7 @@ $$y=
 \end{cases}$$
 
 替代函数：$y = \frac{1}{1 + e^{-z}} = \frac{1}{1 + e^{-(\bm{w}^T\bm{x} + b)} }$
+
 ![alt text](img/{637C236A-26FC-43F4-B3BC-9B6C2B6C8E07}.png)
    
 **对数几率**：事件发生的概率比上不发生的概率的对数，即：
@@ -77,4 +78,5 @@ $\ln \frac{p(y=1|\bm{x})}{p(y=0|\bm{x})} = \ln\frac{p(y = 1|\bm{x})}{1-p(y = 1|\
 将其转化为类别平衡任务
 
 ![alt text](img/{A9430E93-D6DD-40B6-91C9-5F6FDE0B9553}.png)
+
 ![alt text](img/{53E905D5-38D4-4E46-A276-A3D296C86A1E}.png)

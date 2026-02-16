@@ -39,25 +39,25 @@ comments: true
 
 - ***3.概念学习***
 
-   - **假设空间**:枚举所有的假设，样本 $\bold{x} = (x_0,\cdots,x_{n-1}) \in \bold{V}$ , $H = \{ h | h \subset \bold{V}\}$，也就是对 $\bold{x}$ 所有取值的预测函数，包括 $\empty$.
-   - **版本空间**：假设空间的子集，在训练集上全部运行正确,如：$h_{色泽 = *,根蒂 = *,敲声 = 浊响}(\bold{x}),$对于所有的样本$\bold{x}$都能预测正确，那么该$h$属于<span style="background-color: #00ccffff">版本空间</span>。
+   - **假设空间**:枚举所有的假设，样本 $\bold{x} = (x_0,\cdots,x_{n-1}) \in \bold{V}$ , $H = \{ h | h \subset \bold{V}\}$，也就是对 $\bold{x}$ 所有取值的预测函数，包括 $\empty$。
+   - **版本空间**：假设空间的子集，在训练集上全部运行正确,如：$h_{色泽 = *,根蒂 = *,敲声 = 浊响}(\bold{x}),$对于所有的样本$\bold{x}$都能预测正确，那么该 $h$ 属于<span style="background-color: #00ccffff">版本空间</span>。
    - **归纳偏好**：对<span style ="background-color : #00bbffff">非测试集</span>不同预测可能会有不同的结果。
-   - **没有免费午餐**：一个算法$\xi_a$如果在某些问题上比另一个算法$\xi_b$好，必然存在另一些问题，$\xi_b$比$\xi_a$ 好, 也即没有免费的午餐定理。(总误差与学习算法无关)
+   - **没有免费午餐**：一个算法 $\xi_a$ 如果在某些问题上比另一个算法 $\xi_b$ 好，必然存在另一些问题，$\xi_b$ 比 $\xi_a$ 好, 也即没有免费的午餐定理。(总误差与学习算法无关)
 - ***4.模型评估与选择***
 
     **4.1 选择模型**：经验性能$E$(历史表现) $\approx$ 泛化性能$E^*$(未来表现得不到)
 
     - **经验误差**：也称训练误差，在训练集上的误差
-    - **过拟合**：将样本本身特点当做一般性质学习$\to$ <span style = "color: #00bbffff">优化目标加正则项</span>
-    - **欠拟合**：对样本的一般性质没有学好$\to$ <span style = "color: #00bbffff">决策树：拓展分支，神经网络：增加训练轮数</span>
+    - **过拟合**：将样本本身特点当做一般性质学习 $\to$ <span style = "color: #00bbffff">优化目标加正则项</span>
+    - **欠拟合**：对样本的一般性质没有学好 $\to$ <span style = "color: #00bbffff">决策树：拓展分支，神经网络：增加训练轮数</span>
 
     **4.2 评估方法**：
 
     | 方法 |解释|
     |----|---|
-    |留出法|将数据划分两个互斥集合训练和测试集，保持数据分布一致性和类别比例一致性$2:1 \sim 4:1$|
+    |留出法|将数据划分两个互斥集合训练和测试集，保持数据分布一致性和类别比例一致性 $2:1 \sim 4:1$ |
     |交叉验证法|![alt text](img/{52CB25BB-78AF-4B49-B071-89944CBA6474}.png)|
-    |自助法|从$D$中随机有放回取生成$D'$  |
+    |自助法|从 $D$ 中随机有放回取生成 $D'$  |
     |调参数|对算法的参数进行设定，在验证集上确定参数。训练集：模型训练，验证集：参数调优，测试集：最终评估 |
 
     **4.3 性能度量**：
@@ -65,19 +65,20 @@ comments: true
 
     ![alt text](img/{2E109B9C-582A-484D-9BBB-ED2DB18968A3}.png)
 
-    <span style="background-color: #00bbffff">查准率$P$</span>：所有模型预测的正例中真正正例所占的比例。
+    <span style="background-color: #00bbffff">查准率 $P$ </span>：所有模型预测的正例中真正正例所占的比例。
 
-    <span style="background-color: #00bbffff">查全率$R$</span>：所有的正例中模型预测为正例的比例。
+    <span style="background-color: #00bbffff">查全率 $R$ </span>：所有的正例中模型预测为正例的比例。
 
     ***4.3.2 P-R曲线***：
     ![alt text](img/{B1E22EB9-DD03-4C68-B9E0-C79469F9794D}.png)
 
     <span style="background-color: #00bbffff">平衡点</span>：查准率= 查全率时的取值，用来度量曲线有交叉的两个分类器的性能，如图中A，B。
-    ***4.3.3 $F_1$度量***:
+
+    ***4.3.3 $F_1$ 度量***:
 
     $F_1 = \frac{2 \times P \times R}{P + R}$
 
-    更一般的形式$F_{\beta}$：
+    更一般的形式 $F_{\beta}$ ：
 
     $F_{\beta} = \frac{(1 + \beta^2)\times P \times R}{(\beta^2 \times P) + R}$
 
@@ -94,6 +95,7 @@ comments: true
     假正例率：$\frac{FP}{FP + TN}$，预测正例中徦例占所有徦例的比例.
 
     ![alt text](img/image.png)
+    
     ***面积大者优，也称 <span style="background-color: #00bbffff">AUC</span>值***
 
     AUC衡量了样本预测的<span style="background-color: #00bbffff">排序质量</span>

@@ -1,0 +1,16 @@
+/* docs/stylesheets/extra.css */
+
+/* 把网站左上角的 Logo 变成圆形 */
+.md-header .md-logo img {
+    border-radius: 50%;        /* 变成圆形 */
+    object-fit: cover;         /* 确保图片填充完整，不变形 */
+    /* 可选：添加一点点边框或阴影，看起来更精致 */
+    /* border: 2px solid white; */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+}
+
+/* 如果是在移动端菜单里的 Logo */
+.md-nav .md-logo img {
+    border-radius: 50%;
+    object-fit: cover;
+}

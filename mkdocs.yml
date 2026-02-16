@@ -1,4 +1,4 @@
-site_name: 一只烤鱼的笔记
+site_name: 一只烤鱼的笔记本
 
 site_url: https://mooncreater.github.io/Notebook/
 repo_name: Mooncreater/Notebook 
@@ -8,24 +8,20 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
-  favicon: log.ico
-  features:
-    - content.code.annotate
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.indexes
-    - navigation.top
+  favicon: log.jpg
+  logo: log.jpg
   font:
     text: LXGW WenKai Screen
     code: JetBrains Mono
  # custom_dir: custom_theme/
 
-  icon:
-    logo: material/book
 
   # ---------- 功能开关 (把搜索相关功能也加进来) ----------
   features:
+    - content.code.annotate
+    - navigation.tracking
     - navigation.tabs
+    - navigation.indexes
     - navigation.tabs.sticky  # 如果你想要粘性标签页
     - navigation.top          # 返回顶部按钮
     - search.suggest          # 搜索建议
@@ -53,9 +49,10 @@ theme:
         name: 切换到亮色模式
 
 # ---------- 插件配置 (确保 search 插件被正确启用) ----------
-plugins:
-  - search  # 这是搜索功能的核心插件，必须显式列出
-  - statistics
+plugins:      
+  - statistics    
+  - search        
+
   - git-revision-date-localized:
       type: datetime
       timezone: Asia/Shanghai
@@ -110,10 +107,11 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - fonts/title.css
+  - stylesheets/extra.css 
 
 nav:
   - Home: 
-    - 首页: index.md
+    - index.md
     - 许可证: license.md
 
   - AI相关:
@@ -131,3 +129,5 @@ nav:
       - 降维与度量学习: notes/perfessional/ML/chapter10.md
       - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
       - 半监督学习: notes/perfessional/ML/chapter12.md
+  - 规范:
+    - git规范: standard/git.md

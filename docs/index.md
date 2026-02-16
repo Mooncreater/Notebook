@@ -1,5 +1,5 @@
 ---
-counter: True   
+comments: true   
 ---
 
 # Welcome to 一只烤鱼's Notebook!  

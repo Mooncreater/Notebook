@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://mooncreater.github.io/Notebook/standard/git/commit/">
       
       
+        <link rel="prev" href="../../../notes/perfessional/ML/chapter12/">
+      
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>Commit - 一只烤鱼的笔记本</title>
+        <title>git规范 - 一只烤鱼的笔记本</title>
       
     
     
@@ -117,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Commit
+              git规范
             
           </span>
         </div>
@@ -276,11 +278,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../git.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -944,8 +948,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -955,17 +961,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -983,7 +992,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -998,10 +1007,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../git.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    git规范
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1017,6 +1051,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#featfixdocsstylerefactorperftestchore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型: feat/fix/docs/style/refactor/perf/test/chore
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类型: feat/fix/docs/style/refactor/perf/test/chore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-mfeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        示例: git commit -m"feat: 添加用户登录功能"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1062,27 +1142,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#feat" class="md-nav__link">
+    <nav class="md-nav" aria-label="类型: feat/fix/docs/style/refactor/perf/test/chore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-mfeat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        示例: feat: 添加用户登录功能
+        示例: git commit -m"feat: 添加用户登录功能"
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        请详细描述你的改动
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1106,14 +1181,84 @@
   
 
 
-  <h1>Commit</h1>
+  <h1>git规范</h1>
 
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 23 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间不到 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 281 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 1 分钟</p>
 </div>
 <h2 id="featfixdocsstylerefactorperftestchore">类型: feat/fix/docs/style/refactor/perf/test/chore<a class="headerlink" href="#featfixdocsstylerefactorperftestchore" title="Permanent link">&para;</a></h2>
-<h2 id="feat">示例: feat: 添加用户登录功能<a class="headerlink" href="#feat" title="Permanent link">&para;</a></h2>
-<h2 id="_1">请详细描述你的改动<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">含义</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>feat</strong></td>
+<td style="text-align: left;">新功能</td>
+<td style="text-align: left;"><code>feat: 添加用户登录功能</code><br><code>feat(搜索): 支持全文搜索</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>fix</strong></td>
+<td style="text-align: left;">修复 Bug</td>
+<td style="text-align: left;"><code>fix: 修复首页加载超时问题</code><br><code>fix(API): 修复用户接口返回404错误</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>docs</strong></td>
+<td style="text-align: left;">文档更新</td>
+<td style="text-align: left;"><code>docs: 更新项目README</code><br><code>docs: 添加部署说明文档</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>style</strong></td>
+<td style="text-align: left;">代码格式</td>
+<td style="text-align: left;"><code>style: 格式化HTML代码</code><br><code>style(css): 调整代码缩进</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>refactor</strong></td>
+<td style="text-align: left;">代码重构</td>
+<td style="text-align: left;"><code>refactor: 重构用户验证逻辑</code><br><code>refactor(组件): 将大组件拆分成小组件</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>perf</strong></td>
+<td style="text-align: left;">性能优化</td>
+<td style="text-align: left;"><code>perf: 优化图片加载速度</code><br><code>perf(前端): 实现路由懒加载</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>test</strong></td>
+<td style="text-align: left;">测试相关</td>
+<td style="text-align: left;"><code>test: 添加登录功能单元测试</code><br><code>test(e2e): 添加用户注册流程测试</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>chore</strong></td>
+<td style="text-align: left;">杂务/配置</td>
+<td style="text-align: left;"><code>chore: 更新依赖包版本</code><br><code>chore: 配置eslint规则</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>revert</strong></td>
+<td style="text-align: left;">回滚</td>
+<td style="text-align: left;"><code>revert: 回退登录功能修改</code><br><code>revert: "feat: 添加用户登录功能"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>merge</strong></td>
+<td style="text-align: left;">合并分支</td>
+<td style="text-align: left;"><code>merge: 合并develop分支到main</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>build</strong></td>
+<td style="text-align: left;">构建相关</td>
+<td style="text-align: left;"><code>build: 修改构建脚本</code><br><code>build: 更新打包配置</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ci</strong></td>
+<td style="text-align: left;">持续集成</td>
+<td style="text-align: left;"><code>ci: 配置GitHub Actions</code><br><code>ci: 修改Jenkins构建脚本</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="git-commit-mfeat">示例:  git commit -m"feat: 添加用户登录功能"<a class="headerlink" href="#git-commit-mfeat" title="Permanent link">&para;</a></h4>
 
 
 
@@ -1136,7 +1281,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年2月17日 03:43:48 CST">2026年2月17日 03:43:48</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年2月17日 03:50:15 CST">2026年2月17日 03:50:15</span>
   </span>
 
     

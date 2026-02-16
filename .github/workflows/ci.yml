@@ -18,7 +18,5 @@ jobs:
           pip install mkdocs-material
           pip install mkdocs-statistics
           pip install mkdocs-git-revision-date-localized-plugin
-          # 如果你有其他在 requirements.txt 中列出的依赖，也可以使用：
-          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Deploy documentation
         run: mkdocs gh-deploy --force

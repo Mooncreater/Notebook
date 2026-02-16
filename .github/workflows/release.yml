@@ -26,8 +26,8 @@ jobs:
       - name: Generate Changelog
         run: |
           conventional-changelog -p angular -i CHANGELOG.md -s
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "Mooncreater"
+          git config user.email "Mooncreater@github.com"
           git add CHANGELOG.md
           git commit -m "docs: update CHANGELOG.md" || exit 0
           git push

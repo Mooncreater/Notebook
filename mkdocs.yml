@@ -21,6 +21,7 @@ theme:
     - content.code.annotate
     - navigation.tracking
     - navigation.tabs
+    - navigation.path     # 启用路径导航
     - navigation.indexes
     - navigation.tabs.sticky  # 如果你想要粘性标签页
     - navigation.top          # 返回顶部按钮
@@ -93,7 +94,7 @@ markdown_extensions:
       generic: true
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - js/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - js/baidu-tongji.js
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
@@ -130,4 +131,6 @@ nav:
       - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
       - 半监督学习: notes/perfessional/ML/chapter12.md
   - 规范:
-    - git规范: standard/git/commit.md
+    - git规范: 
+      - standard/git/index.md
+      - commit: standard/git/commit.md

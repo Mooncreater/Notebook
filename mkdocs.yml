@@ -130,4 +130,4 @@ nav:
       - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
       - 半监督学习: notes/perfessional/ML/chapter12.md
   - 规范:
-    - git规范: standard/git.md
+    - git规范: standard/git/commit.md

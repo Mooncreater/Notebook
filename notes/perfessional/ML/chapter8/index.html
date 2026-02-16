@@ -1121,14 +1121,16 @@
 <h2 style="color: #2931d9ff; font-weight: normal;"> 集成学习</h2>
 
 <h4 id="1">1.个体与集成<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
-<p>多个学习器，最后投票处最终结果
-<img alt="alt text" src="../img/%7B5AA07356-D087-40D9-840C-C46D33C2FBC4%7D.png" />
-- [x] 集成个体：好而不同</p>
+<p>多个学习器，最后投票处最终结果<br />
+<img alt="alt text" src="../img/%7B5AA07356-D087-40D9-840C-C46D33C2FBC4%7D.png" />  </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 集成个体：好而不同</li>
+</ul>
 <p>两大类：串行和并行</p>
 <h5 id="11-boosting">1.1 串行-Boosting<a class="headerlink" href="#11-boosting" title="Permanent link">&para;</a></h5>
-<p>每次调整训练数据的样本分布
-下一次训练重点关照上一组错误率高的样本
-组合的最终版各个学习器权重不一样(表现好者高)
+<p>每次调整训练数据的样本分布<br />
+下一次训练重点关照上一组错误率高的样本<br />
+组合的最终版各个学习器权重不一样(表现好者高)<br />
 <img alt="alt text" src="../img/%7B5D1D30E6-6928-4981-A6C3-818291F38233%7D.png" /></p>
 <h5 id="12-adaboost">1.2 AdaBoost算法<a class="headerlink" href="#12-adaboost" title="Permanent link">&para;</a></h5>
 <p>解决了什么？</p>
@@ -1136,12 +1138,14 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 下一组训练的权重分配问题,即构造出了 <span class="arithmatex">\(D_{t+1}\)</span></li>
 </ul>
 <p><img alt="alt text" src="../img/%7BC0DE2768-8D2E-40CC-8968-CC81F2488DAB%7D.png" /></p>
-<p>最终 <span class="arithmatex">\(D_{t+1}\)</span> 基于 <span class="arithmatex">\(D_t\)</span> 如下：
+<p>最终 <span class="arithmatex">\(D_{t+1}\)</span> 基于 <span class="arithmatex">\(D_t\)</span> 如下：<br />
 <img alt="alt text" src="../img/%7BE9FDA2FE-AB07-4D7B-9771-A970A9B234FE%7D.png" /></p>
-<p><strong>注意事项：</strong>
-数据分布的学习：
-- [x] 重赋权法
-- [x] 重采样法</p>
+<p><strong>注意事项：</strong><br />
+数据分布的学习：</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 重赋权法</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 重采样法</li>
+</ul>
 <p>重启动，避免训练过程过早停止</p>
 <p>偏差-方差：降低偏差，可对泛化性能相当弱的学习器构造出很强的集成</p>
 <h5 id="13-bagging">1.3 并行-Bagging<a class="headerlink" href="#13-bagging" title="Permanent link">&para;</a></h5>

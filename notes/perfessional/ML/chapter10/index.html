@@ -1185,16 +1185,17 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 最大可分性：样本点在这个超平面上的投影能尽可能分开</li>
 </ul>
 <p><strong>PCA</strong>
-输入： 样本集，低维空间维数
-算法：
-1. 对所有样本进行中心化
-2. 计算样本的协方差矩阵 <span class="arithmatex">\(X^TX\)</span>
-3. 对协方差矩阵做特征值分解
+输入： 样本集，低维空间维数<br />
+算法：<br />
+1. 对所有样本进行中心化<br />
+2. 计算样本的协方差矩阵 <span class="arithmatex">\(X^TX\)</span><br />
+3. 对协方差矩阵做特征值分解<br />
 4. 取最大的 <span class="arithmatex">\(d'\)</span> 个特征值所对应的特征向量 <span class="arithmatex">\(w_1,\cdots,w_{d'}\)</span></p>
 <p>输出:投影矩阵 <span class="arithmatex">\(\bm{W} = (\bm{w_1,\cdots,w_{d'}}).\)</span></p>
-<p>降维后低维空间的维数d′通常是由用户事先指定，或通过在d′值不同的低维空间中对k近邻分类器进行交叉验证来选取较好的d′值。对PCA，还可从重构的角度设置一个重构阔值，然后选取使下式成立的最小 <span class="arithmatex">\(d'\)</span> 值：
+<p>降维后低维空间的维数d′通常是由用户事先指定，或通过在d′值不同的低维空间中对k近邻分类器进行交叉验证来选取较好的d′值。<br />
+对PCA，还可从重构的角度设置一个重构阔值，然后选取使下式成立的最小 <span class="arithmatex">\(d'\)</span> 值：
 <img alt="alt text" src="../img/%7BB81A8453-F535-4020-9D90-7FD0C9D393C8%7D.png" /></p>
-<p>$PCA $仅需保留 <span class="arithmatex">\(W\)</span>与样本的均值向量即可通过简单的向量减法和矩阵-向量乘法将新样本投影至低维空间中</p>
+<p><span class="arithmatex">\(PCA\)</span> 仅需保留 <span class="arithmatex">\(W\)</span> 与样本的均值向量即可通过简单的向量减法和矩阵-向量乘法将新样本投影至低维空间中。</p>
 <h3 id="4">4. 核化线性降维<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../img/%7B073FC50F-77AC-41BD-8352-D6DA8E36E7FA%7D.png" /></p>
 <p><img alt="alt text" src="../img/%7B47D24F09-6BE1-4EF0-8B16-2515CD0D0307%7D.png" /></p>

@@ -1202,22 +1202,22 @@
 <p>选择任务相关的特征子集</p>
 <p><img alt="alt text" src="../img/%7B450914E6-24D1-4242-ADAB-FF6D404F720E%7D.png" /></p>
 <p>关键点：子集搜索和子集评价</p>
-<p>常见特征选择方法：
+<p>常见特征选择方法：<br />
 过滤式，包裹式，嵌入式</p>
 <h4 id="11">1.1 过滤式选择<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
 <p>先用特征选择过程过滤原始数据，再用过滤后的特征来训练模型；特征选择过程与后续学习器无关</p>
-<p><strong>Relief方法</strong> 二分类
+<p><strong>Relief方法</strong> 二分类<br />
 选择相关统计量最大的特征</p>
-<p>相关统计量：
-<img alt="alt text" src="../img/%7B4A5C16BF-BF6E-40F6-A8DA-2983239EC77E%7D.png" />
+<p>相关统计量：<br />
+<img alt="alt text" src="../img/%7B4A5C16BF-BF6E-40F6-A8DA-2983239EC77E%7D.png" /><br />
 即猜错近邻大，猜中近邻小的度量</p>
 <h4 id="12">1.2 包裹式选择<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
 <p><strong>目的</strong> :就是为给定学习器选择最有利于其性能、“量身定做”的特征子集</p>
 <p><strong><em>直接针对给定学习器进行优化</em></strong></p>
-<p><strong>LVW:</strong>
-1. 在循环的每一轮随机产生一个特征子集
-2. 在随机产生的特征子集上通过交叉验证推断当前特征子集的误差
-3. 进行多次循环，在多个随机产生的特征子集中选择误差最小的特征子集作为最终解*    </p>
+<p><strong>LVW:</strong><br />
+1. 在循环的每一轮随机产生一个特征子集<br />
+2. 在随机产生的特征子集上通过交叉验证推断当前特征子集的误差<br />
+3. 进行多次循环，在多个随机产生的特征子集中选择误差最小的特征子集作为最终解*      </p>
 <h4 id="13-l_1">1.3 嵌入式选择与 <span class="arithmatex">\(L_1\)</span> 正则化<a class="headerlink" href="#13-l_1" title="Permanent link">&para;</a></h4>
 <p>嵌入式特征选择是将特征选择过程与学习器训练过程融为一体，两者在同一个优化过程中完成，在学习器训练过程中自动地进行特征选择</p>
 <p><img alt="alt text" src="../img/%7B659A3C90-BFE1-46A6-9FD3-A795422A0B44%7D.png" /></p>

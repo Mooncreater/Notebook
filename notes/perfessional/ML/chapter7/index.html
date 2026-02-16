@@ -1146,9 +1146,11 @@
 <h4 id="1">1.基本理论<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <p>将样本 <span class="arithmatex">\(\bm{x}\)</span> 分到第 <span class="arithmatex">\(i\)</span> 类的条件风险：<span class="arithmatex">\(R(c_i|\bm{x}) = \sum \limits_{j=1}^{N}\lambda_{ij}P(c_j|\bm{x})\)</span>
 判定准则：<span class="arithmatex">\(h^*(\bm{x}) = \argmin \limits_{c\in \mathcal{Y}}R(c |\bm{x})\)</span>. <span style = "background-color : #00bbffff">  选择风险最小的分类 </span></p>
-<p>策略？
-- [ ]  判别式
-- [x]  生成式</p>
+<p>策略？</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 判别式</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 生成式</li>
+</ul>
 <h4 id="2">2.贝叶斯定理<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <p>如何得到 <span class="arithmatex">\(P(c | \bm{x})\)</span> ？</p>
 <ul class="task-list">
@@ -1158,22 +1160,36 @@
 </ul>
 <h4 id="3">3.极大似然估计<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
 <h5 id="31">3.1 什么是似然？<a class="headerlink" href="#31" title="Permanent link">&para;</a></h5>
-<p>我们看到了数据（结果）。
-我们猜测是某个参数（原因）导致了它。
+<p>我们看到了数据（结果）。<br />
+我们猜测是某个参数（原因）导致了它。<br />
 我们评估这个原因（参数值）的“像然程度”或“合理程度”。</p>
-<p>一个精辟的总结（来自统计学家罗纳德·费舍尔）：
-|   |解释|
-|---|---|
-|概率|是固定参数、变化数据时的密度|
-|似然 |是固定数据、变化参数时的函数|</p>
+<p>一个精辟的总结（来自统计学家罗纳德·费舍尔）：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>概率</td>
+<td>是固定参数、变化数据时的密度</td>
+</tr>
+<tr>
+<td>似然</td>
+<td>是固定数据、变化参数时的函数</td>
+</tr>
+</tbody>
+</table>
 <h5 id="32">3.2 怎么计算？<a class="headerlink" href="#32" title="Permanent link">&para;</a></h5>
 <p>假定 <span class="arithmatex">\(P(\bm{x}|c)\)</span> 具有确定的概率分布形式，且由参数 <span class="arithmatex">\(\theta_c\)</span> 唯一确定，利用训练集 <span class="arithmatex">\(D\)</span> 来估计 <span class="arithmatex">\(\theta_c\)</span>.</p>
-<p><span class="arithmatex">\(D\)</span> 中<span style = "background-color: #00bbffff"> 第 <span class="arithmatex">\(c\)</span> 类样本 </span>(好瓜or坏瓜) 集合 <span class="arithmatex">\(D_c\)</span> 的似然估计为： <span class="arithmatex">\(P(D_c|\theta_c) = \prod\limits_{x\in D_c} P(\bm{x}|\theta_c)\)</span>.
-取对数 <span class="arithmatex">\(\hat{\theta_c} = \argmax\limits_{\theta_c}LL(\theta_c)=\log P(D_c|\theta_c) = \sum\limits_{\bm{x}\in D_c}\log P(\bm{x}|\theta_c)\)</span>.
-假设 <span class="arithmatex">\(d\)</span> 个属性相互独立 <span class="arithmatex">\(P(c|\bm{x})=\frac{P(c)P(\bm{x}|c)}{P(\bm{x})} = \frac{P(c)}{P(\bm{x})}\prod\limits_{i=1}^{d}P(x_i|c)\)</span>.
-<span class="arithmatex">\(P(x)\)</span>  对所有类别相同，于是对于<span class="arithmatex">\(\bm{x}\)</span> 的预测：
-<span class="arithmatex">\(h_nb(\bm{x})=\argmax \limits_{c\in \mathcal{Y}}P(c)\prod\limits_{i=1}^{d}P(x_i|c)\)</span>
-其中 <span class="arithmatex">\(P(c) = \frac{|D_c|}{|D|}\)</span>, <span class="arithmatex">\(P(x_i|c) = \frac{|D_{c,x_i}|}{|D_c|}\)</span>
+<p><span class="arithmatex">\(D\)</span> 中<span style = "background-color: #00bbffff"> 第 <span class="arithmatex">\(c\)</span> 类样本 </span>(好瓜or坏瓜) 集合 <span class="arithmatex">\(D_c\)</span> 的似然估计为： </p>
+<div class="arithmatex">\[P(D_c|\theta_c) = \prod\limits_{x\in D_c}P(\bm{x}|\theta_c).\]</div>
+<p>取对数 <span class="arithmatex">\(\hat{\theta_c} = \argmax\limits_{\theta_c}LL(\theta_c)=\log P(D_c|\theta_c) = \sum\limits_{\bm{x}\in D_c}\log P(\bm{x}|\theta_c)\)</span>.<br />
+假设 <span class="arithmatex">\(d\)</span> 个属性相互独立 <span class="arithmatex">\(P(c|\bm{x})=\frac{P(c)P(\bm{x}|c)}{P(\bm{x})} = \frac{P(c)}{P(\bm{x})}\prod\limits_{i=1}^{d}P(x_i|c)\)</span>.<br />
+<span class="arithmatex">\(P(x)\)</span>  对所有类别相同，于是对于<span class="arithmatex">\(\bm{x}\)</span> 的预测：<br />
+<span class="arithmatex">\(h_nb(\bm{x})=\argmax \limits_{c\in \mathcal{Y}}P(c)\prod\limits_{i=1}^{d}P(x_i|c)\)</span> ，其中 <span class="arithmatex">\(P(c) = \frac{|D_c|}{|D|}\)</span>, <span class="arithmatex">\(P(x_i|c) = \frac{|D_{c,x_i}|}{|D_c|}\)</span><br />
 可以看到其实就是计算预测样本各个属性值在分类样本的占比乘积，然后选取最大的分类</p>
 <h5 id="33">3.3 拉普拉斯修正<a class="headerlink" href="#33" title="Permanent link">&para;</a></h5>
 <p>如果某个属性值在训练中没有出现过会出现0消除其他信息</p>
@@ -1184,9 +1200,8 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 独依赖估计</li>
 </ul>
-<p>假设每个属性在类别之外最多仅依赖一个其他属性
-<span class="arithmatex">\(P(c|\bm{x})\propto P(c)\prod\limits_{i=0}^{d}P(x_i|c,pa_i)\)</span></p>
-<p>两种常见的方法：
+<p>假设每个属性在类别之外最多仅依赖一个其他属性  <span class="arithmatex">\(P(c|\bm{x})\propto P(c)\prod\limits_{i=0}^{d}P(x_i|c,pa_i)\)</span></p>
+<p>两种常见的方法：<br />
 1.SPODE
 假设所有属性都依赖同一属性，称为"超父"然后通过交叉验证等模型选择方法来确定超父属性.</p>
 <p>2.TAN

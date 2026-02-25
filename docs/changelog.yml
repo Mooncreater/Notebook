@@ -1,0 +1,24 @@
+# 更新日志
+# 自动生成时间: 2026-02-21 11:33:12
+
+- 2026:
+  - "2026-02-17":
+      - "newpage": 
+          text: "添加B站链接"
+          href: "https://space.bilibili.com/510977998?spm_id_from=333.1007.0.0"
+      - "pageupdate":
+          text: "添加git commit规范"
+          href: "standard/git/commit/commit.md"
+      - "function": "完成笔记网站基础配置"
+
+  - "2026-02-16":
+      - "function": "Initial Notes"
+      - "function": "Add comments"
+
+  - "2026-02-15":
+      - "function": "Initial Note"
+      - "function": "//github.com/Mooncreater/mynote"
+
+  - "2026-02-14":
+      - "function": "Initial commit"
+

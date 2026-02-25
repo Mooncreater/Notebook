@@ -52,7 +52,8 @@ theme:
 # ---------- 插件配置 (确保 search 插件被正确启用) ----------
 plugins:      
   - statistics    
-  - search        
+  - search 
+  - changelog       
 
   - git-revision-date-localized:
       type: datetime
@@ -113,6 +114,7 @@ extra_css:
 nav:
   - Home: 
     - index.md
+    - 更新日志: changelog.md
     - 许可证: license.md
 
   - AI相关:

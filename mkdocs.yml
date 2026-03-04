@@ -118,6 +118,10 @@ nav:
     - 许可证: license.md
 
   - AI相关:
+    - 自然语言处理导论:
+      - notes/perfessional/NLP/note/index.md
+      - 基础概念: notes/perfessional/NLP/note/abstruct.md
+
     - 机器学习:
       - notes/perfessional/ML/index.md
       - 概念: notes/perfessional/ML/abstruct.md

@@ -5,15 +5,15 @@
   - "2026-03-04":
       - "pageupdate":
           text: "添加自然语言处理课程绪论笔记"
-          href: "notes/perfessional/NLP/note/abstruct.md"
-          
+          href: /Notebook/notes/perfessional/NLP/note/abstruct
+
   - "2026-02-17":
       - "newpage": 
           text: "添加B站链接"
           href: "https://space.bilibili.com/510977998?spm_id_from=333.1007.0.0"
       - "pageupdate":
           text: "添加git commit规范"
-          href: "standard/git/commit/commit.md"
+          href: /Notebook/standard/git/commit
       - "function": "完成笔记网站基础配置"
 
   - "2026-02-16":

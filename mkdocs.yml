@@ -121,7 +121,13 @@ nav:
     - 自然语言处理导论:
       - notes/perfessional/NLP/note/index.md
       - 基础概念: notes/perfessional/NLP/note/abstruct.md
-
+    - 计算机图形学:
+      - notes/perfessional/CG/note/index.md
+      - 基础概念: notes/perfessional/CG/note/basic.md
+    - 数据挖掘:
+      - notes/perfessional/DM/note/index.md
+      - 数据清洗: notes/perfessional/DM/note/Data_cleaning.md
+      - 数据存储: notes/perfessional/DM/note/Data_Store.md
     - 机器学习:
       - notes/perfessional/ML/index.md
       - 概念: notes/perfessional/ML/abstruct.md

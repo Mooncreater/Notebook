@@ -2,82 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://mooncreater.github.io/Notebook/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/changelog/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/license/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course1/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course2/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course3/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course4/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course5/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course6/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/2d/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/basic/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/light_shading/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/warnock/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/DM/note/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/DM/note/Data_Store/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/DM/note/Data_cleaning/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/DM/note/classification/</loc>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/abstruct/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/base/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter10/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter11/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter12/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter3/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter4/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter5/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter6/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter7/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter8/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/ML/chapter9/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/NLP/note/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/notes/perfessional/NLP/note/abstruct/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://mooncreater.github.io/Notebook/notes/perfessional/NLP/note/ml/</loc>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/standard/git/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
     <url>
          <loc>https://mooncreater.github.io/Notebook/standard/git/commit/</loc>
-         <lastmod>2026-03-04</lastmod>
+         <lastmod>2026-05-18</lastmod>
     </url>
 </urlset>

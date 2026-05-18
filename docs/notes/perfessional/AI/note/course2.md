@@ -2,13 +2,13 @@
 comments: true
 ---
 
-### 流水线冲突
+## 流水线冲突
 
 - 结构冲突
 - 数据冲突
 - 控制冲突
 
-### Reorder Buffer
+## Reorder Buffer
 
 定义：当指令完成时，指令的结果被写回寄存器或内存中。ROB确保指令按照程序顺序提交，即使它们可能以不同的顺序完成。
 
@@ -22,6 +22,6 @@ comments: true
 ROB Entry: 
 ![alt text](../img/{971D100F-57EC-4D9E-82AF-FEE6DF32E46E}.png)
 
-#### 错误依赖
+### 错误依赖
 寄存器重命名：将寄存器重命名为ROB中的条目，以消除寄存器之间的假依赖。
 

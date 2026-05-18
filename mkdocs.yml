@@ -121,9 +121,16 @@ nav:
     - 自然语言处理导论:
       - notes/perfessional/NLP/note/index.md
       - 基础概念: notes/perfessional/NLP/note/abstruct.md
+    - 人工智能芯片:
+       - notes/perfessional/AI/note/index.md
+       - 基础概念: notes/perfessional/AI/note/course1.md  
+       - RecordBuffer: notes/perfessional/AI/note/course2.md
+       - 托马斯算法: notes/perfessional/AI/note/course3.md
+
     - 计算机图形学:
       - notes/perfessional/CG/note/index.md
-      - 基础概念: notes/perfessional/CG/note/basic.md
+      - 消影算法: notes/perfessional/CG/note/warnock.md
+      - 光影渲染: notes/perfessional/CG/note/light_shading.md  
     - 数据挖掘:
       - notes/perfessional/DM/note/index.md
       - 数据清洗: notes/perfessional/DM/note/Data_cleaning.md

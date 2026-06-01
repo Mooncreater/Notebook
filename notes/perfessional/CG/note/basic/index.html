@@ -2716,8 +2716,8 @@
 <li><strong>内积（Dot Product）</strong>：<span class="arithmatex">\(\bm{u}\cdot \bm{v} = \sum\limits_{i}u_iv_i = \|\bm{u}\|\|\bm{v}\|\cos\theta\)</span> </li>
 <li><strong>叉乘（Cross Product）</strong>：<span class="arithmatex">\(\bm{u}\times\bm{v} = \begin{vmatrix} \bm{i} &amp; \bm{j} &amp; \bm{k} \\ u_x &amp; u_y &amp; u_z \\ v_x &amp; v_y &amp; v_z \end{vmatrix}\)</span> </li>
 </ul>
-<p>叉乘结果垂直于 <span class="arithmatex">\(\bm{u}\)</span> 和 <span class="arithmatex">\(\bm{v}\)</span> 所在平面，方向由右手定则确定： 
-$<span class="arithmatex">\(\|\bm{u}\times\bm{v}\| = \|\bm{u}\|\|\bm{v}\|\sin\theta\)</span>$ </p>
+<p>叉乘结果垂直于 <span class="arithmatex">\(\bm{u}\)</span> 和 <span class="arithmatex">\(\bm{v}\)</span> 所在平面，方向由右手定则确定： </p>
+<div class="arithmatex">\[\|\bm{u}\times\bm{v}\| = \|\bm{u}\|\|\bm{v}\|\sin\theta\]</div>
 <ul>
 <li><strong>Scalar Triple Product</strong>：<span class="arithmatex">\(\bm{A}\cdot(\bm{B}\times\bm{C})\)</span> 表示三向量围成的平行六面体体积   </li>
 </ul>
@@ -2767,8 +2767,8 @@ $<span class="arithmatex">\(\|\bm{u}\times\bm{v}\| = \|\bm{u}\|\|\bm{v}\|\sin\th
 <p>通常考虑<strong>凸多边形</strong>（内部任意两点连线仍在内部）。 </p>
 <h2 id="_9">求交测试<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <h3 id="coplanar-test">共面测试（Coplanar Test）<a class="headerlink" href="#coplanar-test" title="Permanent link">&para;</a></h3>
-<p>四点 <span class="arithmatex">\(A,B,C,D\)</span> 共面当且仅当：  <br />
-$<span class="arithmatex">\(\bm{AB}\cdot(\bm{AC}\times\bm{AD}) = 0\)</span>$  </p>
+<p>四点 <span class="arithmatex">\(A,B,C,D\)</span> 共面当且仅当：    </p>
+<div class="arithmatex">\[\bm{AB}\cdot(\bm{AC}\times\bm{AD}) = 0\]</div>
 <h3 id="point-in-polygon">内部测试（Point-in-Polygon）<a class="headerlink" href="#point-in-polygon" title="Permanent link">&para;</a></h3>
 <p>判断点是否在多边形内部：  <br />
 - <strong>射线法</strong>：从点发出一条射线，数交点个数。奇数 = 内部，偶数 = 外部  <br />
@@ -2786,28 +2786,28 @@ $<span class="arithmatex">\(\bm{AB}\cdot(\bm{AC}\times\bm{AD}) = 0\)</span>$  </
 <h2 id="_13">矩阵与变换<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <h3 id="_14">齐次坐标<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>将 <span class="arithmatex">\(n\)</span> 维点表示为 <span class="arithmatex">\(n+1\)</span> 维向量：  </p>
-<div class="arithmatex">\[(x, y, z) \;\to\; (x, y, z, 1)$$  
-$$(x, y, z) \;\to\; (x, y, z, 0)\quad\text{（向量，不受平移影响）}\]</div>
+<div class="arithmatex">\[(x, y, z) \;\to\; (x, y, z, 1)\]</div>
+<div class="arithmatex">\[(x, y, z) \;\to\; (x, y, z, 0)\quad\text{（向量，不受平移影响）}\]</div>
 <div class="admonition danger">
 <p class="admonition-title">考试重点</p>
 <p>齐次坐标中点 <span class="arithmatex">\(w=1\)</span>、向量 <span class="arithmatex">\(w=0\)</span>，这是区分点和向量的关键。  </p>
 </div>
 <h3 id="2d">2D 变换矩阵<a class="headerlink" href="#2d" title="Permanent link">&para;</a></h3>
-<p><strong>平移</strong>： 
-$<span class="arithmatex">\(T(t_x, t_y) = \begin{bmatrix} 1 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; t_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$ </p>
-<p><strong>旋转</strong>（绕原点逆时针 <span class="arithmatex">\(\theta\)</span>）：  <br />
-$<span class="arithmatex">\(R(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$  </p>
-<p><strong>缩放</strong>： 
-$<span class="arithmatex">\(S(s_x, s_y) = \begin{bmatrix} s_x &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$ </p>
+<p><strong>平移</strong>： </p>
+<div class="arithmatex">\[T(t_x, t_y) = \begin{bmatrix} 1 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; t_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
+<p><strong>旋转</strong>（绕原点逆时针 <span class="arithmatex">\(\theta\)</span>）：    </p>
+<div class="arithmatex">\[R(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
+<p><strong>缩放</strong>： </p>
+<div class="arithmatex">\[S(s_x, s_y) = \begin{bmatrix} s_x &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <h3 id="3d-4times-4">3D 变换矩阵（<span class="arithmatex">\(4\times 4\)</span>）<a class="headerlink" href="#3d-4times-4" title="Permanent link">&para;</a></h3>
-<p><strong>平移</strong>： 
-$<span class="arithmatex">\(T(t_x, t_y, t_z) = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; 0 &amp; t_y \\ 0 &amp; 0 &amp; 1 &amp; t_z \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$ </p>
-<p><strong>旋转</strong> 绕 X / Y / Z 轴： <br />
-$<span class="arithmatex">\(R_x(\theta) = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp; -\sin\theta &amp; 0 \\ 0 &amp; \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$   </p>
+<p><strong>平移</strong>： </p>
+<div class="arithmatex">\[T(t_x, t_y, t_z) = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; t_x \\ 0 &amp; 1 &amp; 0 &amp; t_y \\ 0 &amp; 0 &amp; 1 &amp; t_z \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
+<p><strong>旋转</strong> 绕 X / Y / Z 轴：   </p>
+<div class="arithmatex">\[R_x(\theta) = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp; -\sin\theta &amp; 0 \\ 0 &amp; \sin\theta &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <div class="arithmatex">\[R_y(\theta) = \begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ -\sin\theta &amp; 0 &amp; \cos\theta &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <div class="arithmatex">\[R_z(\theta) = \begin{bmatrix} \cos\theta &amp; -\sin\theta &amp; 0 &amp; 0 \\ \sin\theta &amp; \cos\theta &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
-<p><strong>缩放</strong>： 
-$<span class="arithmatex">\(S(s_x, s_y, s_z) = \begin{bmatrix} s_x &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; s_z &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span>$ </p>
+<p><strong>缩放</strong>： </p>
+<div class="arithmatex">\[S(s_x, s_y, s_z) = \begin{bmatrix} s_x &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; s_y &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; s_z &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\]</div>
 <h3 id="_15">变换的组合<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>变换通过<strong>矩阵乘法</strong>组合，注意顺序：先缩放再旋转再平移。  </p>
 <div class="arithmatex">\[P' = T \cdot R \cdot S \cdot P\quad\text{（从右向左执行）}\]</div>
@@ -2842,7 +2842,7 @@ $<span class="arithmatex">\(S(s_x, s_y, s_z) = \begin{bmatrix} s_x &amp; 0 &amp;
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 19:52:22 CST">2026年6月1日 19:52:22</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 20:58:13 CST">2026年6月1日 20:58:13</span>
   </span>
 
     

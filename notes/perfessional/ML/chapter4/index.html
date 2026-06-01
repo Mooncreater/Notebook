@@ -2377,9 +2377,9 @@
 <li>无缺失值样本属性 <span class="arithmatex">\(a\)</span> 上取值 <span class="arithmatex">\(a^v\)</span> 比例：<span class="arithmatex">\(\tilde{r}_v = \frac{\sum\limits_{\bm{x}\in \tilde{D}^v}w_{\bm{x}}}{\sum\limits_{\bm{x}\in\tilde{D}}w_{\bm{x}}}\)</span></li>
 </ul>
 <p>信息增益推广计算式：</p>
-<div class="arithmatex">\[
-Gain(D,a) = \rho \times Gain(\tilde{D},a) = \rho \times \Bigg(Ent(\tilde{D}) - \sum\limits_{v=1}^{V}\tilde{r}_vEnt(\tilde{D}^v) \Bigg)
-\]</div>
+<p>$$
+Gain(D,a) = \rho \times Gain(\tilde{D},a) = \rho \times \Bigg(Ent(\tilde{D}) - \sum\limits_{v=1}^{V}\tilde{r}_vEnt(\tilde{D}^v) \Bigg)</p>
+<p>$$</p>
 <p>其中 <span class="arithmatex">\(Ent(\tilde{D}) = - \sum\limits_{k=1}^{|\mathcal{Y}|} \tilde{p}_k\log_2\tilde{p}_k\)</span>.</p>
 <p>❇️ 对于属性 <span class="arithmatex">\(a\)</span>  未知的 <span class="arithmatex">\(\bm{x}\)</span> 将其划分到 <span style = "background-color: #00bbffff">所有子结点</span> 中,权重标记为 <span class="arithmatex">\(\tilde{r}_v\cdot w_{\bm{x}}\)</span></p>
 <p><span style = "background-color: #bbff00ff">计算增益不考虑无属性，无属性划分按相应概率</span></p>
@@ -2408,7 +2408,7 @@ Gain(D,a) = \rho \times Gain(\tilde{D},a) = \rho \times \Bigg(Ent(\tilde{D}) - \
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年2月16日 16:27:44 CST">2026年2月16日 16:27:44</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 20:58:13 CST">2026年6月1日 20:58:13</span>
   </span>
 
     

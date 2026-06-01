@@ -97,6 +97,7 @@ comments : true
 ## 虚拟内存	
 	
 将逻辑地址空间映射到物理内存，支持：	
+
 - 地址空间隔离（每个进程独立地址空间）	
 - 按需调页（Demand Paging）	
 - TLB（Translation Lookaside Buffer）：页表缓存，加速地址转换

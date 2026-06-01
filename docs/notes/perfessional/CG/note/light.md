@@ -154,3 +154,6 @@ $$I = I_{ambient} + \sum_{light} V_i \cdot I_{light_i}$$
 	
 ⚠️ 问题：阴影锯齿（shadow acne）、分辨率不足	
 :arrow_right: 改进：PCF（Percentage Closer Filtering）、CSM（Cascaded Shadow Maps）
+
+
+

@@ -2545,10 +2545,14 @@
   <h1>光影渲染</h1>
 
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 387 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 5 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 549 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 5 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
 </div>
 <h2 id="_1">光影<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>物体上看到光的渐变效果 </p>
+<div class="admonition tip">
+<p class="admonition-title">核心要点</p>
+<p>Phong 模型 = 环境光 <span class="arithmatex">\(I_a\)</span> + 漫反射 <span class="arithmatex">\(I_d\)</span> + 镜面反射 <span class="arithmatex">\(I_s\)</span>。Shading 频率：Flat→Gouraud→Phong 效果递增、开销递增。  </p>
+</div>
 <h3 id="1">1. 局部光照<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <h4 id="_2">光照向量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2570,16 +2574,24 @@
 <li>衰减的速度快 -&gt; 加上 <span class="arithmatex">\((cos\theta)^n\)</span>  </li>
 </ul>
 <p><span class="arithmatex">\(I_s = k_s * I_p * max(0, R \cdot V)^n\)</span> </p>
+<div class="admonition warning">
+<p class="admonition-title">常见误区</p>
+<p><span class="arithmatex">\(I_s\)</span> 中的指数 <span class="arithmatex">\(n\)</span> 是<strong>高光指数</strong>（shininess），不是折射率。<span class="arithmatex">\(n\)</span> 越大高光越集中，金属表面 <span class="arithmatex">\(n\)</span> 较大（100+），塑料 <span class="arithmatex">\(n\)</span> 较小（10-20）。   </p>
+</div>
 <p>与漫反射模型对比： <br />
 <img alt="alt text" src="../../img/%7BDCA4A093-44B5-4C7D-929A-2B2AFE816E19%7D.png" />  </p>
 <h3 id="4">4. 多光源<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>一个累加堆积的过程 <br />
 <span class="arithmatex">\(I = I_a k_a + \sum_{i=1}^{m} I_{p_i} \left[ k_d (\hat{N} \cdot \hat{L}_i) + k_s (\hat{R} \cdot \hat{V})^n \right]\)</span> </p>
+<div class="admonition tip">
+<p class="admonition-title">技巧</p>
+<p>多光源时，阴影和镜面反射可以用不同光源集合分别处理，避免每盏灯都算镜面反射。  </p>
+</div>
 <h3 id="5-opengl">5. OPENGL 光源<a class="headerlink" href="#5-opengl" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Ambient 光源</strong>：环境光源，均匀照亮场景中的所有物体。 </li>
 <li><strong>Point 光源</strong>：点光源，发出光线从一个点向所有方向照射。 </li>
-<li><strong>Spot 光源</strong>：聚光灯，发出光线从一个点向特定方向照射，形成一个锥形光束. </li>
+<li><strong>Spot 光源</strong>：聚光灯，发出光线从一个点向特定方向照射，形成一个锥形光束。 </li>
 </ul>
 <h2 id="shadow">阴影 shadow<a class="headerlink" href="#shadow" title="Permanent link">&para;</a></h2>
 <h3 id="_5">色调模型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -2592,7 +2604,11 @@
 <h4 id="3-phong-shading">3. Phong shading<a class="headerlink" href="#3-phong-shading" title="Permanent link">&para;</a></h4>
 <p>计算顶点颜色，使用法线插值 -&gt; 代入Phong模型计算    </p>
 <p><img alt="alt text" src="../../img/%7B41C0A345-7ECC-4960-A21A-A4E01A8B98D8%7D.png" />  </p>
-<p>可以看到 Phong shading 可以渲染出镜面反射</p>
+<p>可以看到 Phong shading 可以渲染出镜面反射    </p>
+<div class="admonition danger">
+<p class="admonition-title">考试重点</p>
+<p>区分 Phong <strong>光照模型</strong>（公式）和 Phong <strong>着色</strong>（逐像素法线插值）。名字一样但完全不同概念，经常被问到。</p>
+</div>
 
 
 
@@ -2615,7 +2631,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 15:05:09 CST">2026年6月1日 15:05:09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 19:52:22 CST">2026年6月1日 19:52:22</span>
   </span>
 
     

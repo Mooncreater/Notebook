@@ -2482,9 +2482,13 @@
 
 <h1 id="_1">光栅图形学与二维图元算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 716 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 827 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <p>将几何图元（直线、圆、多边形）转换为屏幕像素的过程称为<strong>光栅化</strong>（Rasterization）。  </p>
+<div class="admonition tip">
+<p class="admonition-title">核心要点</p>
+<p>光栅化的核心是<strong>用整数运算替代浮点运算</strong>。Bresenham 算法和 Midpoint 算法是这一思想的典范。   </p>
+</div>
 <h2 id="1">1. 画直线<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <h3 id="dda-digital-differential-analyzer">DDA 算法（Digital Differential Analyzer）<a class="headerlink" href="#dda-digital-differential-analyzer" title="Permanent link">&para;</a></h3>
 <p>用增量方式沿直线步进： </p>
@@ -2494,6 +2498,10 @@
 <li>需要浮点运算和取整 </li>
 <li><span class="arithmatex">\(|m| &gt; 1\)</span> 时交换 <span class="arithmatex">\(x\)</span>、<span class="arithmatex">\(y\)</span> 角色  </li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">问题</p>
+<p>DDA 依赖浮点加法和取整，每步都需要，效率较低。   </p>
+</div>
 <h3 id="bresenham">Bresenham 算法<a class="headerlink" href="#bresenham" title="Permanent link">&para;</a></h3>
 <p><strong>仅用整数加减和移位</strong>，无需浮点运算，效率极高。  </p>
 <p>核心思想：维护一个<strong>决策参数</strong> <span class="arithmatex">\(p_k\)</span>，判断下一个像素是走 <span class="arithmatex">\(x\)</span> 方向还是斜方向。  </p>
@@ -2505,30 +2513,30 @@ $<span class="arithmatex">\(p_{k+1} = \begin{cases} p_k + 2\Delta y - 2\Delta x 
 <li><span class="arithmatex">\(p_k \geq 0\)</span>：右上像素 <span class="arithmatex">\((x_k+1, y_k+1)\)</span>    </li>
 <li><span class="arithmatex">\(p_k &lt; 0\)</span>：右像素 <span class="arithmatex">\((x_k+1, y_k)\)</span>  </li>
 </ul>
+<div class="admonition danger">
+<p class="admonition-title">考试重点</p>
+<p>Bresenham 的决策参数递推公式是高频考点，理解 <span class="arithmatex">\(p_k\)</span> 的几何含义：<span class="arithmatex">\(p_k = 2\Delta y \cdot x_k - 2\Delta x \cdot y_k + const\)</span>。  </p>
+</div>
 <h2 id="2">2. 画圆<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <h3 id="midpoint-circle">中点画圆算法（Midpoint Circle）<a class="headerlink" href="#midpoint-circle" title="Permanent link">&para;</a></h3>
 <p>利用圆的<strong>八对称性</strong>，只需计算 <span class="arithmatex">\(1/8\)</span> 圆弧。 </p>
 <p>对圆心在原点、半径为 <span class="arithmatex">\(R\)</span> 的圆：  </p>
 <p>圆方程：<span class="arithmatex">\(f(x, y) = x^2 + y^2 - R^2 = 0\)</span> </p>
-<p>从 <span class="arithmatex">\((0, R)\)</span> 开始，决策参数：
-<span class="arithmatex">\(p_0 = \frac{5}{4} - R \;\approx\; 1 - R \quad\text{（取整）}\)</span></p>
+<p>从 <span class="arithmatex">\((0, R)\)</span> 开始，决策参数： 
+$<span class="arithmatex">\(p_0 = \frac{5}{4} - R \;\approx\; 1 - R \quad\text{（取整）}\)</span>$    </p>
 <p>迭代：若 <span class="arithmatex">\(p_k &lt; 0\)</span>，选 <span class="arithmatex">\((x_k+1, y_k)\)</span>；否则选 <span class="arithmatex">\((x_k+1, y_k-1)\)</span>。   </p>
 <p>利用八对称点 <span class="arithmatex">\(( \pm x, \pm y)\)</span> 和 <span class="arithmatex">\(( \pm y, \pm x)\)</span> 一次性画出完整圆。  </p>
 <h2 id="3">3. 多边形填充<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <h3 id="scan-line-fill">扫描线填充（Scan-Line Fill）<a class="headerlink" href="#scan-line-fill" title="Permanent link">&para;</a></h3>
 <p>逐行扫描，计算每条扫描线与多边形的交点，两两配对填充。 </p>
-<p>步骤：</p>
-<ol>
-<li>建立边表（Edge Table），记录每条边与扫描线的交点    </li>
-<li>从下往上逐行处理，维护活动边表（Active Edge Table）   </li>
-<li>交点按 <span class="arithmatex">\(x\)</span> 排序，奇偶配对填充    </li>
-</ol>
+<p>步骤： 
+1. 建立边表（Edge Table），记录每条边与扫描线的交点  <br />
+2. 从下往上逐行处理，维护活动边表（Active Edge Table） <br />
+3. 交点按 <span class="arithmatex">\(x\)</span> 排序，奇偶配对填充    </p>
 <h3 id="even-odd-rule">奇偶规则（Even-Odd Rule）<a class="headerlink" href="#even-odd-rule" title="Permanent link">&para;</a></h3>
-<p>从点沿扫描线方向计数与边的交点数：   </p>
-<ul>
-<li>奇数 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 在多边形内部   </li>
-<li>偶数 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 在多边形外部   </li>
-</ul>
+<p>从点沿扫描线方向计数与边的交点数： <br />
+- 奇数 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 在多边形内部 <br />
+- 偶数 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 在多边形外部   </p>
 <h2 id="4-anti-aliasing">4. 反走样（Anti-Aliasing）<a class="headerlink" href="#4-anti-aliasing" title="Permanent link">&para;</a></h2>
 <p>走样（Aliasing）是离散采样导致的锯齿、摩尔纹等伪影。  </p>
 <h3 id="_2">常用方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -2546,13 +2554,14 @@ $<span class="arithmatex">\(p_{k+1} = \begin{cases} p_k + 2\Delta y - 2\Delta x 
 <li>三次 Bézier：<span class="arithmatex">\(B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t)t^2 P_2 + t^3 P_3\)</span> </li>
 </ul>
 <h2 id="6">6. 隐式方程<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>形式 <span class="arithmatex">\(f(x, y) = 0\)</span> 表示的图形： </p>
-<ul>
-<li>直线：<span class="arithmatex">\(Ax + By + C = 0\)</span>  </li>
-<li>圆：<span class="arithmatex">\((x - x_c)^2 + (y - y_c)^2 - R^2 = 0\)</span>   </li>
-<li>椭圆：<span class="arithmatex">\(\frac{(x - x_c)^2}{a^2} + \frac{(y - y_c)^2}{b^2} - 1 = 0\)</span>    </li>
-</ul>
-<p>隐式方程判断点与图形的关系：<span class="arithmatex">\(f(x, y)\)</span> 的符号直接表示点在图形内部/边界/外部。</p>
+<p>形式 <span class="arithmatex">\(f(x, y) = 0\)</span> 表示的图形： 
+- 直线：<span class="arithmatex">\(Ax + By + C = 0\)</span><br />
+- 圆：<span class="arithmatex">\((x - x_c)^2 + (y - y_c)^2 - R^2 = 0\)</span> <br />
+- 椭圆：<span class="arithmatex">\(\frac{(x - x_c)^2}{a^2} + \frac{(y - y_c)^2}{b^2} - 1 = 0\)</span>    </p>
+<div class="admonition tip">
+<p class="admonition-title">优势</p>
+<p>隐式方程判断点与图形的关系：<span class="arithmatex">\(f(x, y)\)</span> 的符号直接表示点在图形内部/边界/外部，非常高效。</p>
+</div>
 
 
 
@@ -2575,7 +2584,7 @@ $<span class="arithmatex">\(p_{k+1} = \begin{cases} p_k + 2\Delta y - 2\Delta x 
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 15:05:09 CST">2026年6月1日 15:05:09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 19:52:22 CST">2026年6月1日 19:52:22</span>
   </span>
 
     

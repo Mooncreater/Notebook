@@ -2472,9 +2472,13 @@
 
 <h1 id="_1">剔除与裁剪<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 687 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 823 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <p>剔除（Culling）和裁剪（Clipping）是渲染管线中用于减少不必要的计算、提高性能的关键步骤。目的是尽早丢弃不可见或不在视野内的几何体。    </p>
+<div class="admonition tip">
+<p class="admonition-title">核心要点</p>
+<p>剔除在<strong>物体级别</strong>丢弃不可见面，裁剪在<strong>图元级别</strong>切除超出屏幕的部分。先剔除再裁剪，可以省去大量无用计算。   </p>
+</div>
 <h2 id="1-back-face-culling">1. 背面剔除（Back-Face Culling）<a class="headerlink" href="#1-back-face-culling" title="Permanent link">&para;</a></h2>
 <p>对于封闭物体，背对相机的面永远不可见，可以直接丢弃。  </p>
 <h3 id="_2">判定方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -2484,37 +2488,33 @@
 <li>约减少 <strong>50%</strong> 的面片处理量    </li>
 <li>在现代 GPU 中由硬件自动完成  </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p>只有<strong>封闭物体</strong>的背面才不可见。渲染树叶、布料等双面材质时需要关闭背面剔除。    </p>
+</div>
 <h2 id="2-view-frustum-culling">2. 视锥体裁剪（View Frustum Culling）<a class="headerlink" href="#2-view-frustum-culling" title="Permanent link">&para;</a></h2>
 <p>只有位于<strong>视锥体</strong>（View Frustum）内的物体才可见。   </p>
-<p>视锥体由 6 个平面定义：   </p>
-<ul>
-<li>近平面（Near） / 远平面（Far）  </li>
-<li>左平面 / 右平面 </li>
-<li>上平面 / 下平面 </li>
-</ul>
+<p>视锥体由 6 个平面定义： <br />
+- 近平面（Near） / 远平面（Far）<br />
+- 左平面 / 右平面 
+- 上平面 / 下平面 </p>
 <h3 id="_3">方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>用包围体（AABB / Bounding Sphere）与视锥体做相交测试：  </p>
-<ul>
-<li>完全在外 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 剔除 </li>
-<li>完全在内 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 保留 </li>
-<li>部分相交 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 保留（后续裁剪）   </li>
-</ul>
+<p>用包围体（AABB / Bounding Sphere）与视锥体做相交测试：<br />
+- 完全在外 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 剔除 
+- 完全在内 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 保留 
+- 部分相交 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 保留（后续裁剪）   </p>
 <h2 id="3">3. 直线裁剪算法<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>当图元部分超出屏幕边界时，需要裁剪到可见区域。 </p>
 <h3 id="cohen-sutherland">Cohen-Sutherland 算法<a class="headerlink" href="#cohen-sutherland" title="Permanent link">&para;</a></h3>
-<p>为平面区域 9 个分区编码（4 位区域码）：  </p>
-<ul>
-<li>Bit 0：在左边框之左  </li>
-<li>Bit 1：在右边框之右  </li>
-<li>Bit 2：在下边框之下  </li>
-<li>Bit 3：在上边框之上  </li>
-</ul>
-<p>对线段两端编码：    </p>
-<ul>
-<li>两端 code 均为 0 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 线段完全在内部，保留 </li>
-<li>两端 code 按位与 <span class="arithmatex">\(\neq\)</span> 0 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 线段完全在外部，丢弃 </li>
-<li>否则 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 求线段与边框交点，递归裁剪    </li>
-</ul>
+<p>为平面区域 9 个分区编码（4 位区域码）：<br />
+- Bit 0：在左边框之左<br />
+- Bit 1：在右边框之右<br />
+- Bit 2：在下边框之下<br />
+- Bit 3：在上边框之上  </p>
+<p>对线段两端编码：  <br />
+- 两端 code 均为 0 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 线段完全在内部，保留 
+- 两端 code 按位与 <span class="arithmatex">\(\neq\)</span> 0 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 线段完全在外部，丢弃 
+- 否则 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 求线段与边框交点，递归裁剪    </p>
 <h3 id="liang-barsky">Liang-Barsky 算法<a class="headerlink" href="#liang-barsky" title="Permanent link">&para;</a></h3>
 <p>用参数方程表示线段，通过不等式约束直接计算交点：    </p>
 <div class="arithmatex">\[\begin{cases} x_{min} \leq x_1 + t\Delta x \leq x_{max} \\ y_{min} \leq y_1 + t\Delta y \leq y_{max} \end{cases}\]</div>
@@ -2530,12 +2530,14 @@
 <p>适用于凸多边形裁剪窗口。    </p>
 <h2 id="5-occlusion-culling">5. 遮挡剔除（Occlusion Culling）<a class="headerlink" href="#5-occlusion-culling" title="Permanent link">&para;</a></h2>
 <p>移除被其他物体完全遮挡的物体，避免渲染不可见内容。   </p>
-<p>常用方法：   </p>
-<ul>
-<li><strong>Occlusion Query</strong>：GPU 硬件查询，渲染包围体后检查可见像素数    </li>
-<li><strong>PVS（Potentially Visible Set）</strong>：预计算静态场景的可见性集合    </li>
-<li><strong>Hierarchical Z-Buffer</strong>：层次深度缓冲，快速拒绝被遮挡物体    </li>
-</ul>
+<p>常用方法： <br />
+- <strong>Occlusion Query</strong>：GPU 硬件查询，渲染包围体后检查可见像素数  <br />
+- <strong>PVS（Potentially Visible Set）</strong>：预计算静态场景的可见性集合  <br />
+- <strong>Hierarchical Z-Buffer</strong>：层次深度缓冲，快速拒绝被遮挡物体    </p>
+<div class="admonition warning">
+<p class="admonition-title">性能注意</p>
+<p>遮挡剔除本身也有开销。对于简单场景，剔除开销可能大于渲染节省。通常只在复杂场景（室内、城市场景）中使用。    </p>
+</div>
 <hr />
 <h3 id="_4">剔除与裁剪总结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
@@ -2596,7 +2598,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 15:05:09 CST">2026年6月1日 15:05:09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 19:52:22 CST">2026年6月1日 19:52:22</span>
   </span>
 
     

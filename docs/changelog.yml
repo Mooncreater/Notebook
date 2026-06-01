@@ -2,6 +2,10 @@
 # 自动生成时间: 2026-02-21 11:33:12
 
 - 2026:
+  - “2026-05-18”:
+      - "pageupdate":
+          text: "添加计算机视觉课程绪论笔记"
+          href: /Notebook/notes/perfessional/CV/note/index
   - "2026-03-04":
       - "pageupdate":
           text: "添加自然语言处理课程绪论笔记"

@@ -1,8 +1,8 @@
 site_name: 一只烤鱼的笔记本
 
 site_url: https://mooncreater.github.io/Notebook/
-repo_name: Mooncreater/Notebook 
-repo_url: https://github.com/Mooncreater/Notebook  
+repo_name: Mooncreater/Notebook
+repo_url: https://github.com/Mooncreater/Notebook
 
 theme:
   name: material
@@ -13,34 +13,28 @@ theme:
   font:
     text: LXGW WenKai Screen
     code: JetBrains Mono
- # custom_dir: custom_theme/
 
-
-  # ---------- 功能开关 (把搜索相关功能也加进来) ----------
   features:
     - content.code.annotate
     - navigation.tracking
     - navigation.tabs
-    - navigation.path     # 启用路径导航
+    - navigation.path
     - navigation.indexes
-    - navigation.tabs.sticky  # 如果你想要粘性标签页
-    - navigation.top          # 返回顶部按钮
-    - search.suggest          # 搜索建议
-    - search.highlight        # 搜索结果高亮
-    - content.code.copy       # 代码块复制按钮 (可选)
-  # ---------- 亮/暗色切换配置 (你已有的) ----------
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
 
   palette:
-    # 亮色模式
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: brown  # 👈 直接设为 brown
-      accent: brown   # 强调色也可以设 brown
+      primary: brown
+      accent: brown
       toggle:
         icon: material/weather-sunny
         name: 切换到暗色模式
 
-    # 暗色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: brown
@@ -49,11 +43,10 @@ theme:
         icon: material/weather-night
         name: 切换到亮色模式
 
-# ---------- 插件配置 (确保 search 插件被正确启用) ----------
-plugins:      
-  - statistics    
-  - search 
-  - changelog       
+plugins:
+  - statistics
+  - search
+  - changelog
 
   - git-revision-date-localized:
       type: datetime
@@ -65,7 +58,7 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-  - footnotes      
+  - footnotes
   - meta
   - def_list
   - attr_list
@@ -81,12 +74,12 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.smartsymbols  #智能符号
+  - pymdownx.smartsymbols
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.highlight:
@@ -109,10 +102,10 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - fonts/title.css
-  - stylesheets/extra.css 
+  - stylesheets/extra.css
 
 nav:
-  - Home: 
+  - Home:
     - index.md
     - 更新日志: changelog.md
     - 许可证: license.md
@@ -121,24 +114,37 @@ nav:
     - 自然语言处理导论:
       - notes/perfessional/NLP/note/index.md
       - 基础概念: notes/perfessional/NLP/note/abstruct.md
+      - 深度学习: notes/perfessional/NLP/note/ml.md
+
     - 人工智能芯片:
-       - notes/perfessional/AI/note/index.md
-       - 基础概念: notes/perfessional/AI/note/course1.md  
-       - RecordBuffer: notes/perfessional/AI/note/course2.md
-       - 托马斯算法: notes/perfessional/AI/note/course3.md
+      - notes/perfessional/AI/note/course1.md
+      - 流水线与RecordBuffer: notes/perfessional/AI/note/course2.md
+      - 托马斯算法: notes/perfessional/AI/note/course3.md
+      - 超标量与向量化: notes/perfessional/AI/note/course4.md
+      - 内存: notes/perfessional/AI/note/course5.md
+      - GPU: notes/perfessional/AI/note/course6.md
 
     - 计算机图形学:
       - notes/perfessional/CG/note/index.md
+      - 数学基础: notes/perfessional/CG/note/basic.md
+      - 二维图元算法: notes/perfessional/CG/note/2d.md
       - 消影算法: notes/perfessional/CG/note/warnock.md
-      - 光影渲染: notes/perfessional/CG/note/light_shading.md  
+      - 光影渲染: notes/perfessional/CG/note/light_shading.md
+      - 光照 (全局): notes/perfessional/CG/note/light.md
+      - 纹理映射: notes/perfessional/CG/note/texture_mapping.md
+      - 剔除与裁剪: notes/perfessional/CG/note/outter_dectected.md
+
     - 数据挖掘:
       - notes/perfessional/DM/note/index.md
       - 数据清洗: notes/perfessional/DM/note/Data_cleaning.md
       - 数据存储: notes/perfessional/DM/note/Data_Store.md
+      - 分类器: notes/perfessional/DM/note/classification.md
+      - 聚类: notes/perfessional/DM/note/clustering.md
+
     - 机器学习:
       - notes/perfessional/ML/index.md
       - 概念: notes/perfessional/ML/abstruct.md
-      - 基本术语和模型评估: notes/perfessional/ML/base.md 
+      - 基本术语和模型评估: notes/perfessional/ML/base.md
       - 线性模型: notes/perfessional/ML/chapter3.md
       - 决策树: notes/perfessional/ML/chapter4.md
       - 神经网络: notes/perfessional/ML/chapter5.md
@@ -149,7 +155,8 @@ nav:
       - 降维与度量学习: notes/perfessional/ML/chapter10.md
       - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
       - 半监督学习: notes/perfessional/ML/chapter12.md
+
   - 规范:
-    - git规范: 
+    - git规范:
       - standard/git/index.md
       - commit: standard/git/commit.md

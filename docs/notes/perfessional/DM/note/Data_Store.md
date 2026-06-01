@@ -4,6 +4,9 @@ comments : true
 	
 # 数据仓库与 OLAP	
 	
+!!! tip "核心要点"	
+    OLTP 做事务，OLAP 做分析。数据仓库用星型/雪花模型组织，OLAP 操作 = 上卷/下钻/切片/切块/旋转。	
+	
 ## OLTP vs OLAP	
 	
 | | OLTP | OLAP |	
@@ -44,6 +47,9 @@ comments : true
 ### 事实星座（Fact Constellation）	
 	
 多个事实表共享维度表，用于复杂业务场景。	
+	
+!!! warning "设计选择"	
+    星型模型查询快但冗余多，雪花模型节省空间但 JOIN 多。分析场景优先星型。	
 	
 ## 数据立方体操作	
 	

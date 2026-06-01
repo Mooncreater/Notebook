@@ -6,6 +6,9 @@ comments : true
 	
 聚类是一种无监督学习方法，将数据集划分为若干个簇，使同一簇内相似度高，不同簇间相似度低。	
 	
+!!! tip "核心要点"	
+    K-means 最快但只能找球形簇。DBSCAN 能找任意形状且抗噪声。层次聚类不需要预知 K。EM 是软聚类。	
+	
 ## 1. K-means 算法	
 	
 1. 初始化：随机选择 K 个点作为初始簇中心	
@@ -24,6 +27,9 @@ $$\text{SSE} = \sum_{i=1}^{K} \sum_{x \in C_i} \|x - \mu_i\|^2$$
 	
 - ✅ 简单快速，$O(n \cdot K \cdot t)$	
 - ❌ 需预先指定 K，对初始点敏感，只能找球形簇	
+	
+!!! warning "对初始值敏感"	
+    K-means 不同初始中心会收敛到不同结果。实际中用 K-means++ 初始化来避免。	
 	
 ## 2. DBSCAN（Density-Based Clustering）	
 	

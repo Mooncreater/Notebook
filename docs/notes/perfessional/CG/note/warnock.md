@@ -6,6 +6,9 @@ comments : true
 	
 消影（Hidden Surface Removal）是确定场景中哪些面可见、哪些面被遮挡的过程，是渲染管线中的关键环节。	
 	
+!!! tip "核心要点"	
+    Z-Buffer 是 GPU 默认方案，简单高效。Painter's 算法需要排序，适合透明物体。Ray Casting 天然处理消影，但计算量大。	
+	
 ## 1. Warnock 算法	
 	
 Warnock 算法由 John Warnock 于 1969 年提出，基于**分治策略**（Divide & Conquer），通过递归细分屏幕区域来判断可见面。	
@@ -27,6 +30,9 @@ Warnock 算法由 John Warnock 于 1969 年提出，基于**分治策略**（Div
 ## 2. Z-Buffer 算法	
 	
 **Z-Buffer**（深度缓冲）是当前 GPU 最常用的消影算法。为每个像素存储一个深度值，通过比较深度确定可见性。	
+	
+!!! tip "为什么叫 Z-Buffer？"	
+    在相机坐标系中，视线方向通常沿 $Z$ 轴。深度值就是 $Z$ 坐标，所以叫 Z-Buffer。	
 	
 ### 数据结构	
 	
@@ -81,6 +87,9 @@ $$z(x+1, y) = z(x, y) - \frac{A}{C}$$
 **绘制**：根据视点与根节点的前后关系，递归遍历 BSP 树（从远到近绘制）	
 	
 :arrow_right: 🌲 可预先构造，渲染时只需 $O(n)$ 遍历，适合静态场景	
+	
+!!! warning "局限性"	
+    BSP 树对**动态场景**不够友好（需要重建），且构造开销大。现代游戏引擎多采用 Z-Buffer + 其他方案。	
 	
 ## 4. Ray Casting 算法	
 	

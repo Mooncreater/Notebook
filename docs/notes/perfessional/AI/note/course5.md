@@ -19,6 +19,9 @@ comments : true
 	
 ![alt text](../img/{C7C0642B-F552-484E-8706-63E52ACA3BC2}.png)	
 	
+!!! tip "核心要点"	
+    内存层次 = 寄存器 → Cache(L1/L2/L3) → 主存(DRAM) → 磁盘(SSD/HDD)。越靠近 CPU 越快越小越贵。**局部性原理**（时间+空间）是层次结构有效的基础。	
+	
 ## 内存层次结构	
 	
 | 层级 | 典型大小 | 延迟 |	
@@ -53,6 +56,9 @@ comments : true
 	
 - **Write-Through**：同时写 Cache 和主存 → 慢但一致	
 - **Write-Back**：只写 Cache，替换时写回 → 快但需 dirty bit	
+	
+!!! warning "常见误区"	
+    Write-Back 性能更好，但需要维护一致性（多核场景下）。Write-Through 简单但每次写入都访问主存，开销大。	
 	
 ## SRAM vs DRAM	
 	
@@ -97,7 +103,6 @@ comments : true
 ## 虚拟内存	
 	
 将逻辑地址空间映射到物理内存，支持：	
-
 - 地址空间隔离（每个进程独立地址空间）	
 - 按需调页（Demand Paging）	
 - TLB（Translation Lookaside Buffer）：页表缓存，加速地址转换

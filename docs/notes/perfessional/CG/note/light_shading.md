@@ -6,6 +6,9 @@ comments : true
 	
 物体上看到光的渐变效果	
 	
+!!! tip "核心要点"	
+    Phong 模型 = 环境光 $I_a$ + 漫反射 $I_d$ + 镜面反射 $I_s$。Shading 频率：Flat→Gouraud→Phong 效果递增、开销递增。	
+	
 ### 1. 局部光照	
 	
 #### 光照向量	
@@ -32,6 +35,9 @@ $I_d = k_d * I_p * max(0, N \cdot L)$
 	
 $I_s = k_s * I_p * max(0, R \cdot V)^n$	
 	
+!!! warning "常见误区"	
+    $I_s$ 中的指数 $n$ 是**高光指数**（shininess），不是折射率。$n$ 越大高光越集中，金属表面 $n$ 较大（100+），塑料 $n$ 较小（10-20）。	
+	
 与漫反射模型对比：	
 ![alt text](../img/{DCA4A093-44B5-4C7D-929A-2B2AFE816E19}.png)	
 	
@@ -41,11 +47,14 @@ $I_s = k_s * I_p * max(0, R \cdot V)^n$
 一个累加堆积的过程	
 $I = I_a k_a + \sum_{i=1}^{m} I_{p_i} \left[ k_d (\hat{N} \cdot \hat{L}_i) + k_s (\hat{R} \cdot \hat{V})^n \right]$	
 	
+!!! tip "技巧"	
+    多光源时，阴影和镜面反射可以用不同光源集合分别处理，避免每盏灯都算镜面反射。	
+	
 ### 5. OPENGL 光源	
 	
 - **Ambient 光源**：环境光源，均匀照亮场景中的所有物体。	
 - **Point 光源**：点光源，发出光线从一个点向所有方向照射。	
-- **Spot 光源**：聚光灯，发出光线从一个点向特定方向照射，形成一个锥形光束.	
+- **Spot 光源**：聚光灯，发出光线从一个点向特定方向照射，形成一个锥形光束。	
 	
 	
 	
@@ -67,4 +76,7 @@ $I = I_a k_a + \sum_{i=1}^{m} I_{p_i} \left[ k_d (\hat{N} \cdot \hat{L}_i) + k_s
 	
 ![alt text](../img/{41C0A345-7ECC-4960-A21A-A4E01A8B98D8}.png)	
 	
-可以看到 Phong shading 可以渲染出镜面反射
+可以看到 Phong shading 可以渲染出镜面反射	
+	
+!!! danger "考试重点"	
+    区分 Phong **光照模型**（公式）和 Phong **着色**（逐像素法线插值）。名字一样但完全不同概念，经常被问到。

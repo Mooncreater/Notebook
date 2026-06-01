@@ -4,6 +4,9 @@ comments: true
 	
 # 流水线与乱序执行	
 	
+!!! tip "核心要点"	
+    流水线通过并行提高吞吐，但引入三种冲突。数据冲突用转发解决，控制冲突用分支预测，乱序执行 + ROB 保证顺序提交。	
+	
 ## 流水线基础	
 	
 经典五级流水线：	
@@ -39,6 +42,9 @@ comments: true
 分支指令导致 PC 不确定取哪条指令。	
 	
 :arrow_right: 解决：**分支预测**（Branch Prediction）—— 静态预测（如 predict-not-taken）或动态预测（如 2-bit 饱和计数器）。	
+	
+!!! warning "常见误区"	
+    RAW 是真依赖，必须等。WAR 和 WAW 是假依赖，可以通过**寄存器重命名**彻底消除，不需要等待。	
 	
 ## Reorder Buffer（重排序缓冲）	
 	

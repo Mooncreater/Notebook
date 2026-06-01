@@ -4,6 +4,9 @@ comments : true
 	
 # 光照	
 	
+!!! tip "核心要点"	
+    光照分为**局部光照**（Phong）和**全局光照**（Radiosity / Ray Tracing）。局部光照只考虑直接光源，全局光照还考虑物体间的反射/折射。Radiosity 处理漫反射-漫反射，Ray Tracing 处理镜面反射-折射。	
+	
 ## Radiosity 算法	
 	
 Radiosity 算法是一种全局光照算法，模拟场景中漫反射面之间的能量传递。与光线追踪不同，Radiosity 主要处理**漫反射-漫反射**之间的光照交互。	
@@ -50,6 +53,9 @@ $$F_{ij} = \frac{1}{A_i} \int_{A_i} \int_{A_j} \frac{\cos\theta_i \cos\theta_j}{
 	
 :arrow_right: 优点：可以逐步看到渲染结果，适合交互式应用	
 	
+??? info "展开查看与 Gauss-Seidel 的关系"	
+    Progressive Refinement 本质上是 Gauss-Seidel 迭代的变体，但每次选择**最大残差**的 patch 发射能量，收敛更快。	
+	
 ### 5. 特点	
 	
 - ✅ 视角无关：计算完成后可从任意角度观察	
@@ -60,6 +66,9 @@ $$F_{ij} = \frac{1}{A_i} \int_{A_i} \int_{A_j} \frac{\cos\theta_i \cos\theta_j}{
 ## 光线追踪算法	
 	
 光线追踪（Ray Tracing）通过**逆向**追踪光线来模拟真实光照：从视点出发，穿过像素发射光线，追踪其与场景中物体的交互。	
+	
+!!! tip "为什么逆向追踪？"	
+    从光源出发的大部分光线永远到不了相机，逆向追踪（从相机出发）避免了大量无用计算。	
 	
 概念：模拟光的物理行为——反射、折射、阴影，产生高真实感图像。	
 	
@@ -110,6 +119,9 @@ $$\mathbf{P} = \alpha \mathbf{A} + \beta \mathbf{B} + \gamma \mathbf{C}, \quad \
 	
 $$I = I_{local} + k_r I_{reflect} + k_t I_{refract}$$	
 	
+!!! danger "考试重点"	
+    反射向量公式 $\mathbf{R} = \mathbf{I} - 2(\mathbf{I} \cdot \mathbf{N})\mathbf{N}$ 和 Whitted 颜色公式是必考。	
+	
 ### 4. 加速结构	
 	
 朴素求交遍历所有物体开销太大 :arrow_right: 使用空间加速结构：	
@@ -147,13 +159,12 @@ $$I = I_{ambient} + \sum_{light} V_i \cdot I_{light_i}$$
 	
 1. **Pass 1**：从光源视角渲染场景，存储深度信息到 shadow map	
 2. **Pass 2**：从相机视角渲染，对每个片段：	
-
    - 将其转换到光源空间	
    - 比较当前深度与 shadow map 中存储的深度	
    - 深度更大 :arrow_right: 在阴影中	
 	
 ⚠️ 问题：阴影锯齿（shadow acne）、分辨率不足	
-:arrow_right: 改进：PCF（Percentage Closer Filtering）、CSM（Cascaded Shadow Maps）
-
-
-
+:arrow_right: 改进：PCF（Percentage Closer Filtering）、CSM（Cascaded Shadow Maps）	
+	
+!!! warning "常见误区"	
+    Shadow Mapping 是光栅化技术，不是光线追踪。两者都处理阴影，但原理完全不同。

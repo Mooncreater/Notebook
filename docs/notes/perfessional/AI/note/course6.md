@@ -10,6 +10,9 @@ comments : true
 - 图形渲染 / AI 训练需要**大量并行计算**	
 - GPU 提供远超 CPU 的吞吐量	
 	
+!!! tip "核心要点"	
+    GPU 靠**海量简单核心 + 高带宽显存**实现极致吞吐。SIMT 模型 + Warp 调度 + 延迟隐藏是其三大核心机制。	
+	
 ## GPU vs CPU 架构对比	
 	
 | | CPU | GPU |	
@@ -31,6 +34,9 @@ comments : true
 - 同一 Warp 内所有线程执行相同指令，但操作不同数据	
 - 分支时：不同路径串行执行，屏蔽不活跃线程 → **线程束分化（Warp Divergence）**	
 	
+!!! warning "常见误区"	
+    Warp Divergence 是 GPU 性能杀手。同一 Warp 内尽量避免 `if-else` 分支导致不同线程走不同路径。	
+	
 ## GPU 内存层次	
 	
 | 内存类型 | 大小 | 延迟 | 作用域 |	
@@ -41,6 +47,9 @@ comments : true
 | **常量内存（Constant）** | 64 KB | 低（有 Cache） | 所有线程 |	
 | **纹理内存（Texture）** | 同 Global | 低（有 Cache） | 所有线程 |	
 | **寄存器（Register）** | 最稀缺 | 0 cycle | 单线程 |	
+	
+!!! tip "性能关键"	
+    多用 Shared Memory 和寄存器，少用 Global Memory。Shared Memory 是手动管理的 L1 Cache。	
 	
 ## 线程层次	
 	

@@ -4,6 +4,9 @@ comments: true
 	
 # 性能基础	
 	
+!!! tip "核心要点"	
+    Amdahl 定律告诉我们并行的上限由串行部分决定。Roofline 模型帮我们判断瓶颈在计算还是访存。	
+	
 ## Amdahl's Law（阿姆达尔定律）	
 	
 描述并行化的加速上限。程序中有一个固定串行部分，限制了最大加速比。	
@@ -16,6 +19,9 @@ $$Speedup = \frac{1}{(1 - f) + \frac{f}{n}}$$
 当 $n \to \infty$ 时：$Speedup_{max} = \frac{1}{1 - f}$	
 	
 :arrow_right: 即使处理器无限多，串行部分仍是瓶颈。	
+	
+!!! danger "考试重点"	
+    极限加速比公式 $Speedup_{max} = \frac{1}{1-f}$ 经常考。若 90% 可并行（$f=0.9$），最多加速 10 倍，再多核也白搭。	
 	
 ## Roofline Model（屋顶线模型）	
 	

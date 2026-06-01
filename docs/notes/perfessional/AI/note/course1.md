@@ -14,6 +14,7 @@ comments: true
 - $f$：可并行部分占总任务的比例	
 - $n$：处理器数量	
 	
+
 $$Speedup = \frac{1}{(1 - f) + \frac{f}{n}}$$	
 	
 当 $n \to \infty$ 时：$Speedup_{max} = \frac{1}{1 - f}$	
@@ -31,12 +32,14 @@ $$Speedup = \frac{1}{(1 - f) + \frac{f}{n}}$$
 	
 **运算强度（Operational Intensity）**：	
 	
+
 $$OI = \frac{FLOPs}{Bytes} = \frac{\text{计算量}}{\text{访存量}}$$	
 	
 单位：FLOPS/Byte —— 每字节数据做多少次浮点运算。	
 	
 **可达到的性能**：	
 	
+
 $$Performance = \min(Peak\_Compute, \; Peak\_Bandwidth \times OI)$$	
 	
 ### 两个区域	
@@ -48,6 +51,7 @@ $$Performance = \min(Peak\_Compute, \; Peak\_Bandwidth \times OI)$$
 	
 队列系统中并发量、吞吐率与延迟的关系：	
 	
+
 $$L = \lambda \times W$$	
 	
 - $L$：系统中平均任务数	

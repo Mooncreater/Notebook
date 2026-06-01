@@ -56,6 +56,7 @@ $y = g(z)$,根据$z$的值来进行分类
 	
 单位阶跃函数：	
 	
+
 $$y=	
 \begin{cases}	
 0, & \textbf{z < 0}\\	
@@ -84,6 +85,7 @@ $\ln \frac{p(y=1|\bm{x})}{p(y=0|\bm{x})} = \ln\frac{p(y = 1|\bm{x})}{1-p(y = 1|\
 	
 **Softmax 回归**：多分类的直接推广，输出每个类别的概率：	
 	
+
 $$P(y=k|\bm{x}) = \frac{e^{\bm{w}_k^T \bm{x} + b_k}}{\sum_{j=1}^{K} e^{\bm{w}_j^T \bm{x} + b_j}}$$	
 	
 #### 5.类别不平衡	

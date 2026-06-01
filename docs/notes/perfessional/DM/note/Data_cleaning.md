@@ -33,16 +33,19 @@ comments : true
 	
 将数据映射到 $[0, 1]$：	
 	
+
 $$x' = \frac{x - x_{min}}{x_{max} - x_{min}}$$	
 	
 ### Z-Score 标准化	
 	
 均值为 0，标准差为 1：	
 	
+
 $$x' = \frac{x - \mu}{\sigma}$$	
 	
 ### Decimal Scaling（小数定标）	
 	
+
 $$x' = \frac{x}{10^j}$$	
 	
 其中 $j$ 是使 $\max(|x'|) < 1$ 的最小整数。	

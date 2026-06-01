@@ -21,6 +21,7 @@ comments : true
 - **肘部法（Elbow Method）**：画 SSE 随 K 变化曲线，找"肘点"	
 - **轮廓系数（Silhouette Score）**：$s = \frac{b - a}{\max(a, b)}$	
 	
+
 $$\text{SSE} = \sum_{i=1}^{K} \sum_{x \in C_i} \|x - \mu_i\|^2$$	
 	
 ### 优缺点	

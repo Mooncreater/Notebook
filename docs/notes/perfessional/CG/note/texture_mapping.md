@@ -35,6 +35,7 @@ comments : true
 	
 取周围 4 个纹素进行双线性插值：	
 	
+
 $$c = lerp(lerp(c_{00}, c_{10}, u), lerp(c_{01}, c_{11}, u), v)$$	
 	
 比最近邻平滑，GPU 默认选项。	

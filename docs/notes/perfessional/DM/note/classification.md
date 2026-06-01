@@ -24,20 +24,24 @@ comments: true
 	
 ### 信息熵	
 	
+
 $$H(D) = -\sum_{i=1}^{n} p_i \log_2 p_i$$	
 	
 ### 信息增益	
 	
+
 $$IG(D, A) = H(D) - H(D|A) = H(D) - \sum_{v} \frac{|D_v|}{|D|} H(D_v)$$	
 	
 选择 IG 最大的特征进行划分。	
 	
 ### 增益率（C4.5）	
 	
+
 $$GainRatio(D, A) = \frac{IG(D, A)}{SplitInfo(D, A)}$$	
 	
 ### Gini 指数（CART）	
 	
+
 $$Gini(D) = 1 - \sum_{i=1}^{n} p_i^2$$	
 	
 - 优点：可解释性强，能处理数值和类别特征	
@@ -50,10 +54,12 @@ $$Gini(D) = 1 - \sum_{i=1}^{n} p_i^2$$
 	
 基于贝叶斯定理 + 特征条件独立假设：	
 	
+
 $$P(C_k | X) = \frac{P(X | C_k) \cdot P(C_k)}{P(X)}$$	
 	
 由于 $P(X)$ 对所有类别相同：	
 	
+
 $$\hat{y} = \arg\max_{k} P(C_k) \prod_{j=1}^{m} P(x_j | C_k)$$	
 	
 - **拉普拉斯平滑**：避免概率为零，$P(x_j | C_k) = \frac{count(x_j, C_k) + 1}{count(C_k) + |V|}$	
@@ -68,6 +74,7 @@ $$\hat{y} = \arg\max_{k} P(C_k) \prod_{j=1}^{m} P(x_j | C_k)$$
 	
 优化目标：	
 	
+
 $$\min_{w, b} \frac{1}{2}\|w\|^2 \quad \text{s.t.} \quad y_i(w^T x_i + b) \geq 1$$	
 	
 **支持向量**：落在间隔边界上的样本。	
@@ -76,6 +83,7 @@ $$\min_{w, b} \frac{1}{2}\|w\|^2 \quad \text{s.t.} \quad y_i(w^T x_i + b) \geq 1
 	
 引入松弛变量 $\xi_i \geq 0$ 允许少量误分类：	
 	
+
 $$\min_{w, b, \xi} \frac{1}{2}\|w\|^2 + C\sum_{i=1}^{n}\xi_i$$	
 	
 $C$ 越大 → 对误分类惩罚越大 → 间隔越小。	

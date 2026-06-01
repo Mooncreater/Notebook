@@ -54,6 +54,7 @@ Warnock 算法由 John Warnock 于 1969 年提出，基于**分治策略**（Div
 	
 利用平面方程 $Ax + By + Cz + D = 0$，从 $(x, y)$ 的深度可递推 $(x+1, y)$：	
 	
+
 $$z(x+1, y) = z(x, y) - \frac{A}{C}$$	
 	
 ### 特点	

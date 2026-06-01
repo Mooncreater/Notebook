@@ -46,6 +46,7 @@ comments: true
 
 $KKT$ 条件：
 
+
 $$\begin{cases}
 \alpha_i \geq 0\\
 y_if(\bm{x}_i) \geq 1\\

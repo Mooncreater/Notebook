@@ -17,6 +17,7 @@ comments : true
 	
 根据多边形法线 $\mathbf{N}$ 与视线方向 $\mathbf{V}$ 的夹角：	
 	
+
 $$\mathbf{N} \cdot \mathbf{V} > 0 \quad \Rightarrow \quad \text{背面，剔除}$$	
 	
 - 约减少 **50%** 的面片处理量	
@@ -62,6 +63,7 @@ $$\mathbf{N} \cdot \mathbf{V} > 0 \quad \Rightarrow \quad \text{背面，剔除}
 	
 用参数方程表示线段，通过不等式约束直接计算交点：	
 	
+
 $$\begin{cases} x_{min} \leq x_1 + t\Delta x \leq x_{max} \\ y_{min} \leq y_1 + t\Delta y \leq y_{max} \end{cases}$$	
 	
 比 Cohen-Sutherland 更高效，减少浮点除法。	

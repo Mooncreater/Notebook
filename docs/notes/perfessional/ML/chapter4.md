@@ -80,8 +80,10 @@ $\tilde{D}_k$ 表示 $\tilde{D}$ 中属于第 $k$ 类 $(k = 1,2,\cdots, |\mathca
 
 信息增益推广计算式：
 
+
 $$
 Gain(D,a) = \rho \times Gain(\tilde{D},a) = \rho \times \Bigg(Ent(\tilde{D}) - \sum\limits_{v=1}^{V}\tilde{r}_vEnt(\tilde{D}^v) \Bigg)
+
 $$
 
 其中 $Ent(\tilde{D}) = - \sum\limits_{k=1}^{|\mathcal{Y}|} \tilde{p}_k\log_2\tilde{p}_k$.

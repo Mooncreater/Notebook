@@ -776,7 +776,7 @@
   <span class="md-ellipsis">
     
   
-    Course1
+    性能基础
   
 
     
@@ -969,10 +969,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gpucpu" class="md-nav__link">
+  <a href="#gpu_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPU与CPU的区别
+        为什么需要 GPU？
       
     </span>
   </a>
@@ -980,10 +980,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu_1" class="md-nav__link">
+  <a href="#gpu-vs-cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPU计算
+        GPU vs CPU 架构对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIMT 模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU 内存层次
       
     </span>
   </a>
@@ -994,7 +1016,29 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        硬件执行模型
+        线程层次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU 计算流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latency-hiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延迟隐藏（Latency Hiding）
       
     </span>
   </a>
@@ -2125,10 +2169,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gpucpu" class="md-nav__link">
+  <a href="#gpu_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPU与CPU的区别
+        为什么需要 GPU？
       
     </span>
   </a>
@@ -2136,10 +2180,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu_1" class="md-nav__link">
+  <a href="#gpu-vs-cpu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPU计算
+        GPU vs CPU 架构对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIMT 模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU 内存层次
       
     </span>
   </a>
@@ -2150,7 +2216,29 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        硬件执行模型
+        线程层次
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU 计算流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latency-hiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延迟隐藏（Latency Hiding）
       
     </span>
   </a>
@@ -2236,35 +2324,133 @@
 
 <h1 id="gpu">GPU<a class="headerlink" href="#gpu" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 86 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 2 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间不到 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 464 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 8 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 2 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
 </div>
-<p>为什么要GPU？</p>
+<h2 id="gpu_1">为什么需要 GPU？<a class="headerlink" href="#gpu_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>需要更大的算力</li>
+<li>CPU 擅长复杂控制流和低延迟任务，但计算密度有限 </li>
+<li>图形渲染 / AI 训练需要<strong>大量并行计算</strong>  </li>
+<li>GPU 提供远超 CPU 的吞吐量 </li>
 </ul>
-<h2 id="gpucpu">GPU与CPU的区别<a class="headerlink" href="#gpucpu" title="Permanent link">&para;</a></h2>
-<p>CPU :</p>
+<h2 id="gpu-vs-cpu">GPU vs CPU 架构对比<a class="headerlink" href="#gpu-vs-cpu" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CPU</th>
+<th>GPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心数</td>
+<td>少量（4-16）复杂大核</td>
+<td>大量（数千）简单小核</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td>大量（MB 级）</td>
+<td>少量（KB 级）</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>复杂分支预测 / 乱序执行</td>
+<td>简单，依赖并行隐藏延迟</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>大且慢（DDR）</td>
+<td>小且快（GDDR / HBM）</td>
+</tr>
+<tr>
+<td>擅长</td>
+<td>串行任务、低延迟</td>
+<td>并行任务、高吞吐</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="alt text" src="../image.png" /><br />
+<img alt="alt text" src="../../img/%7B6DB5B881-EBAF-4E90-A684-CCBE14E69369%7D.png" />  </p>
+<h2 id="simt">SIMT 模型<a class="headerlink" href="#simt" title="Permanent link">&para;</a></h2>
+<p><strong>Single Instruction Multiple Thread</strong>：GPU 的编程模型。   </p>
 <ul>
-<li>较少的复杂核  </li>
-<li>大量缓存  </li>
-<li>大且慢的内存</li>
+<li>一组线程以 <strong>Warp</strong>（NVIDIA，32 线程）/ <strong>Wavefront</strong>（AMD，64 线程）为单位执行   </li>
+<li>同一 Warp 内所有线程执行相同指令，但操作不同数据   </li>
+<li>分支时：不同路径串行执行，屏蔽不活跃线程 → <strong>线程束分化（Warp Divergence）</strong> </li>
 </ul>
-<p><img alt="alt text" src="../image.png" /></p>
-<p>GPU :</p>
+<h2 id="gpu_2">GPU 内存层次<a class="headerlink" href="#gpu_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>内存类型</th>
+<th>大小</th>
+<th>延迟</th>
+<th>作用域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>全局内存（Global）</strong></td>
+<td>GB 级</td>
+<td>高（~500 cycles）</td>
+<td>所有线程</td>
+</tr>
+<tr>
+<td><strong>共享内存（Shared）</strong></td>
+<td>几十 KB/SM</td>
+<td>低（~20 cycles）</td>
+<td>同一 Block</td>
+</tr>
+<tr>
+<td><strong>局部内存（Local）</strong></td>
+<td>寄存器溢出</td>
+<td>同 Global</td>
+<td>单线程</td>
+</tr>
+<tr>
+<td><strong>常量内存（Constant）</strong></td>
+<td>64 KB</td>
+<td>低（有 Cache）</td>
+<td>所有线程</td>
+</tr>
+<tr>
+<td><strong>纹理内存（Texture）</strong></td>
+<td>同 Global</td>
+<td>低（有 Cache）</td>
+<td>所有线程</td>
+</tr>
+<tr>
+<td><strong>寄存器（Register）</strong></td>
+<td>最稀缺</td>
+<td>0 cycle</td>
+<td>单线程</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">线程层次<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Grid（网格）    
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Block 0（线程块）    
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── Thread 0    
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── Thread 1    
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── ... 
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── Block 1 
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── ... 
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── ... 
+</code></pre></div>
 <ul>
-<li>大量简单核    </li>
-<li>小缓存低延时  </li>
-<li>小且快的内存</li>
+<li><strong>Block</strong> 内线程可同步（__syncthreads()），共享 Shared Memory    </li>
+<li>不同 Block 之间独立运行，不可同步  </li>
+<li><strong>Occupancy</strong>：SM 上活跃 Warp 数量 / 最大 Warp 数量，越高越好（隐藏延迟）  </li>
 </ul>
-<p><img alt="alt text" src="../../img/%7B6DB5B881-EBAF-4E90-A684-CCBE14E69369%7D.png" /></p>
-<h2 id="gpu_1">GPU计算<a class="headerlink" href="#gpu_1" title="Permanent link">&para;</a></h2>
-<p>步骤：</p>
+<h2 id="gpu_3">GPU 计算流程<a class="headerlink" href="#gpu_3" title="Permanent link">&para;</a></h2>
 <ol>
-<li>CPU 向 GPU 传输数据</li>
-<li>GPU 核内进行计算</li>
-<li>GPU 将结果传回 CPU</li>
+<li>CPU 向 GPU 显存传输数据（PCIe）   </li>
+<li>GPU 启动 Kernel，网格中大量线程并行执行    </li>
+<li>GPU 将结果传回 CPU 内存 </li>
 </ol>
-<h2 id="_1">硬件执行模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="latency-hiding">延迟隐藏（Latency Hiding）<a class="headerlink" href="#latency-hiding" title="Permanent link">&para;</a></h2>
+<p>GPU 通过快速切换 Warp 来隐藏内存访问延迟。当一个 Warp 等待数据时，SM 立即切换到另一个就绪的 Warp。   </p>
+<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 这要求足够多的活跃 Warp（高 Occupancy）。</p>
 
 
 
@@ -2287,7 +2473,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 15:05:09 CST">2026年6月1日 15:05:09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 19:02:52 CST">2026年6月1日 19:02:52</span>
   </span>
 
     

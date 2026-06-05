@@ -155,6 +155,17 @@ nav:
       - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
       - 半监督学习: notes/perfessional/ML/chapter12.md
 
+
+  - 网络与浏览器:
+    - 浏览器输入URL到页面渲染:
+      - 全景图: notes/Intern/browser/00-overview.md
+      - ① URL解析: notes/Intern/browser/01-url-parsing.md
+      - ② DNS查询: notes/Intern/browser/02-dns-lookup.md
+      - ③ TCP三次握手: notes/Intern/browser/03-tcp-handshake.md
+      - ④ TLS加密: notes/Intern/browser/04-tls-handshake.md
+      - ⑤ HTTP请求: notes/Intern/browser/05-http-request.md
+      - ⑥ 服务器处理: notes/Intern/browser/06-server-processing.md
+      - ⑦ 浏览器渲染: notes/Intern/browser/07-browser-rendering.md
   - 规范:
     - git规范:
       - standard/git/index.md

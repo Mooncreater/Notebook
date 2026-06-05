@@ -1,6 +1,14 @@
 {"changelog.md": {"created": "2026-02-20T21:11:11.538780+08:00"}}
 {"index.md": {"created": "2026-02-11T18:46:26.322428+08:00"}}
 {"license.md": {"created": "2026-02-13T21:49:51.745482+08:00"}}
+{"notes/Intern/browser/00-overview.md": {"created": "2026-06-05T18:07:12.691240+08:00"}}
+{"notes/Intern/browser/01-url-parsing.md": {"created": "2026-06-05T18:07:53.478318+08:00"}}
+{"notes/Intern/browser/02-dns-lookup.md": {"created": "2026-06-05T18:08:41.302521+08:00"}}
+{"notes/Intern/browser/03-tcp-handshake.md": {"created": "2026-06-05T18:09:24.196997+08:00"}}
+{"notes/Intern/browser/04-tls-handshake.md": {"created": "2026-06-05T18:10:27.715330+08:00"}}
+{"notes/Intern/browser/05-http-request.md": {"created": "2026-06-05T18:11:20.849299+08:00"}}
+{"notes/Intern/browser/06-server-processing.md": {"created": "2026-06-05T18:12:12.159969+08:00"}}
+{"notes/Intern/browser/07-browser-rendering.md": {"created": "2026-06-05T18:13:23.266949+08:00"}}
 {"notes/perfessional/AI/note/course1.md": {"created": "2026-05-09T14:43:28.686088+08:00"}}
 {"notes/perfessional/AI/note/course2.md": {"created": "2026-05-09T15:09:59.120678+08:00"}}
 {"notes/perfessional/AI/note/course3.md": {"created": "2026-05-10T18:38:29.149206+08:00"}}

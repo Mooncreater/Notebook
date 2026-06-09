@@ -9,6 +9,8 @@
 {"notes/Intern/browser/05-http-request.md": {"created": "2026-06-05T18:11:20.849299+08:00"}}
 {"notes/Intern/browser/06-server-processing.md": {"created": "2026-06-05T18:12:12.159969+08:00"}}
 {"notes/Intern/browser/07-browser-rendering.md": {"created": "2026-06-05T18:13:23.266949+08:00"}}
+{"notes/computer_scinece/02-Base64.md": {"created": "2026-06-09T13:59:25.473905+08:00"}}
+{"notes/computer_scinece/README.md": {"created": "2026-06-09T14:22:55.054484+08:00"}}
 {"notes/perfessional/AI/note/course1.md": {"created": "2026-05-09T14:43:28.686088+08:00"}}
 {"notes/perfessional/AI/note/course2.md": {"created": "2026-05-09T15:09:59.120678+08:00"}}
 {"notes/perfessional/AI/note/course3.md": {"created": "2026-05-10T18:38:29.149206+08:00"}}
@@ -42,7 +44,15 @@
 {"notes/perfessional/ML/chapter9.md": {"created": "2026-02-15T01:15:48.653780+08:00"}}
 {"notes/perfessional/ML/index.md": {"created": "2026-02-15T01:24:40.273696+08:00"}}
 {"notes/perfessional/NLP/note/abstruct.md": {"created": "2026-03-04T13:35:21.975985+08:00"}}
+{"notes/perfessional/NLP/note/drl.md": {"created": "2026-06-02T10:17:21.838191+08:00"}}
+{"notes/perfessional/NLP/note/duiqi.md": {"created": "2026-06-02T10:01:50.894061+08:00"}}
 {"notes/perfessional/NLP/note/index.md": {"created": "2026-03-04T17:22:42.537709+08:00"}}
 {"notes/perfessional/NLP/note/ml.md": {"created": "2026-03-10T10:21:42.476246+08:00"}}
+{"notes/perfessional/NLP/note/model_compression.md": {"created": "2026-06-02T10:16:15.019054+08:00"}}
+{"notes/perfessional/NLP/note/nlg_nmt.md": {"created": "2026-06-02T10:14:49.216134+08:00"}}
+{"notes/perfessional/NLP/note/rnn.md": {"created": "2026-06-02T10:14:21.043835+08:00"}}
+{"notes/perfessional/NLP/note/train_llm.md": {"created": "2026-06-02T10:15:42.186726+08:00"}}
+{"notes/perfessional/NLP/note/transformers.md": {"created": "2026-06-02T10:15:18.016425+08:00"}}
+{"notes/perfessional/NLP/note/word_embeddings.md": {"created": "2026-06-02T10:13:49.486651+08:00"}}
 {"standard/git/commit.md": {"created": "2026-02-17T03:11:10.721547+08:00"}}
 {"standard/git/index.md": {"created": "2026-02-17T03:58:27.940754+08:00"}}

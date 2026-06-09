@@ -1,4 +1,4 @@
-site_name: 一只烤鱼的笔记本
+﻿site_name: 一只烤鱼的笔记本
 
 site_url: https://mooncreater.github.io/Notebook/
 repo_name: Mooncreater/Notebook
@@ -166,6 +166,17 @@ nav:
       - ⑤ HTTP请求: notes/Intern/browser/05-http-request.md
       - ⑥ 服务器处理: notes/Intern/browser/06-server-processing.md
       - ⑦ 浏览器渲染: notes/Intern/browser/07-browser-rendering.md
+
+  - 加密与安全:
+    - 手把手学加密:
+      - notes/computer_scinece/README.md
+      - 凯撒密码: notes/computer_scinece/01-凯撒密码.md
+      - Base64编码: notes/computer_scinece/02-Base64.md
+      - AES对称加密: notes/computer_scinece/03-AES-对称加密.md
+      - RSA非对称加密: notes/computer_scinece/04-RSA-非对称加密.md
+      - HTTPS综合实战: notes/computer_scinece/05-HTTPS-综合实战.md
+    - CTF 入门指南: notes/computer_scinece/CTF-入门指南.md
+
   - 规范:
     - git规范:
       - standard/git/index.md

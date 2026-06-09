@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/DM/note/Data_cleaning/">
+        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/computer_scinece/04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">
       
       
-        <link rel="next" href="../Data_Store/">
+        <link rel="next" href="../05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../log.jpg">
+      <link rel="icon" href="../../../log.jpg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>数据清洗 - 一只烤鱼的笔记本</title>
+        <title>RSA非对称加密 - 一只烤鱼的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../css/timeline.css">
+      <link rel="stylesheet" href="../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
@@ -59,11 +59,11 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../../../../../fonts/title.css">
+      <link rel="stylesheet" href="../../../fonts/title.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#04-rsa" class="md-skip">
           跳转至
         </a>
       
@@ -104,9 +104,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../.." title="一只烤鱼的笔记本" class="md-header__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+    <a href="../../.." title="一只烤鱼的笔记本" class="md-header__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
       
-  <img src="../../../../../log.jpg" alt="logo">
+  <img src="../../../log.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据清洗
+              RSA非对称加密
             
           </span>
         </div>
@@ -232,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -250,8 +250,6 @@
   
   
   
-    
-  
   
     
     
@@ -259,13 +257,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../NLP/note/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../perfessional/NLP/note/" class="md-tabs__link">
           
   
   
@@ -297,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Intern/browser/00-overview/" class="md-tabs__link">
+        <a href="../../Intern/browser/00-overview/" class="md-tabs__link">
           
   
   
@@ -318,6 +314,8 @@
   
   
   
+    
+  
   
     
     
@@ -325,11 +323,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../computer_scinece/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -361,7 +361,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../standard/git/" class="md-tabs__link">
+        <a href="../../../standard/git/" class="md-tabs__link">
           
   
   
@@ -406,9 +406,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="一只烤鱼的笔记本" class="md-nav__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+    <a href="../../.." title="一只烤鱼的笔记本" class="md-nav__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
       
-  <img src="../../../../../log.jpg" alt="logo">
+  <img src="../../../log.jpg" alt="logo">
 
     </a>
     一只烤鱼的笔记本
@@ -460,7 +460,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   
@@ -504,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         
   
   
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../license/" class="md-nav__link">
+      <a href="../../../license/" class="md-nav__link">
         
   
   
@@ -564,10 +564,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -585,20 +583,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -616,7 +611,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -659,7 +654,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../NLP/note/" class="md-nav__link ">
+            <a href="../../perfessional/NLP/note/" class="md-nav__link ">
               
   
   
@@ -703,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NLP/note/abstruct/" class="md-nav__link">
+      <a href="../../perfessional/NLP/note/abstruct/" class="md-nav__link">
         
   
   
@@ -731,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../NLP/note/ml/" class="md-nav__link">
+      <a href="../../perfessional/NLP/note/ml/" class="md-nav__link">
         
   
   
@@ -831,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course1/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course1/" class="md-nav__link">
         
   
   
@@ -859,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course2/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course2/" class="md-nav__link">
         
   
   
@@ -887,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course3/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course3/" class="md-nav__link">
         
   
   
@@ -915,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course4/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course4/" class="md-nav__link">
         
   
   
@@ -943,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course5/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course5/" class="md-nav__link">
         
   
   
@@ -971,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/note/course6/" class="md-nav__link">
+      <a href="../../perfessional/AI/note/course6/" class="md-nav__link">
         
   
   
@@ -1042,7 +1037,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CG/note/" class="md-nav__link ">
+            <a href="../../perfessional/CG/note/" class="md-nav__link ">
               
   
   
@@ -1086,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/basic/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/basic/" class="md-nav__link">
         
   
   
@@ -1114,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/2d/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/2d/" class="md-nav__link">
         
   
   
@@ -1142,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/warnock/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/warnock/" class="md-nav__link">
         
   
   
@@ -1170,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/light_shading/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/light_shading/" class="md-nav__link">
         
   
   
@@ -1198,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/light/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/light/" class="md-nav__link">
         
   
   
@@ -1226,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/texture_mapping/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/texture_mapping/" class="md-nav__link">
         
   
   
@@ -1254,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CG/note/outter_dectected/" class="md-nav__link">
+      <a href="../../perfessional/CG/note/outter_dectected/" class="md-nav__link">
         
   
   
@@ -1287,8 +1282,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1313,15 +1306,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../perfessional/DM/note/" class="md-nav__link ">
               
   
   
@@ -1345,7 +1338,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1362,37 +1355,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    数据清洗
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../perfessional/DM/note/Data_cleaning/" class="md-nav__link">
         
   
   
@@ -1408,176 +1374,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据质量问题
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        缺失值处理
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#normalization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据规范化（Normalization）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数据规范化（Normalization）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#min-max" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Min-Max 归一化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#z-score" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Z-Score 标准化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decimal-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decimal Scaling（小数定标）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据集成
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数据集成">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        相关性分析
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-reduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据降维（Data Reduction）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数据降维（Data Reduction）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#curse-of-dimensionality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        维度灾难（Curse of Dimensionality）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        主要方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        其他降维方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1590,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Data_Store/" class="md-nav__link">
+      <a href="../../perfessional/DM/note/Data_Store/" class="md-nav__link">
         
   
   
@@ -1618,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../classification/" class="md-nav__link">
+      <a href="../../perfessional/DM/note/classification/" class="md-nav__link">
         
   
   
@@ -1646,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../clustering/" class="md-nav__link">
+      <a href="../../perfessional/DM/note/clustering/" class="md-nav__link">
         
   
   
@@ -1727,7 +1523,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../ML/" class="md-nav__link ">
+            <a href="../../perfessional/ML/" class="md-nav__link ">
               
   
   
@@ -1771,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/abstruct/" class="md-nav__link">
+      <a href="../../perfessional/ML/abstruct/" class="md-nav__link">
         
   
   
@@ -1799,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/base/" class="md-nav__link">
+      <a href="../../perfessional/ML/base/" class="md-nav__link">
         
   
   
@@ -1827,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter3/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter3/" class="md-nav__link">
         
   
   
@@ -1855,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter4/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter4/" class="md-nav__link">
         
   
   
@@ -1883,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter5/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter5/" class="md-nav__link">
         
   
   
@@ -1911,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter6/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter6/" class="md-nav__link">
         
   
   
@@ -1939,7 +1735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter7/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter7/" class="md-nav__link">
         
   
   
@@ -1967,7 +1763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter8/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter8/" class="md-nav__link">
         
   
   
@@ -1995,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter9/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter9/" class="md-nav__link">
         
   
   
@@ -2023,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter10/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter10/" class="md-nav__link">
         
   
   
@@ -2051,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter11/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter11/" class="md-nav__link">
         
   
   
@@ -2079,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ML/chapter12/" class="md-nav__link">
+      <a href="../../perfessional/ML/chapter12/" class="md-nav__link">
         
   
   
@@ -2244,7 +2040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/00-overview/" class="md-nav__link">
+      <a href="../../Intern/browser/00-overview/" class="md-nav__link">
         
   
   
@@ -2272,7 +2068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/01-url-parsing/" class="md-nav__link">
+      <a href="../../Intern/browser/01-url-parsing/" class="md-nav__link">
         
   
   
@@ -2300,7 +2096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/02-dns-lookup/" class="md-nav__link">
+      <a href="../../Intern/browser/02-dns-lookup/" class="md-nav__link">
         
   
   
@@ -2328,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/03-tcp-handshake/" class="md-nav__link">
+      <a href="../../Intern/browser/03-tcp-handshake/" class="md-nav__link">
         
   
   
@@ -2356,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/04-tls-handshake/" class="md-nav__link">
+      <a href="../../Intern/browser/04-tls-handshake/" class="md-nav__link">
         
   
   
@@ -2384,7 +2180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/05-http-request/" class="md-nav__link">
+      <a href="../../Intern/browser/05-http-request/" class="md-nav__link">
         
   
   
@@ -2412,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/06-server-processing/" class="md-nav__link">
+      <a href="../../Intern/browser/06-server-processing/" class="md-nav__link">
         
   
   
@@ -2440,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Intern/browser/07-browser-rendering/" class="md-nav__link">
+      <a href="../../Intern/browser/07-browser-rendering/" class="md-nav__link">
         
   
   
@@ -2480,8 +2276,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -2493,17 +2291,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -2521,7 +2322,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2536,6 +2337,8 @@
                 
   
   
+    
+  
   
   
     
@@ -2562,15 +2365,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../computer_scinece/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2594,7 +2397,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2614,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../computer_scinece/01-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../01-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
   
   
@@ -2642,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../computer_scinece/02-Base64/" class="md-nav__link">
+      <a href="../02-Base64/" class="md-nav__link">
         
   
   
@@ -2670,7 +2473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../computer_scinece/03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+      <a href="../03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
         
   
   
@@ -2695,10 +2498,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../computer_scinece/04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RSA非对称加密
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2714,6 +2544,320 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、这是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、一句话理解
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、为什么牛逼？—— 解决 AES 的致命问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、为什么牛逼？—— 解决 AES 的致命问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AES 的问题：钥匙怎么给？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RSA 怎么解决？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、RSA 的数学原理（手把手，纯数字）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、RSA 的数学原理（手把手，纯数字）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你来生成一对 RSA 密钥
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你来生成一对 RSA 密钥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：选两个质数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：计算 φ(n)（欧拉函数）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：选公钥指数 e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：计算私钥指数 d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5：密钥对出炉
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密一个数字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解密
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa-rsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、真实 RSA 和玩具 RSA 的区别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、RSA 和 AES 的关系 —— 混合加密
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、RSA 的另一个方向：数字签名
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、RSA 的另一个方向：数字签名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        签名流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        签名证明了什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、RSA 在现实中的身影
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、练习题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、练习题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：手工 RSA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：概念辨析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 本章总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2726,7 +2870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../computer_scinece/05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/" class="md-nav__link">
+      <a href="../05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/" class="md-nav__link">
         
   
   
@@ -2762,7 +2906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../computer_scinece/CTF-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
+      <a href="../CTF-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   
@@ -2874,7 +3018,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../standard/git/" class="md-nav__link ">
+            <a href="../../../standard/git/" class="md-nav__link ">
               
   
   
@@ -2918,7 +3062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../standard/git/commit/" class="md-nav__link">
+      <a href="../../../standard/git/commit/" class="md-nav__link">
         
   
   
@@ -2981,10 +3125,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、这是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据质量问题
+        二、一句话理解
       
     </span>
   </a>
@@ -2992,33 +3147,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#aes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        缺失值处理
+        三、为什么牛逼？—— 解决 AES 的致命问题
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#normalization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据规范化（Normalization）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数据规范化（Normalization）">
+    <nav class="md-nav" aria-label="三、为什么牛逼？—— 解决 AES 的致命问题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#min-max" class="md-nav__link">
+  <a href="#aes_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Min-Max 归一化
+        AES 的问题：钥匙怎么给？
       
     </span>
   </a>
@@ -3026,21 +3170,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#z-score" class="md-nav__link">
+  <a href="#rsa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Z-Score 标准化
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decimal-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Decimal Scaling（小数定标）
+        RSA 怎么解决？
       
     </span>
   </a>
@@ -3053,50 +3186,155 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#rsa_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据集成
+        四、RSA 的数学原理（手把手，纯数字）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="数据集成">
+    <nav class="md-nav" aria-label="四、RSA 的数学原理（手把手，纯数字）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你来生成一对 RSA 密钥
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="你来生成一对 RSA 密钥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1：选两个质数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2：计算 φ(n)（欧拉函数）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3：选公钥指数 e
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4：计算私钥指数 d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5：密钥对出炉
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密一个数字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解密
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa-rsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、真实 RSA 和玩具 RSA 的区别
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、RSA 和 AES 的关系 —— 混合加密
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、RSA 的另一个方向：数字签名
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、RSA 的另一个方向：数字签名">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        相关性分析
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-reduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据降维（Data Reduction）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="数据降维（Data Reduction）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#curse-of-dimensionality" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        维度灾难（Curse of Dimensionality）
+        签名流程
       
     </span>
   </a>
@@ -3107,18 +3345,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主要方法
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        其他降维方法
+        签名证明了什么？
       
     </span>
   </a>
@@ -3127,6 +3354,67 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsa_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、RSA 在现实中的身影
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、练习题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、练习题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：手工 RSA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：概念辨析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 本章总结
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3161,10 +3449,10 @@
     
     
       <li class="md-path__item">
-        <a href="../../../NLP/note/" class="md-path__link">
+        <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    AI相关
+    加密与安全
   </span>
 
         </a>
@@ -3185,7 +3473,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    数据挖掘
+    手把手学加密
   </span>
 
         </a>
@@ -3207,96 +3495,269 @@
   
 
 
-<h1 id="_1">数据预处理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="04-rsa">04 · RSA 非对称加密 — 锁和钥匙不是同一把<a class="headerlink" href="#04-rsa" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 542 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 2 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1347 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 4 分钟</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">核心要点</p>
-<p>数据预处理是数据挖掘的关键步骤。<strong>缺失值</strong>用填充/删除处理，<strong>规范化</strong>用 Min-Max/Z-Score，<strong>降维</strong>用 PCA。   </p>
-</div>
-<h2 id="_2">数据质量问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>常见三类数据问题：   </p>
-<ul>
-<li><strong>数据缺失（Missing Data）</strong>：某些属性值为空    </li>
-<li><strong>数据不一致（Inconsistency）</strong>：同一数据在不同源中矛盾  </li>
-<li><strong>噪声数据（Noisy Data）</strong>：包含错误或异常值 </li>
-</ul>
-<p><img alt="alt text" src="../../img/%7B4F40E0C8-1005-4911-98FA-7FFC535CE0A0%7D.png" />  </p>
-<h2 id="_3">缺失值处理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="_1">一、这是什么？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>前面学的 AES 是<strong>对称加密</strong>：加密解密同一把钥匙。</p>
+<p><strong>RSA 是非对称加密：两把钥匙，一把锁🔓（公钥），一把开🔑（私钥）。</strong></p>
+<blockquote>
+<p><strong>公钥加密，私钥解密。公钥随便给，私钥死也不能给。</strong></p>
+</blockquote>
+<hr />
+<h2 id="_2">二、一句话理解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>          公钥（锁）               私钥（钥匙）
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>            🔓                      🔑
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>             │                       │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  任何人拿来锁数据 ──→ 密文 ──→ 只有钥匙能打开
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>反过来也行：
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  我用私钥签名 ──→ 签名 ──→ 任何人用公钥验证，确认是我签的
+</code></pre></div>
+<p><strong>两个经典场景：</strong></p>
 <table>
 <thead>
 <tr>
-<th>方法</th>
-<th>做法</th>
-<th>优缺点</th>
+<th>场景</th>
+<th>谁加密</th>
+<th>谁解密</th>
+<th>解决什么问题</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>删除</td>
-<td>删掉缺失值所在行/列</td>
-<td>简单，但损失信息</td>
+<td><strong>加密通信</strong></td>
+<td>别人用我的公钥锁</td>
+<td>我用私钥开</td>
+<td>只有我能看</td>
 </tr>
 <tr>
-<td>均值/中位数填充</td>
-<td>用该列均值或中位数填充</td>
-<td>快速，但降低方差</td>
-</tr>
-<tr>
-<td>众数填充</td>
-<td>用出现最多的值填充</td>
-<td>适合分类属性</td>
-</tr>
-<tr>
-<td>回归/插值</td>
-<td>用其他变量预测缺失值</td>
-<td>较准确，计算成本高</td>
-</tr>
-<tr>
-<td>KNN 填充</td>
-<td>找相似样本的值填充</td>
-<td>较准确，但计算量大</td>
+<td><strong>数字签名</strong></td>
+<td>我用私钥签名</td>
+<td>别人用公钥验</td>
+<td>证明是我发的</td>
 </tr>
 </tbody>
 </table>
-<h2 id="normalization">数据规范化（Normalization）<a class="headerlink" href="#normalization" title="Permanent link">&para;</a></h2>
-<h3 id="min-max">Min-Max 归一化<a class="headerlink" href="#min-max" title="Permanent link">&para;</a></h3>
-<p>将数据映射到 <span class="arithmatex">\([0, 1]\)</span>：    </p>
-<div class="arithmatex">\[x' = \frac{x - x_{min}}{x_{max} - x_{min}}\]</div>
-<h3 id="z-score">Z-Score 标准化<a class="headerlink" href="#z-score" title="Permanent link">&para;</a></h3>
-<p>均值为 0，标准差为 1：   </p>
-<div class="arithmatex">\[x' = \frac{x - \mu}{\sigma}\]</div>
-<h3 id="decimal-scaling">Decimal Scaling（小数定标）<a class="headerlink" href="#decimal-scaling" title="Permanent link">&para;</a></h3>
-<div class="arithmatex">\[x' = \frac{x}{10^j}\]</div>
-<p>其中 <span class="arithmatex">\(j\)</span> 是使 <span class="arithmatex">\(\max(|x'|) &lt; 1\)</span> 的最小整数。   </p>
-<div class="admonition warning">
-<p class="admonition-title">常见误区</p>
-<p>KNN 和 SVM 对特征尺度敏感，必须做归一化。决策树和朴素贝叶斯对尺度不敏感，可以不做。  </p>
-</div>
-<h2 id="_4">数据集成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>将多个数据源整合为统一视图，消除冗余、提高一致性。   </p>
-<h3 id="_5">相关性分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="aes">三、为什么牛逼？—— 解决 AES 的致命问题<a class="headerlink" href="#aes" title="Permanent link">&para;</a></h2>
+<h3 id="aes_1">AES 的问题：钥匙怎么给？<a class="headerlink" href="#aes_1" title="Permanent link">&para;</a></h3>
+<p>你和百度通信，想用 AES：
+1. 你生成一把 AES 密钥
+2. 你得把这把密钥<strong>发给百度</strong>——但你还没有加密通道！
+3. 密钥在网络上裸奔 → 中间人可以偷走密钥 → AES 白费</p>
+<p>这叫<strong>密钥分发问题</strong>。</p>
+<h3 id="rsa">RSA 怎么解决？<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. 百度把公钥贴网上（公钥 = 锁，谁都能看）
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. 你拿到百度的公钥
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. 你随机生成一把 AES 密钥
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>4. 用百度的公钥把 AES 密钥锁起来 → 发给百度
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>5. 百度用私钥解开 → 拿到 AES 密钥
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>6. 双方用这把 AES 密钥加密后续通信
+</code></pre></div>
+<p><strong>RSA 只用来传 AES 的钥匙，传完之后切回 AES（因为 RSA 太慢）。</strong></p>
+<hr />
+<h2 id="rsa_1">四、RSA 的数学原理（手把手，纯数字）<a class="headerlink" href="#rsa_1" title="Permanent link">&para;</a></h2>
+<p>RSA 依赖一个简单事实：<strong>两个大质数相乘很容易，但把乘积拆回两个质数极难。</strong></p>
+<h3 id="rsa_2">你来生成一对 RSA 密钥<a class="headerlink" href="#rsa_2" title="Permanent link">&para;</a></h3>
+<h4 id="step-1">Step 1：选两个质数<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>p = 3
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>q = 11
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>n = p × q = 33
+</code></pre></div>
+（真实 RSA 用几百位的质数，这里用小的方便算）</p>
+<h4 id="step-2-n">Step 2：计算 φ(n)（欧拉函数）<a class="headerlink" href="#step-2-n" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>φ(n) = (p-1) × (q-1) = 2 × 10 = 20
+</code></pre></div>
+<h4 id="step-3-e">Step 3：选公钥指数 e<a class="headerlink" href="#step-3-e" title="Permanent link">&para;</a></h4>
+<p>e 必须和 φ(n)=20 互质（最大公约数为1）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>选 e = 3  （3 和 20 互质 ✓）
+</code></pre></div></p>
+<h4 id="step-4-d">Step 4：计算私钥指数 d<a class="headerlink" href="#step-4-d" title="Permanent link">&para;</a></h4>
+<p>d 满足：e × d ≡ 1 (mod φ(n))
+即 3 × d ≡ 1 (mod 20)
+→ d = 7  （因为 3 × 7 = 21，21 mod 20 = 1 ✓）</p>
+<h4 id="step-5">Step 5：密钥对出炉<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>公钥：(n=33, e=3)     ← 可以公开
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>私钥：(n=33, d=7)     ← 藏好！
+</code></pre></div>
+<h3 id="_3">加密一个数字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>假设明文 M = 4：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>密文 C = M^e mod n
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>       = 4^3 mod 33
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>       = 64 mod 33
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>       = 31
+</code></pre></div>
+<h3 id="_4">解密<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>明文 M = C^d mod n
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>       = 31^7 mod 33
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>       = 27512614111 mod 33
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>       = 4  ✅ 回来了！
+</code></pre></div>
+<hr />
+<h2 id="rsa-rsa">五、真实 RSA 和玩具 RSA 的区别<a class="headerlink" href="#rsa-rsa" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>玩具 RSA</th>
+<th>真实 RSA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p, q 大小</td>
+<td>3 和 11</td>
+<td>几百位的质数</td>
+</tr>
+<tr>
+<td>n 大小</td>
+<td>33（6位二进制）</td>
+<td>2048位或4096位</td>
+</tr>
+<tr>
+<td>破解难度</td>
+<td>口算</td>
+<td>宇宙寿命算不完</td>
+</tr>
+<tr>
+<td>加密内容</td>
+<td>只能加密数字</td>
+<td>配合填充方案加密任意数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>真实 RSA 不会直接加密消息，而是配合 OAEP 填充方案，然后加密。</p>
+</blockquote>
+<hr />
+<h2 id="rsa-aes">六、RSA 和 AES 的关系 —— 混合加密<a class="headerlink" href="#rsa-aes" title="Permanent link">&para;</a></h2>
+<p>HTTPS 实际用的是 <strong>RSA + AES 混用</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>① RSA 登场：客户端用服务器公钥加密&quot;会话密钥&quot; → 发过去
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>② 服务器用私钥解开 → 双方都有了&quot;会话密钥&quot;
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>③ AES 登场：双方用&quot;会话密钥&quot;进行 AES 对称加密通信
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>④ 会话结束 → &quot;会话密钥&quot;丢弃
+</code></pre></div>
+<p><strong>RSA：跑第一棒（传密钥）→ AES：跑完剩下的（加解密数据）</strong></p>
+<p>为什么？RSA 比 AES 慢几百倍，不适合加密大量数据。</p>
+<h2 id="rsa_3">七、RSA 的另一个方向：数字签名<a class="headerlink" href="#rsa_3" title="Permanent link">&para;</a></h2>
+<p>加密是"公钥锁，私钥开"。
+签名反过来——<strong>私钥签名，公钥验证</strong>。</p>
+<h3 id="_5">签名流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>① 我对消息做 SHA-256 哈希 → 得到&quot;摘要&quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>② 用我的私钥加密摘要 → 得到&quot;签名&quot;
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>③ 消息 + 签名一起发给你
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>④ 你用我的公钥解密签名 → 得到摘要1
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>⑤ 你对消息自己做 SHA-256 → 得到摘要2
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>⑥ 摘要1 == 摘要2 → 签名有效 ✅
+</code></pre></div>
+<h3 id="_6">签名证明了什么？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Pearson 相关系数</strong>：<span class="arithmatex">\(\rho = \frac{cov(X, Y)}{\sigma_X \sigma_Y}\)</span>（线性相关）   </li>
-<li><strong><span class="arithmatex">\(\chi^2\)</span> 检验</strong>：检验两个分类变量是否独立  </li>
+<li><strong>消息是我发的</strong>（我的私钥只有我有）</li>
+<li><strong>消息没被篡改</strong>（改一个字，哈希就变了）</li>
 </ul>
-<h2 id="data-reduction">数据降维（Data Reduction）<a class="headerlink" href="#data-reduction" title="Permanent link">&para;</a></h2>
-<p><img alt="alt text" src="../../img/image.png" />   </p>
-<h3 id="curse-of-dimensionality">维度灾难（Curse of Dimensionality）<a class="headerlink" href="#curse-of-dimensionality" title="Permanent link">&para;</a></h3>
-<p>维度增高 → 数据稀疏性增加 → 距离度量失效 → 模型过拟合。    </p>
-<h3 id="_6">主要方法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>PCA（主成分分析）</strong>：中心化 → 协方差矩阵 → 特征值分解 → 选前 k 个特征向量 → 投影  </li>
-<li><strong>Grid Indexing</strong>：将数据空间划分为网格，减少数据维度   </li>
-<li><strong>归一化</strong>：Min-Max / Z-Score 缩放到统一范围 </li>
-</ul>
-<h3 id="_7">其他降维方法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>特征选择</strong>：只保留重要特征，去掉冗余特征   </li>
-<li><strong>抽样</strong>：随机抽样、分层抽样减少数据量 </li>
-<li><strong>离散化</strong>：连续值 → 离散区间（等宽/等频分箱）</li>
-</ul>
+<hr />
+<h2 id="rsa_4">八、RSA 在现实中的身影<a class="headerlink" href="#rsa_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>RSA 干什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTTPS</strong></td>
+<td>握手阶段，传 AES 密钥</td>
+</tr>
+<tr>
+<td><strong>SSH 登录</strong></td>
+<td>你的公钥存在服务器上，用私钥登录</td>
+</tr>
+<tr>
+<td><strong>JWT Token</strong></td>
+<td>RS256 签名，防篡改</td>
+</tr>
+<tr>
+<td><strong>Git 签名</strong></td>
+<td><code>git commit -S</code> 用私钥签名提交</td>
+</tr>
+<tr>
+<td><strong>GPG 加密邮件</strong></td>
+<td>用对方公钥加密，对方私钥解密</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">九、练习题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1-rsa">练习 1：手工 RSA<a class="headerlink" href="#1-rsa" title="Permanent link">&para;</a></h3>
+<p>用上面玩具RSA的参数：
+- 公钥 (n=33, e=3)
+- 私钥 (n=33, d=7)</p>
+<p>加密数字 7，密文是多少？</p>
+<details><summary>答案</summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>C = 7^3 mod 33 = 343 mod 33 = 13
+</code></pre></div>
+密文 = 13
+
+解密验证：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>M = 13^7 mod 33 = 62748517 mod 33 = 7 ✅
+</code></pre></div>
+
+</details>
+
+<h3 id="2">练习 2：概念辨析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>以下场景用的是 RSA 加密还是 RSA 签名？</p>
+<p>a) 你用 GitHub 配置了 SSH Key
+b) 你发一封 GPG 加密邮件
+c) <code>git commit -S</code>
+d) 浏览器访问 <code>https://baidu.com</code></p>
+<details><summary>答案</summary>
+
+a) SSH：服务器存你的公钥，你用私钥证明身份 → **签名**
+b) GPG 加密邮件：用收件人公钥加密 → **加密**
+c) `git commit -S`：用私钥签名提交 → **签名**
+d) HTTPS：RSA 传 AES 密钥 → **加密**（传密钥阶段）
+
+</details>
+
+<hr />
+<h2 id="_8">🎯 本章总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非对称加密</td>
+<td>两把钥匙：公钥锁，私钥开</td>
+</tr>
+<tr>
+<td>RSA 加密</td>
+<td>别人拿你公钥锁数据，只有你能开</td>
+</tr>
+<tr>
+<td>RSA 签名</td>
+<td>你用私钥签名，别人拿公钥验</td>
+</tr>
+<tr>
+<td>混合加密</td>
+<td>RSA 传钥匙，AES 干重活</td>
+</tr>
+<tr>
+<td>安全基础</td>
+<td>大数分解极难</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="../03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">上一章：AES ←</a>　|　<a href="../05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/">下一章：HTTPS 综合实战 →</a></p>
 
 
 
@@ -3319,7 +3780,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月1日 20:58:13 CST">2026年6月1日 20:58:13</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月9日 18:22:27 CST">2026年6月9日 18:22:27</span>
   </span>
 
     
@@ -3329,7 +3790,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年5月13日 15:00:42 CST">2026年5月13日 15:00:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月9日 18:22:27 CST">2026年6月9日 18:22:27</span>
   </span>
 
     
@@ -3340,42 +3801,6 @@
 
 
 
-
-  <h2 id="__comments">评论</h2>
-  
-  <!-- 将这里替换成你从 Giscus 复制的完整 script 代码 -->
-<script src="https://giscus.app/client.js"
-        data-repo="Mooncreater/Notebook"
-        data-repo-id="R_kgDORQVk8g"
-        data-category="Announcements"
-        data-category-id="DIC_kwDORQVk8s4C2ent"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-
-  <!-- 支持亮暗色模式切换 -->
-  <script>
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object")
-      if (palette.color.scheme === "slate") {
-        var giscus = document.querySelector("script[src*=giscus]")
-        giscus.setAttribute("data-theme", "dark")
-      }
-    
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        location.reload()
-      })
-    })
-  </script>
 
                 
               </article>
@@ -3420,20 +3845,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../../js/mathjax.js"></script>
+        <script src="../../../js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../../../../js/baidu-tongji.js"></script>
+        <script src="../../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
-        <script src="../../../../../js/katex.js"></script>
+        <script src="../../../js/katex.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       

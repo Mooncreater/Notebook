@@ -1,0 +1,4938 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/computer_scinece/03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">
+      
+      
+        <link rel="prev" href="../02-Base64/">
+      
+      
+        <link rel="next" href="../04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../log.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>AES对称加密 - 一只烤鱼的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeline.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../fonts/title.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="brown">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-aes" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="一只烤鱼的笔记本" class="md-header__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+      
+  <img src="../../../log.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            一只烤鱼的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AES对称加密
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="brown" data-md-color-accent="brown"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="brown"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Mooncreater/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Mooncreater/Notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../perfessional/NLP/note/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI相关
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Intern/browser/00-overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  网络与浏览器
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  加密与安全
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../standard/git/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  规范
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="一只烤鱼的笔记本" class="md-nav__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+      
+  <img src="../../../log.jpg" alt="logo">
+
+    </a>
+    一只烤鱼的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Mooncreater/Notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Mooncreater/Notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    更新日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    许可证
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI相关
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI相关
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../perfessional/NLP/note/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自然语言处理导论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    自然语言处理导论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/NLP/note/abstruct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基础概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/NLP/note/ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    深度学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能芯片
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能芯片
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    性能基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    流水线与RecordBuffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    托马斯算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    超标量与向量化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    内存
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/AI/note/course6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../perfessional/CG/note/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机图形学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机图形学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/2d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维图元算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/warnock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    消影算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/light_shading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光影渲染
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/light/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    光照 (全局)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/texture_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    纹理映射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/CG/note/outter_dectected/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    剔除与裁剪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../perfessional/DM/note/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据挖掘
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据挖掘
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/DM/note/Data_cleaning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据清洗
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/DM/note/Data_Store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据存储
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/DM/note/classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分类器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/DM/note/clustering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    聚类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../perfessional/ML/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    机器学习
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    机器学习
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/abstruct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本术语和模型评估
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    决策树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    神经网络
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支持向量机
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    贝叶斯分类器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    集成方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    聚类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    降维与度量学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    特征选择与稀疏学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../perfessional/ML/chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    半监督学习
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络与浏览器
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络与浏览器
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    浏览器输入URL到页面渲染
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    浏览器输入URL到页面渲染
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/00-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    全景图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/01-url-parsing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ① URL解析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/02-dns-lookup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ② DNS查询
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/03-tcp-handshake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ③ TCP三次握手
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/04-tls-handshake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ④ TLS加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/05-http-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⑤ HTTP请求
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/06-server-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⑥ 服务器处理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Intern/browser/07-browser-rendering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⑦ 浏览器渲染
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    加密与安全
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    加密与安全
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    手把手学加密
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    手把手学加密
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    凯撒密码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-Base64/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base64编码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AES对称加密
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AES对称加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、这是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、对称加密一句话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、AES 的三个参数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、AES 内部原理 —— 16 字节怎么变成密文的
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、AES 内部原理 —— 16 字节怎么变成密文的">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-aes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 第一个关键认知：AES 每次只加密 16 字节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-16-44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 状态矩阵：16 字节排成 4×4 方阵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-n-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 加密过程总览：一共 N 轮，每轮 4 板斧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-subbytess-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 第一板斧：SubBytes（S盒替换）—— AES 的心脏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 第一板斧：SubBytes（S盒替换）—— AES 的心脏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#256" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原理：每个字节查一张固定的 256 格表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整的 S 盒长这样（最核心的数据！）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手把手查 S 盒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么 S 盒这么重要？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-shiftrows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 第二板斧：ShiftRows（行移位）—— 换座位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 第三板斧：MixColumns（列混合）—— 搅拌机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 第三板斧：MixColumns（列混合）—— 搅拌机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大白话原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        这个"特殊的乘法"是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手把手算一个新字节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MixColumns 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-addroundkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 第四板斧：AddRoundKey（轮密钥加）—— 和钥匙异或
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-key-expansion-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 密钥扩展（Key Expansion）—— 一把钥匙变 11 把
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.8 密钥扩展（Key Expansion）—— 一把钥匙变 11 把">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩展原理（简化版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 解密：倒着走
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 完整示例：跟一个字节从明文走到密文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10 完整示例：跟一个字节从明文走到密文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-addroundkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：初始 AddRoundKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 轮
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2~9 轮
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 10 轮（最后一轮）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 为什么这四步组合起来就安全了？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 密钥到底怎么用的？—— 真密钥全程追踪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.12 密钥到底怎么用的？—— 真密钥全程追踪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-addroundkey_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：初始 AddRoundKey —— 密钥第一次登场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密钥扩展：从 1 把钥匙变 11 把轮密钥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-k1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 轮：四板斧 + 轮密钥 K1 注入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密钥使用时间线总览
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用错密钥会怎样？—— 从解密侧看密钥的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、加密模式 —— 多个块怎么串起来
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、加密模式 —— 多个块怎么串起来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECB 模式（最垃圾）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC 模式（用得最多）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GCM 模式（最新最好）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、用 OpenSSL 手把手加密解密
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、用 OpenSSL 手把手加密解密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密一段文字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解密
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、AES 密钥为什么要 32 字节？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、AES 破解有多难？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、练习题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、练习题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：查 S 盒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：OpenSSL 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 3：错误密钥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 4：理解 MixColumns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 本章总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RSA非对称加密
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTPS综合实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CTF-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CTF 入门指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    规范
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    规范
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../standard/git/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    git规范
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    git规范
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../standard/git/commit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    commit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、这是什么？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、对称加密一句话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、AES 的三个参数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、AES 内部原理 —— 16 字节怎么变成密文的
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="四、AES 内部原理 —— 16 字节怎么变成密文的">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-aes-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 第一个关键认知：AES 每次只加密 16 字节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-16-44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 状态矩阵：16 字节排成 4×4 方阵
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-n-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 加密过程总览：一共 N 轮，每轮 4 板斧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-subbytess-aes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 第一板斧：SubBytes（S盒替换）—— AES 的心脏
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 第一板斧：SubBytes（S盒替换）—— AES 的心脏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#256" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原理：每个字节查一张固定的 256 格表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整的 S 盒长这样（最核心的数据！）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手把手查 S 盒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么 S 盒这么重要？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-shiftrows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 第二板斧：ShiftRows（行移位）—— 换座位
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 第三板斧：MixColumns（列混合）—— 搅拌机
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.6 第三板斧：MixColumns（列混合）—— 搅拌机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大白话原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        这个"特殊的乘法"是什么？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手把手算一个新字节
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MixColumns 的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-addroundkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 第四板斧：AddRoundKey（轮密钥加）—— 和钥匙异或
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-key-expansion-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 密钥扩展（Key Expansion）—— 一把钥匙变 11 把
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.8 密钥扩展（Key Expansion）—— 一把钥匙变 11 把">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩展原理（简化版）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 解密：倒着走
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 完整示例：跟一个字节从明文走到密文
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.10 完整示例：跟一个字节从明文走到密文">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-addroundkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：初始 AddRoundKey
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 轮
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2~9 轮
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 10 轮（最后一轮）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11 为什么这四步组合起来就安全了？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12 密钥到底怎么用的？—— 真密钥全程追踪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.12 密钥到底怎么用的？—— 真密钥全程追踪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-addroundkey_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 0 步：初始 AddRoundKey —— 密钥第一次登场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密钥扩展：从 1 把钥匙变 11 把轮密钥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-k1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 轮：四板斧 + 轮密钥 K1 注入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密钥使用时间线总览
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用错密钥会怎样？—— 从解密侧看密钥的作用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、加密模式 —— 多个块怎么串起来
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、加密模式 —— 多个块怎么串起来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ECB 模式（最垃圾）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC 模式（用得最多）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GCM 模式（最新最好）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、用 OpenSSL 手把手加密解密
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、用 OpenSSL 手把手加密解密">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密一段文字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解密
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes-32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七、AES 密钥为什么要 32 字节？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八、AES 破解有多难？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        九、练习题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、练习题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 1：查 S 盒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 2：OpenSSL 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 3：错误密钥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mixcolumns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习 4：理解 MixColumns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 本章总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    加密与安全
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    手把手学加密
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="03-aes">03 · AES 对称加密 — 真正的加密，银行同款<a class="headerlink" href="#03-aes" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 4866 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 7 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 16 分钟</p>
+</div>
+<hr />
+<h2 id="_1">一、这是什么？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>AES（Advanced Encryption Standard，高级加密标准）</strong> 是目前全世界用得最广的加密算法。你的微信、支付宝、HTTPS、WiFi 密码，底层全在用 AES。</p>
+<blockquote>
+<p><strong>核心逻辑：加密和解密用同一把钥匙。你锁上，也只有你能打开。</strong></p>
+</blockquote>
+<h2 id="_2">二、对称加密一句话<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>加密：明文 + 密钥 ──→ 密文
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>解密：密文 + 密钥 ──→ 明文
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>同一把钥匙！谁有钥匙谁就能开。
+</code></pre></div>
+<p>对比后面要学的 RSA（非对称）：一把锁、一把钥匙，锁可以公开，钥匙死也不能给人。</p>
+<h2 id="aes">三、AES 的三个参数<a class="headerlink" href="#aes" title="Permanent link">&para;</a></h2>
+<p>每次说"AES 加密"，其实要指定三样东西：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>什么意思</th>
+<th>常见选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>密钥长度</strong></td>
+<td>钥匙多长（越长越安全）</td>
+<td>128位 / 192位 / <strong>256位</strong></td>
+</tr>
+<tr>
+<td><strong>加密模式</strong></td>
+<td>怎么处理超长数据</td>
+<td>ECB / <strong>CBC</strong> / GCM</td>
+</tr>
+<tr>
+<td><strong>填充方式</strong></td>
+<td>数据不够整除时怎么补齐</td>
+<td>PKCS7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="aes-16">四、AES 内部原理 —— 16 字节怎么变成密文的<a class="headerlink" href="#aes-16" title="Permanent link">&para;</a></h2>
+<p>前面讲的是"怎么用 AES"，现在讲<strong>"AES 肚子里在干什么"</strong>。</p>
+<h3 id="41-aes-16">4.1 第一个关键认知：AES 每次只加密 16 字节<a class="headerlink" href="#41-aes-16" title="Permanent link">&para;</a></h3>
+<p>AES 是一个<strong>分组密码（Block Cipher）</strong>，它每次只处理 <strong>128 位 = 16 字节</strong> 的数据。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>不管你输入 1 个字还是 1MB 文件，AES 都先切成 16 字节一块，
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>然后对每一块做同样的操作。
+</code></pre></div>
+<p>所以下面我们只讲<strong>一个块（16字节）是怎么被加密的</strong>。至于多个块怎么串起来，那是"加密模式"的事（第五节）。</p>
+<hr />
+<h3 id="42-16-44">4.2 状态矩阵：16 字节排成 4×4 方阵<a class="headerlink" href="#42-16-44" title="Permanent link">&para;</a></h3>
+<p>16 个字节到手后，AES 把它们排成一个 <strong>4 行 × 4 列</strong> 的方阵，一列一列填：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>输入 16 字节（按顺序）：
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>P0  P1  P2  P3  P4  P5  P6  P7  P8  P9  P10 P11 P12 P13 P14 P15
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>排成矩阵（竖着填！先填满第一列，再第二列...）：
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>┌──────────────────┐
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│ P0  P4  P8  P12  │  ← 第 0 行
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│ P1  P5  P9  P13  │  ← 第 1 行
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│ P2  P6  P10 P14  │  ← 第 2 行
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│ P3  P7  P11 P15  │  ← 第 3 行
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>└──────────────────┘
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  ↑    ↑    ↑    ↑
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a> 第0列 第1列 第2列 第3列
+</code></pre></div>
+<blockquote>
+<p><strong>关键</strong>：是按列填入的！<code>P0,P1,P2,P3</code> 是第一列，不是第一行。</p>
+</blockquote>
+<p>后面所有操作都在这个 4×4 方阵上折腾。</p>
+<hr />
+<h3 id="43-n-4">4.3 加密过程总览：一共 N 轮，每轮 4 板斧<a class="headerlink" href="#43-n-4" title="Permanent link">&para;</a></h3>
+<p>根据密钥长度不同，AES 做的轮数不同：</p>
+<table>
+<thead>
+<tr>
+<th>密钥长度</th>
+<th>轮数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AES-128 (16字节)</td>
+<td>10 轮</td>
+</tr>
+<tr>
+<td>AES-192 (24字节)</td>
+<td>12 轮</td>
+</tr>
+<tr>
+<td>AES-256 (32字节)</td>
+<td>14 轮</td>
+</tr>
+</tbody>
+</table>
+<p><strong>每一轮</strong>对状态矩阵做 <strong>4 个操作</strong>（最后一轮少一个）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────────────────┐
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│ ① SubBytes    —— S盒替换（查表换人）                  │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│ ② ShiftRows   —— 行移位（换座位）                     │
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│ ③ MixColumns  —— 列混合（搅拌）  ← 最后一轮跳过这个！  │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│ ④ AddRoundKey —— 轮密钥加（和钥匙异或）               │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>└─────────────────────────────────────────────────────┘
+</code></pre></div>
+<p>此外，在<strong>第一轮之前</strong>，还要多做一次 <code>AddRoundKey</code>（用原始密钥）。</p>
+<p>所以 AES-128 的总操作是：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>初始 AddRoundKey → [SubBytes→ShiftRows→MixColumns→AddRoundKey] ×9轮
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                 → [SubBytes→ShiftRows→AddRoundKey] ×1轮（最后一轮，没有MixColumns）
+</code></pre></div></p>
+<hr />
+<h3 id="44-subbytess-aes">4.4 第一板斧：SubBytes（S盒替换）—— AES 的心脏<a class="headerlink" href="#44-subbytess-aes" title="Permanent link">&para;</a></h3>
+<p><strong>这是 AES 最重要的一步，AES 的安全性几乎全靠它。</strong></p>
+<h4 id="256">原理：每个字节查一张固定的 256 格表<a class="headerlink" href="#256" title="Permanent link">&para;</a></h4>
+<p>S 盒是一个 <strong>16×16 = 256 格的对照表</strong>。一个字节的高 4 位决定<strong>行</strong>，低 4 位决定<strong>列</strong>，查表得到一个新字节。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>比如字节 0x4F（二进制 0100 1111）：
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  高4位 = 0100 = 4  → 第 4 行
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  低4位 = 1111 = 15 → 第 15 列（F列）
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  查 S 盒[4][F] → 0x84
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>0x4F → S盒 → 0x84
+</code></pre></div>
+<h4 id="s">完整的 S 盒长这样（最核心的数据！）<a class="headerlink" href="#s" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>      0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   ┌──────────────────────────────────────────────────
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a> 0 │ 63 7C 77 7B F2 6B 6F C5 30 01 67 2B FE D7 AB 76
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> 1 │ CA 82 C9 7D FA 59 47 F0 AD D4 A2 AF 9C A4 72 C0
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a> 2 │ B7 FD 93 26 36 3F F7 CC 34 A5 E5 F1 71 D8 31 15
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a> 3 │ 04 C7 23 C3 18 96 05 9A 07 12 80 E2 EB 27 B2 75
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a> 4 │ 09 83 2C 1A 1B 6E 5A A0 52 3B D6 B3 29 E3 2F 84
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a> 5 │ 53 D1 00 ED 20 FC B1 5B 6A CB BE 39 4A 4C 58 CF
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a> 6 │ D0 EF AA FB 43 4D 33 85 45 F9 02 7F 50 3C 9F A8
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a> 7 │ 51 A3 40 8F 92 9D 38 F5 BC B6 DA 21 10 FF F3 D2
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a> 8 │ CD 0C 13 EC 5F 97 44 17 C4 A7 7E 3D 64 5D 19 73
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a> 9 │ 60 81 4F DC 22 2A 90 88 46 EE B8 14 DE 5E 0B DB
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a> A │ E0 32 3A 0A 49 06 24 5C C2 D3 AC 62 91 95 E4 79
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a> B │ E7 C8 37 6D 8D D5 4E A9 6C 56 F4 EA 65 7A AE 08
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a> C │ BA 78 25 2E 1C A6 B4 C6 E8 DD 74 1F 4B BD 8B 8A
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a> D │ 70 3E B5 66 48 03 F6 0E 61 35 57 B9 86 C1 1D 9E
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a> E │ E1 F8 98 11 69 D9 8E 94 9B 1E 87 E9 CE 55 28 DF
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a> F │ 8C A1 89 0D BF E6 42 68 41 99 2D 0F B0 54 BB 16
+</code></pre></div>
+<h4 id="s_1">手把手查 S 盒<a class="headerlink" href="#s_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>明文第一个字节: 0x19
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  高 4 位: 1 → 第 1 行
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  低 4 位: 9 → 第 9 列
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  查表: S[1][9] = 0xD4
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  → 0x19 被替换为 0xD4
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>再查 0x00:
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  高 4 位: 0 → 第 0 行
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  低 4 位: 0 → 第 0 列
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>  查表: S[0][0] = 0x63
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>  → 0x00 被替换为 0x63（注意！并没有变成自己）
+</code></pre></div>
+<h4 id="s_2">为什么 S 盒这么重要？<a class="headerlink" href="#s_2" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>这是 AES 唯一"非线性"的操作</strong>（不像加法和移位是线性的）</li>
+<li>非线性 = 不能写成 <code>y = ax + b</code> 这种简单公式 = <strong>无法用数学方法逆推</strong></li>
+<li>没有 S 盒，AES 就是一堆移位 + 异或，小学生都能解</li>
+<li>S 盒的设计非常讲究：经过严格的数学筛选，确保<strong>输入变 1 位，输出大约变一半的位</strong>（雪崩效应）</li>
+</ol>
+<blockquote>
+<p><strong>S 盒 = AES 的黑箱。进去一个字节，出来完全不同的另一个字节。这是 AES 安全的根基。</strong></p>
+</blockquote>
+<hr />
+<h3 id="45-shiftrows">4.5 第二板斧：ShiftRows（行移位）—— 换座位<a class="headerlink" href="#45-shiftrows" title="Permanent link">&para;</a></h3>
+<p>把状态矩阵的每一行<strong>向左循环移动</strong>不同步数：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>第 0 行：不动          ┌──────────────┐      ┌──────────────┐
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>第 1 行：左移 1 格     │ A0 A4 A8 A12 │      │ A0 A4 A8 A12 │ ← 不动
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>第 2 行：左移 2 格     │ B1 B5 B9 B13 │  →   │ B5 B9 B13 B1 │ ← 左移1
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>第 3 行：左移 3 格     │ C2 C6 C10 C14│      │ C10 C14 C2 C6│ ← 左移2
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                       │ D3 D7 D11 D15│      │ D15 D3 D7 D11│ ← 左移3
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                       └──────────────┘      └──────────────┘
+</code></pre></div>
+<p><strong>作用</strong>：把数据打散。第一列的数据被搬到了不同列，打破了列的"独立性"。</p>
+<blockquote>
+<p>配合下一步 MixColumns，实现"你中有我，我中有你"。</p>
+</blockquote>
+<hr />
+<h3 id="46-mixcolumns">4.6 第三板斧：MixColumns（列混合）—— 搅拌机<a class="headerlink" href="#46-mixcolumns" title="Permanent link">&para;</a></h3>
+<p><strong>这是 AES 第二重要的操作。</strong> 对每一列独立做矩阵乘法。</p>
+<h4 id="_3">大白话原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>取状态矩阵的一列（4 个字节），和下面的固定矩阵做"特殊的乘法"：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>┌─────────┐   ┌             ┐   ┌─────────┐
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>│ 新 B0   │   │ 02 03 01 01 │   │ 旧 B0   │
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>│ 新 B1   │ = │ 01 02 03 01 │ × │ 旧 B1   │
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│ 新 B2   │   │ 01 01 02 03 │   │ 旧 B2   │
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>│ 新 B3   │   │ 03 01 01 02 │   │ 旧 B3   │
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>└─────────┘   └             ┘   └─────────┘
+</code></pre></div>
+<h4 id="_4">这个"特殊的乘法"是什么？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>不是普通乘法，而是在<strong>伽罗瓦域 GF(2^8)</strong> 中做乘法和加法。用最白的话说：</p>
+<ul>
+<li><strong>加法 = XOR（异或）</strong>：<code>0x53 + 0xCA = 0x53 XOR 0xCA = 0x99</code></li>
+<li><strong>乘 1</strong>：就是自己（不废话）</li>
+<li><strong>乘 2</strong>：左移 1 位，如果最高位是 1，额外异或 <code>0x1B</code></li>
+<li><strong>乘 3</strong>：<code>乘3 = 乘2 XOR 自己</code></li>
+</ul>
+<h4 id="_5">手把手算一个新字节<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>列中的旧 B0 = 0xDB
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>新 B0 = (02 × 0xDB) XOR (03 × 0x55) XOR (01 × 0x09) XOR (01 × 0xE4)
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>先算 02 × 0xDB:
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  0xDB = 1101 1011
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  左移1位 = 1 1011 0110 → 最高位是1，额外异或 0x1B
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  = 1011 0110 XOR 0001 1011 = 1010 1101 = 0xAD
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>再算 03 × 0x55:
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  03 × 0x55 = (02 × 0x55) XOR 0x55
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  02 × 0x55 = 1010 1010（左移，最高位是0，不异或）= 0xAA
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  03 × 0x55 = 0xAA XOR 0x55 = 0xFF
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>最后：
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>  新 B0 = 0xAD XOR 0xFF XOR 0x09 XOR 0xE4
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        = 0xAD XOR 0xFF = 0x52
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        = 0x52 XOR 0x09 = 0x5B
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        = 0x5B XOR 0xE4 = 0xBF
+</code></pre></div>
+<blockquote>
+<p>看起来很复杂，但 CPU 做这个极快（有硬件指令）。</p>
+</blockquote>
+<h4 id="mixcolumns">MixColumns 的作用<a class="headerlink" href="#mixcolumns" title="Permanent link">&para;</a></h4>
+<p>一列中的 4 个字节全部互相影响。改变输入列中的<strong>任何一个字节</strong>，输出列的 <strong>4 个字节全变</strong>。</p>
+<p>这就是<strong>扩散（Diffusion）</strong>——把一个小改动扩散到整个块。</p>
+<hr />
+<h3 id="47-addroundkey">4.7 第四板斧：AddRoundKey（轮密钥加）—— 和钥匙异或<a class="headerlink" href="#47-addroundkey" title="Permanent link">&para;</a></h3>
+<p>最简单的一步：<strong>状态矩阵的每个字节，和对应位置的轮密钥字节做 XOR</strong>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>状态矩阵          轮密钥           结果
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>┌──────────┐    ┌──────────┐    ┌──────────┐
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│ S0 S4 S8 │    │ K0 K4 K8 │    │ S0⊕K0 ..│
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│ S1 S5 S9 │ XOR│ K1 K5 K9 │ =  │ S1⊕K1 ..│
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│ S2 S6 S10│    │ K2 K6 K10│    │ S2⊕K2 ..│
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│ S3 S7 S11│    │ K3 K7 K11│    │ S3⊕K3 ..│
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>└──────────┘    └──────────┘    └──────────┘
+</code></pre></div>
+<p><strong>这一步是把密钥"混进去"的唯一地方。</strong> 没有这一步，任何人都能解开——因为 SubBytes/ShiftRows/MixColumns 的算法是公开的。</p>
+<hr />
+<h3 id="48-key-expansion-11">4.8 密钥扩展（Key Expansion）—— 一把钥匙变 11 把<a class="headerlink" href="#48-key-expansion-11" title="Permanent link">&para;</a></h3>
+<p>你只提供了一把密钥（16/24/32 字节），但 AES 需要 <strong>轮数+1 把</strong>轮密钥（AES-128 需要 11 把，每把 16 字节）。</p>
+<p>AES 通过<strong>密钥扩展算法</strong>从一把钥匙生成多把：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>原始密钥 K (16字节)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    ↓ 密钥扩展算法
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>K0 (轮密钥0) → 用于初始 AddRoundKey
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>K1 (轮密钥1) → 用于第 1 轮 AddRoundKey
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>K2 (轮密钥2) → 用于第 2 轮 AddRoundKey
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>...
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>K10 (轮密钥10) → 用于第 10 轮 AddRoundKey
+</code></pre></div>
+<h4 id="_6">扩展原理（简化版）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>每把轮密钥 16 字节（4 个字，每字 4 字节）。从原始密钥的 4 个字开始，不断生成下一个字：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>假设 W0,W1,W2,W3 来自原始密钥
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>生成 W4:
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  temp = W3
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  temp = RotWord(temp)    ← 字节循环左移
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  temp = SubWord(temp)    ← 每个字节过 S 盒！
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>  temp = temp XOR Rcon[i] ← 异或轮常数
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  W4 = W0 XOR temp
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>生成 W5:
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>  W5 = W1 XOR W4
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>生成 W6:
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>  W6 = W2 XOR W5
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>...以此类推
+</code></pre></div>
+<p><strong>关键</strong>：生成轮密钥的过程中用了 S 盒和轮常数，所以<strong>即使你知道一把轮密钥，也无法反推上一把轮密钥</strong>。</p>
+<hr />
+<h3 id="49">4.9 解密：倒着走<a class="headerlink" href="#49" title="Permanent link">&para;</a></h3>
+<p>解密和加密用的是<strong>相同的结构，但操作反过来</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>加密：SubBytes → ShiftRows → MixColumns → AddRoundKey
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>解密：InvAddRoundKey → InvMixColumns → InvShiftRows → InvSubBytes
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>       （先XOR）      （逆列混合）     （逆移位）      （逆S盒）
+</code></pre></div>
+<p>解密用了一个<strong>逆 S 盒</strong>（也是固定的 256 格表），以及<strong>逆 MixColumns</strong>（矩阵系数不一样）。</p>
+<p>密钥扩展的轮密钥<strong>倒着用</strong>：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>加密：K0 → K1 → K2 → ... → K10
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>解密：K10 → K9 → K8 → ... → K0
+</code></pre></div></p>
+<hr />
+<h3 id="410">4.10 完整示例：跟一个字节从明文走到密文<a class="headerlink" href="#410" title="Permanent link">&para;</a></h3>
+<p>我们用 AES-128，密钥和明文都取 16 字节，跟一个字节走一遍（简化数字，仅展示流程）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>明文（16字节，只展示变化过程）：
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  P = &quot;Hello World! 你好&quot;  → 内部按 16 字节当作 [P0,P1,...,P15]
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>密钥（16字节）：
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  K = &quot;MySecretKey12345&quot;  → [K0,K1,...,K15]
+</code></pre></div>
+<h4 id="0-addroundkey">第 0 步：初始 AddRoundKey<a class="headerlink" href="#0-addroundkey" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>状态矩阵的每个字节 XOR 原始密钥 K 的对应字节
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>→ 矩阵中每个字节都变了一次
+</code></pre></div>
+<h4 id="1">第 1 轮<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>① SubBytes：每个字节查 S 盒换脸
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>   0x48(&#39;H&#39;) → S[4][8] → 0x52
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>   0x65(&#39;e&#39;) → S[6][5] → 0x4D
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>   ...
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>② ShiftRows：第 1 行不动，第 2 行左移 1，第 3 行左移 2，第 4 行左移 3
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>   → 字节们换了位置
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>③ MixColumns：每列 4 个字节用 GF(2^8) 矩阵混合
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>   → 列内字节互相影响
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>④ AddRoundKey：异或轮密钥 K1
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>   → 密钥的&quot;味道&quot;注入进去
+</code></pre></div>
+<h4 id="29">第 2~9 轮<a class="headerlink" href="#29" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>重复①②③④，每轮用不同的轮密钥(K2~K9)
+</code></pre></div>
+<h4 id="10">第 10 轮（最后一轮）<a class="headerlink" href="#10" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>① SubBytes → ② ShiftRows → 跳③ MixColumns → ④ AddRoundKey(K10)
+</code></pre></div>
+<h4 id="_7">结果<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>输出 16 字节密文，肉眼看起来完全是随机乱码。
+</code></pre></div>
+<hr />
+<h3 id="411">4.11 为什么这四步组合起来就安全了？<a class="headerlink" href="#411" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>对应操作</th>
+<th>大白话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>混淆（Confusion）</strong></td>
+<td>SubBytes（S盒）</td>
+<td>让密文和密钥的关系复杂到无法推导</td>
+</tr>
+<tr>
+<td><strong>扩散（Diffusion）</strong></td>
+<td>ShiftRows + MixColumns</td>
+<td>明文改 1 位，密文改几十位</td>
+</tr>
+<tr>
+<td><strong>密钥参与</strong></td>
+<td>AddRoundKey + 密钥扩展</td>
+<td>不知道密钥就无法逆推</td>
+</tr>
+<tr>
+<td><strong>多轮迭代</strong></td>
+<td>10/12/14 轮</td>
+<td>一次混淆不够就多来几次</td>
+</tr>
+</tbody>
+</table>
+<p>这四条合起来，就是香农（信息论之父）提出的两大安全原则：<strong>混淆 + 扩散</strong>。</p>
+<hr />
+<h3 id="412">4.12 密钥到底怎么用的？—— 真密钥全程追踪<a class="headerlink" href="#412" title="Permanent link">&para;</a></h3>
+<p>下面用 <strong>AES 官方标准 FIPS-197 的示例数据</strong>，跟一个真实密钥从第 0 步走到第 10 轮。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>真密钥  (16字节): 2b 7e 15 16 28 ae d2 a6 ab f7 15 88 09 cf 4f 3c
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>真明文  (16字节): 32 43 f6 a8 88 5a 30 8d 31 31 98 a2 e0 37 07 34
+</code></pre></div>
+<hr />
+<h4 id="0-addroundkey_1">第 0 步：初始 AddRoundKey —— 密钥第一次登场<a class="headerlink" href="#0-addroundkey_1" title="Permanent link">&para;</a></h4>
+<p><strong>在所有轮之前</strong>，先把明文和原始密钥直接 XOR：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>明文矩阵（16字节按列填入）:        密钥矩阵（原始密钥）:
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>┌──────────────────┐          ┌──────────────────┐
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>│ 32 88 31 E0 │  第0行        │ 2B 28 AB 09 │  第0行
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>│ 43 5A 31 37 │  第1行   XOR  │ 7E AE F7 CF │  第1行
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>│ F6 30 98 07 │  第2行        │ 15 D2 15 4F │  第2行
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>│ A8 8D A2 34 │  第3行        │ 16 A6 88 3C │  第3行
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>└──────────────────┘          └──────────────────┘
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>         │                            │
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>         └──────── XOR ────────────────┘
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>                      │
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>                      ▼
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>         ┌──────────────────┐
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>         │ 19 A0 9A E9 │  ← 第0行  32⊕2B=19, 88⊕28=A0, ...
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>         │ 3D F4 C6 F8 │  ← 第1行  43⊕7E=3D, 5A⊕AE=F4, ...
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>         │ E3 E2 8D 48 │  ← 第2行  F6⊕15=E3, 30⊕D2=E2, ...
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>         │ BE 2B 2A 08 │  ← 第3行  A8⊕16=BE, 8D⊕A6=2B, ...
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>         └──────────────────┘
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>              初始状态矩阵
+</code></pre></div>
+<blockquote>
+<p><strong>此时密钥已经"渗入"了状态矩阵。没有密钥就没法逆推。</strong></p>
+</blockquote>
+<hr />
+<h4 id="1-11">密钥扩展：从 1 把钥匙变 11 把轮密钥<a class="headerlink" href="#1-11" title="Permanent link">&para;</a></h4>
+<p>原始密钥的 16 字节拆成 4 个"字"（每字 4 字节）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>W0 = 2B 7E 15 16    W1 = 28 AE D2 A6
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>W2 = AB F7 15 88    W3 = 09 CF 4F 3C
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>轮密钥 K0 = [W0,W1,W2,W3] = 就是原始密钥本身
+</code></pre></div>
+<p><strong>生成 W4（轮密钥 K1 的第一个字）：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>① 取 W3 = 09 CF 4F 3C
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>   循环左移1字节 → CF 4F 3C 09
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>② 过 S 盒（每个字节查表）:
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>   CF → S[C][F] = S[12][15] = 8A
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>   4F → S[4][F]  = S[4][15]  = 84
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>   3C → S[3][C]  = S[3][12]  = EB
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>   09 → S[0][9]  = S[0][9]   = 01
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>   结果: 8A 84 EB 01
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>③ XOR 轮常数 Rcon[1] = 01 00 00 00
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>   8A 84 EB 01 XOR 01 00 00 00 = 8B 84 EB 01
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>④ W4 = W0 XOR 上步结果
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>   2B 7E 15 16 XOR 8B 84 EB 01 = A0 FA FE 17
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>   → W4 = A0 FA FE 17
+</code></pre></div>
+<p><strong>生成 W5,W6,W7（轮密钥 K1 的剩余 3 个字）：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>W5 = W1 XOR W4 = 28 AE D2 A6 XOR A0 FA FE 17 = 88 54 2C B1
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>W6 = W2 XOR W5 = AB F7 15 88 XOR 88 54 2C B1 = 23 A3 39 39
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>W7 = W3 XOR W6 = 09 CF 4F 3C XOR 23 A3 39 39 = 2A 6C 76 05
+</code></pre></div>
+<p><strong>轮密钥 K1 = [W4,W5,W6,W7] =</strong> <code>A0 FA FE 17 88 54 2C B1 23 A3 39 39 2A 6C 76 05</code></p>
+<blockquote>
+<p>后续的 K2~K10 用同样方法继续生成。每轮密钥看起来都是毫无规律的乱码，但<strong>密钥持有者可以精确复现</strong>。</p>
+</blockquote>
+<hr />
+<h4 id="1-k1">第 1 轮：四板斧 + 轮密钥 K1 注入<a class="headerlink" href="#1-k1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>初始状态（上一步 AddRoundKey(K0) 结果）:
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>┌──────────┐
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>│ 19 A0 9A E9 │
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>│ 3D F4 C6 F8 │
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>│ E3 E2 8D 48 │
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>│ BE 2B 2A 08 │
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>└──────────┘
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>   │
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>   │ ① SubBytes (每个字节过S盒)
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>   ▼
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>┌──────────┐
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>│ D4 E0 58 1E │  19→D4, A0→E0, 9A→58, E9→1E
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>│ 27 BF B4 41 │  3D→27, F4→BF, C6→B4, F8→41
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>│ 11 98 5D 52 │  E3→11, E2→98, 8D→5D, 48→52
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>│ AE F1 E5 30 │  BE→AE, 2B→F1, 2A→E5, 08→30
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>└──────────┘
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>   │
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>   │ ② ShiftRows (行循环左移)
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>   ▼
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>┌──────────┐
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>│ D4 E0 58 1E │  第0行: 不动
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>│ BF B4 41 27 │  第1行: 左移1 ← BF B4 41 27
+<a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>│ 5D 52 11 98 │  第2行: 左移2 ← 11 98 5D 52 → 5D 52 11 98
+<a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>│ 30 AE F1 E5 │  第3行: 左移3 ← AE F1 E5 30 → 30 AE F1 E5
+<a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>└──────────┘
+<a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>   │
+<a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>   │ ③ MixColumns (列混合)
+<a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a>   ▼
+<a id="__codelineno-27-29" name="__codelineno-27-29" href="#__codelineno-27-29"></a>┌──────────┐
+<a id="__codelineno-27-30" name="__codelineno-27-30" href="#__codelineno-27-30"></a>│ 04 E0 48 28 │  每列4字节×固定矩阵 = 全新的4字节
+<a id="__codelineno-27-31" name="__codelineno-27-31" href="#__codelineno-27-31"></a>│ 66 CB F8 06 │
+<a id="__codelineno-27-32" name="__codelineno-27-32" href="#__codelineno-27-32"></a>│ 81 19 D3 26 │
+<a id="__codelineno-27-33" name="__codelineno-27-33" href="#__codelineno-27-33"></a>│ E5 9A 7A 4C │
+<a id="__codelineno-27-34" name="__codelineno-27-34" href="#__codelineno-27-34"></a>└──────────┘
+<a id="__codelineno-27-35" name="__codelineno-27-35" href="#__codelineno-27-35"></a>   │
+<a id="__codelineno-27-36" name="__codelineno-27-36" href="#__codelineno-27-36"></a>   │ ④ AddRoundKey(K1)
+<a id="__codelineno-27-37" name="__codelineno-27-37" href="#__codelineno-27-37"></a>   │    K1 = A0 FA FE 17  88 54 2C B1  23 A3 39 39  2A 6C 76 05
+<a id="__codelineno-27-38" name="__codelineno-27-38" href="#__codelineno-27-38"></a>   ▼
+<a id="__codelineno-27-39" name="__codelineno-27-39" href="#__codelineno-27-39"></a>┌──────────┐
+<a id="__codelineno-27-40" name="__codelineno-27-40" href="#__codelineno-27-40"></a>│ A4 68 6B 02 │  04⊕A0=A4, E0⊕FA=1A, ...
+<a id="__codelineno-27-41" name="__codelineno-27-41" href="#__codelineno-27-41"></a>│ 9C 9F 5B 6A │  (不纠结每步数字，关键是密钥在每轮末尾注入)
+<a id="__codelineno-27-42" name="__codelineno-27-42" href="#__codelineno-27-42"></a>│ 7F 35 EA 50 │
+<a id="__codelineno-27-43" name="__codelineno-27-43" href="#__codelineno-27-43"></a>│ F2 2B 43 49 │
+<a id="__codelineno-27-44" name="__codelineno-27-44" href="#__codelineno-27-44"></a>└──────────┘
+<a id="__codelineno-27-45" name="__codelineno-27-45" href="#__codelineno-27-45"></a>   第1轮结束，进入第2轮...
+</code></pre></div>
+<blockquote>
+<p><strong>关键点</strong>：注意第④步——轮密钥 K1 的每一个字节 XOR 到状态矩阵的对应位置。这是本轮密钥<strong>唯一一次</strong>注入。</p>
+</blockquote>
+<hr />
+<h4 id="_8">密钥使用时间线总览<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>时间 ─────────────────────────────────────────→
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>初始     第1轮        第2轮        ...   第10轮
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>  │        │            │                  │
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>AddRK    SubBytes    SubBytes          SubBytes
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>  │     ShiftRows   ShiftRows         ShiftRows
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>  │     MixColumns  MixColumns         (跳过MC)
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>  │     AddRK(K1)  AddRK(K2)         AddRK(K10)
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>  │        │            │                  │
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a> K0       K1           K2               K10
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>  ↑        ↑            ↑                  ↑
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>  └────────┴────────────┴──────────────────┘
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>           全部由原始密钥扩展生成
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>轮次</th>
+<th>使用的轮密钥</th>
+<th>密钥来自</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>初始</strong></td>
+<td>K0</td>
+<td>原始密钥本身</td>
+</tr>
+<tr>
+<td><strong>第 1 轮</strong></td>
+<td>K1</td>
+<td>密钥扩展第 1 次生成</td>
+</tr>
+<tr>
+<td><strong>第 2 轮</strong></td>
+<td>K2</td>
+<td>密钥扩展第 2 次生成</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>第 10 轮</strong></td>
+<td>K10</td>
+<td>密钥扩展第 10 次生成</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="_9">用错密钥会怎样？—— 从解密侧看密钥的作用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>解密时，AddRoundKey 是<strong>每个轮次的第一步</strong>（操作顺序反过来）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>解密过程（密钥必须和加密一模一样）：
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>密文 ──AddRK(K10)── InvShiftRows ── InvSubBytes ── AddRK(K9) ── ... ── 明文 ✅
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>如果密钥错了任何一个字节:
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>密文 ──AddRK(K10-错误)── ... ── 乱码 ❌
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>        ↑ K10 错一个字节 → 16 个字节全错 → S盒输出面目全非 → 所有后续轮全崩
+</code></pre></div>
+<p><strong>这就是为什么 OpenSSL 用错密码会直接 <code>bad decrypt</code></strong>——解密出来的最后一个字节（PKCS7 padding）不合法，说明整个过程已经全乱了。</p>
+<h2 id="_10">五、加密模式 —— 多个块怎么串起来<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>上面讲的是"一个 16 字节块怎么加密"。但你的数据通常是几百字节、几 MB。怎么把多个块串起来？</p>
+<h3 id="ecb">ECB 模式（最垃圾）<a class="headerlink" href="#ecb" title="Permanent link">&para;</a></h3>
+<p>把数据切成一块一块，每块用同一把钥匙独立加密。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>明文:  AAAAA  AAAAA  AAAAA
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>密文:  XX123  XX123  XX123  ← 重复的块密文一样！暴露结构！
+</code></pre></div>
+<p><strong>千万不要用 ECB！</strong> 著名的 Linux 企鹅图片用 ECB 加密后还能看出企鹅轮廓。</p>
+<h3 id="cbc">CBC 模式（用得最多）<a class="headerlink" href="#cbc" title="Permanent link">&para;</a></h3>
+<p>每一块加密前，先和上一块的密文"搅和"一下（XOR）。</p>
+<p>需要多一个参数：<strong>IV（初始向量）</strong>——第一块没上一块可搅和，就用 IV 代替。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>明文块1 ──XOR── IV ──AES加密──→ 密文块1
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>明文块2 ──XOR── 密文块1 ──AES加密──→ 密文块2
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>明文块3 ──XOR── 密文块2 ──AES加密──→ 密文块3
+</code></pre></div>
+<p>同样的明文 + 同样的密钥 + 不同 IV = 完全不同的密文。</p>
+<blockquote>
+<p><strong>IV 不需要保密，但同一个密钥不能重复用同一个 IV。</strong></p>
+</blockquote>
+<h3 id="gcm">GCM 模式（最新最好）<a class="headerlink" href="#gcm" title="Permanent link">&para;</a></h3>
+<p>CBC 的升级版，加密的同时还附带<strong>防篡改校验</strong>。如果有人改了密文，解密时会立刻发现。</p>
+<hr />
+<h2 id="openssl">六、用 OpenSSL 手把手加密解密<a class="headerlink" href="#openssl" title="Permanent link">&para;</a></h2>
+<h3 id="_11">加密一段文字<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-e<span class="w"> </span>-base64<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;my-key-123&quot;</span>
+</code></pre></div>
+<p>参数解释：
+- <code>-aes-256-cbc</code>：AES 256 位密钥，CBC 模式
+- <code>-e</code>：加密（encrypt），<code>-d</code>：解密
+- <code>-base64</code>：输出 Base64（否则是二进制乱码）
+- <code>-k</code>：密码</p>
+<h3 id="_12">解密<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;U2FsdGVkX1+XXXXXXXXXXXX==&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-d<span class="w"> </span>-base64<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;my-key-123&quot;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>注意</strong>：用 <code>-k</code> 参数时，OpenSSL 内部用 <code>EVP_BytesToKey</code> 把密码转成真正的 256 位密钥（Salt + Hash）。这就是密钥扩展的另一种实现。</p>
+</blockquote>
+<hr />
+<h2 id="aes-32">七、AES 密钥为什么要 32 字节？<a class="headerlink" href="#aes-32" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>密钥长度</th>
+<th>字节数</th>
+<th>加密轮数</th>
+<th>安全级别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AES-128</td>
+<td>16 字节</td>
+<td>10 轮</td>
+<td>基本安全</td>
+</tr>
+<tr>
+<td>AES-192</td>
+<td>24 字节</td>
+<td>12 轮</td>
+<td>更安全</td>
+</tr>
+<tr>
+<td><strong>AES-256</strong></td>
+<td><strong>32 字节</strong></td>
+<td><strong>14 轮</strong></td>
+<td><strong>军事级</strong></td>
+</tr>
+</tbody>
+</table>
+<p>现实中不会直接拿用户密码当密钥。而是用 <strong>PBKDF2</strong> 或 <strong>bcrypt</strong> 把密码"搅拌"成高质量密钥——这就是"盐"（Salt）的作用。</p>
+<hr />
+<h2 id="aes_1">八、AES 破解有多难？<a class="headerlink" href="#aes_1" title="Permanent link">&para;</a></h2>
+<p>AES-256 的密钥有 <strong>2^256</strong> 种可能性。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>2^256 = 115792089237316195423570985008687907853269984665640564039457584007913129639936
+</code></pre></div>
+<p>用全世界所有电脑一起算，算到太阳熄灭也算不完。</p>
+<p><strong>AES 的安全不靠"算法保密"（算法完全公开），而靠"密钥空间大到不可能穷举"。</strong></p>
+<blockquote>
+<p>这叫<strong>柯克霍夫原则</strong>：加密系统的安全性只应该依赖密钥的保密，而不是算法的保密。</p>
+</blockquote>
+<hr />
+<h2 id="_13">九、练习题<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="1-s">练习 1：查 S 盒<a class="headerlink" href="#1-s" title="Permanent link">&para;</a></h3>
+<p>用上面 4.4 节的 S 盒，查找字节 <code>0xA3</code> 对应的替换值。</p>
+<details><summary>答案</summary>
+
+高 4 位 A（第 10 行），低 4 位 3（第 3 列）
+S[A][3] = 0x0A
+
+</details>
+
+<h3 id="2openssl">练习 2：OpenSSL 实战<a class="headerlink" href="#2openssl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># 加密</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I love cryptography&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-e<span class="w"> </span>-base64<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;test123&quot;</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># 解密（粘入上面输出的密文）</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;密文&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-d<span class="w"> </span>-base64<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;test123&quot;</span>
+</code></pre></div>
+<h3 id="3">练习 3：错误密钥<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>用 <code>-k "wrongkey"</code> 解密 → 报错 <code>bad decrypt</code>（PKCS7 填充校验失败）。</p>
+<h3 id="4-mixcolumns">练习 4：理解 MixColumns<a class="headerlink" href="#4-mixcolumns" title="Permanent link">&para;</a></h3>
+<p>MixColumns 中乘以 2 的操作，如果最高位是 0，结果是什么？</p>
+<details><summary>答案</summary>
+
+如果最高位是 0，左移 1 位后不需要异或 0x1B。
+例如 `0x55`：0101 0101 → 左移 → 1010 1010 = 0xAA
+
+</details>
+
+<hr />
+<h2 id="_14">🎯 本章总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分组密码</td>
+<td>AES 每次加密 16 字节一个块</td>
+</tr>
+<tr>
+<td>状态矩阵</td>
+<td>16 字节排成 4×4 方阵，按列填入</td>
+</tr>
+<tr>
+<td>S 盒（SubBytes）</td>
+<td>AES 的心脏，唯一非线性操作，查表换人</td>
+</tr>
+<tr>
+<td>ShiftRows</td>
+<td>行循环左移，把数据打散到不同列</td>
+</tr>
+<tr>
+<td>MixColumns</td>
+<td>列内"乘法搅拌"，4 字节互相影响</td>
+</tr>
+<tr>
+<td>AddRoundKey</td>
+<td>XOR 轮密钥，密钥的唯一注入点</td>
+</tr>
+<tr>
+<td>密钥扩展</td>
+<td>一把钥匙生成 N+1 把轮密钥</td>
+</tr>
+<tr>
+<td>混淆 + 扩散</td>
+<td>香农的两大原则 → S盒+移位+混合</td>
+</tr>
+<tr>
+<td>非对称加密</td>
+<td>加密解密同一把钥匙</td>
+</tr>
+<tr>
+<td>AES-256-CBC</td>
+<td>256位密钥 + CBC模式，工业标配</td>
+</tr>
+<tr>
+<td>IV（初始向量）</td>
+<td>保证同样的明文加密结果不同</td>
+</tr>
+<tr>
+<td>安全来源</td>
+<td>密钥空间不可穷举，不是算法保密</td>
+</tr>
+<tr>
+<td>千万不要用</td>
+<td>ECB 模式（重复块会暴露结构）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="../02-Base64/">上一章：Base64 ←</a>　|　<a href="../04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">下一章：RSA 非对称加密 →</a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月9日 18:22:27 CST">2026年6月9日 18:22:27</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月9日 18:22:27 CST">2026年6月9日 18:22:27</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

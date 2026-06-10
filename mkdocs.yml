@@ -114,6 +114,14 @@ nav:
       - notes/perfessional/NLP/note/index.md
       - 基础概念: notes/perfessional/NLP/note/abstruct.md
       - 深度学习: notes/perfessional/NLP/note/ml.md
+      - 词嵌入: notes/perfessional/NLP/note/word_embeddings.md
+      - 循环神经网络: notes/perfessional/NLP/note/rnn.md
+      - 自然语言生成与机器翻译: notes/perfessional/NLP/note/nlg_nmt.md
+      - Transformer: notes/perfessional/NLP/note/transformers.md
+      - 大模型训练: notes/perfessional/NLP/note/train_llm.md
+      - 模型压缩与高效微调: notes/perfessional/NLP/note/model_compression.md
+      - 深度强化学习: notes/perfessional/NLP/note/drl.md
+      - GPTs与对齐: notes/perfessional/NLP/note/duiqi.md
 
     - 人工智能芯片:
       - notes/perfessional/AI/note/course1.md

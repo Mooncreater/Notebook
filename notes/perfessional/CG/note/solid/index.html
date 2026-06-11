@@ -1589,19 +1589,30 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 线框模型的局限
+        1. 线框模型的致命缺陷
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 线框模型的局限">
+    <nav class="md-nav" aria-label="1. 线框模型的致命缺陷">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        无法满足以下任务
+        线框模型无法完成的 6 类任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nonsense-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nonsense Objects（无意义物体）
       
     </span>
   </a>
@@ -1617,10 +1628,38 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 实体对象的数学定义
+        2. 什么东西才算「实体」？
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. 什么东西才算「实体」？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六大条件详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questionable-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题物体（Questionable Objects）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1628,7 +1667,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 实体表示方案总览
+        3. 三大表示方案总览
       
     </span>
   </a>
@@ -1636,15 +1675,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#decomposition-representations" class="md-nav__link">
+  <a href="#decomposition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一、分解表示（Decomposition Representations）
+        一、分解表示（Decomposition）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="一、分解表示（Decomposition Representations）">
+    <nav class="md-nav" aria-label="一、分解表示（Decomposition）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1659,10 +1698,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-octree" class="md-nav__link">
+  <a href="#42" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 八叉树（Octree）
+        4.2 空间划分方案
       
     </span>
   </a>
@@ -1673,7 +1712,18 @@
   <a href="#43-quadtree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3 四叉树（Quadtree）
+        4.3 四叉树（Quadtree）— 二维先行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-octree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 八叉树（Octree）— 三维推广
       
     </span>
   </a>
@@ -1717,25 +1767,86 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="5.2 扫掠表示（Sweep Representation）">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#53-csg-constructive-solid-geometry" class="md-nav__link">
+  <a href="#extrusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3 构造实体几何（CSG — Constructive Solid Geometry）
+        平移扫掠（Extrusion）— 最常用
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.3 构造实体几何（CSG — Constructive Solid Geometry）">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转扫掠（Revolve）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lofting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        放样（Lofting）
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基本操作
+        参数化扫掠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扫掠的陷阱 — 无效实体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-csg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 CSG（构造实体几何）— 布尔运算的威力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 CSG（构造实体几何）— 布尔运算的威力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种基本布尔运算
       
     </span>
   </a>
@@ -1753,17 +1864,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特点
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1775,22 +1875,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-rep-boundary-representation" class="md-nav__link">
+  <a href="#b-rep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、边界表示（B-Rep — Boundary Representation）
+        三、边界表示（B-Rep）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三、边界表示（B-Rep — Boundary Representation）">
+    <nav class="md-nav" aria-label="三、边界表示（B-Rep）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#61" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 基本概念
+        6.1 核心思想
       
     </span>
   </a>
@@ -1806,13 +1906,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6.2 多面体与欧拉公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        广义欧拉公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#63" class="md-nav__link">
+  <a href="#63-facetted-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 两类数据
+        6.3 Facetted Model（面片模型）
       
     </span>
   </a>
@@ -1820,10 +1937,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#64-euler-operators" class="md-nav__link">
+  <a href="#64-b-rep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4 欧拉算子（Euler Operators）
+        6.4 B-Rep 的数据组织
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 B-Rep 的数据组织">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometric-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何数据（Geometric Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topological-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拓扑数据（Topological Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-euler-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 欧拉算子（Euler Operators）
       
     </span>
   </a>
@@ -1836,13 +1992,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四、表示方案对比
+        四、表示方案深度对比
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="四、表示方案深度对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工业实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3365,19 +3538,30 @@
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 线框模型的局限
+        1. 线框模型的致命缺陷
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 线框模型的局限">
+    <nav class="md-nav" aria-label="1. 线框模型的致命缺陷">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        无法满足以下任务
+        线框模型无法完成的 6 类任务
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nonsense-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nonsense Objects（无意义物体）
       
     </span>
   </a>
@@ -3393,10 +3577,38 @@
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 实体对象的数学定义
+        2. 什么东西才算「实体」？
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. 什么东西才算「实体」？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六大条件详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questionable-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        问题物体（Questionable Objects）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3404,7 +3616,7 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 实体表示方案总览
+        3. 三大表示方案总览
       
     </span>
   </a>
@@ -3412,15 +3624,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#decomposition-representations" class="md-nav__link">
+  <a href="#decomposition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        一、分解表示（Decomposition Representations）
+        一、分解表示（Decomposition）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="一、分解表示（Decomposition Representations）">
+    <nav class="md-nav" aria-label="一、分解表示（Decomposition）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3435,10 +3647,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-octree" class="md-nav__link">
+  <a href="#42" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.2 八叉树（Octree）
+        4.2 空间划分方案
       
     </span>
   </a>
@@ -3449,7 +3661,18 @@
   <a href="#43-quadtree" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.3 四叉树（Quadtree）
+        4.3 四叉树（Quadtree）— 二维先行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-octree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 八叉树（Octree）— 三维推广
       
     </span>
   </a>
@@ -3493,25 +3716,86 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="5.2 扫掠表示（Sweep Representation）">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#53-csg-constructive-solid-geometry" class="md-nav__link">
+  <a href="#extrusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3 构造实体几何（CSG — Constructive Solid Geometry）
+        平移扫掠（Extrusion）— 最常用
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="5.3 构造实体几何（CSG — Constructive Solid Geometry）">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转扫掠（Revolve）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lofting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        放样（Lofting）
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        基本操作
+        参数化扫掠
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扫掠的陷阱 — 无效实体
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-csg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 CSG（构造实体几何）— 布尔运算的威力
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 CSG（构造实体几何）— 布尔运算的威力">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三种基本布尔运算
       
     </span>
   </a>
@@ -3529,17 +3813,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        特点
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3551,22 +3824,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#b-rep-boundary-representation" class="md-nav__link">
+  <a href="#b-rep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        三、边界表示（B-Rep — Boundary Representation）
+        三、边界表示（B-Rep）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="三、边界表示（B-Rep — Boundary Representation）">
+    <nav class="md-nav" aria-label="三、边界表示（B-Rep）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#61" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 基本概念
+        6.1 核心思想
       
     </span>
   </a>
@@ -3582,13 +3855,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6.2 多面体与欧拉公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        广义欧拉公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#63" class="md-nav__link">
+  <a href="#63-facetted-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 两类数据
+        6.3 Facetted Model（面片模型）
       
     </span>
   </a>
@@ -3596,10 +3886,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#64-euler-operators" class="md-nav__link">
+  <a href="#64-b-rep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4 欧拉算子（Euler Operators）
+        6.4 B-Rep 的数据组织
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 B-Rep 的数据组织">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometric-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何数据（Geometric Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topological-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拓扑数据（Topological Data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-euler-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 欧拉算子（Euler Operators）
       
     </span>
   </a>
@@ -3612,13 +3941,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        四、表示方案对比
+        四、表示方案深度对比
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="四、表示方案深度对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工业实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3701,254 +4047,543 @@
 
 <h1 id="solid-modelling">实体建模 (Solid Modelling)<a class="headerlink" href="#solid-modelling" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1618 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 5 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 3355 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 54 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 17 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 12 分钟</p>
 </div>
-<p>实体建模是计算机图形学中表示三维物体的方法。与早期的线框模型（Wireframe）不同，实体模型能完整描述物体的体积、表面和内部结构，支撑工程设计与制造的各类需求。  </p>
+<p>实体建模是 CAD/CAM/CAE 的核心基础，用计算机完整表示三维物体的几何形状、体积和拓扑结构。与线框模型不同，实体模型能够回答「这个点在物体内部还是外部？」这类根本性问题。   </p>
 <div class="admonition tip">
 <p class="admonition-title">核心要点</p>
-<p>三类主要实体表示方案：<strong>分解表示</strong>（Octree 等）、<strong>构造表示</strong>（CSG / Sweep）、<strong>边界表示</strong>（B-Rep）。CSG 通过布尔运算组合体素，B-Rep 通过顶点-边-面层次描述边界。    </p>
+<p>三类主要方案：<strong>分解表示</strong>（Octree / Spatial Enumeration）→ 离散化空间；<strong>构造表示</strong>（CSG / Sweep）→ 组合生成；<strong>边界表示</strong>（B-Rep）→ 精确描述边界。工业 CAD 以 B-Rep 为主，CSG 常用于快速原型。 </p>
 </div>
-<h2 id="1">1. 线框模型的局限<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>线框模型（Wireframe Model）仅表示物体的边，由点、线、曲线组成。 </p>
-<h3 id="_1">无法满足以下任务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>质量/体积计算（Mass Property Calculation）    </li>
-<li>消隐线/面生成   </li>
-<li>着色图像生成    </li>
-<li>干涉与间隙分析   </li>
-<li>NC 加工程序生成 </li>
-</ul>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> <strong>Nonsense Objects</strong>：线框模型可能表示出在实际三维空间中不可能存在的物体（无体积、无明确内外之分）。  </p>
-<h2 id="2">2. 实体对象的数学定义<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>一个有效的实体对象应满足：   </p>
-<ul>
-<li><strong>有限性</strong>（Finite）   </li>
-<li><strong>均匀三维</strong>（Homogeneously 3D）    </li>
-<li><strong>刚性</strong>（Rigid） </li>
-<li><strong>刚性运动和布尔运算下封闭</strong>（Closed under rigid motion &amp; boolean operations）  </li>
-<li><strong>有限可描述</strong>（Finitely describable）   </li>
-<li><strong>具有可确定的边界</strong>（Determinable boundary）   </li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">非流形边</p>
-<p>物体中某条边被三个或以上的面共享 → 非流形边（Non-Manifold Edge），不构成有效实体。 </p>
-</div>
-<h2 id="3">3. 实体表示方案总览<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="1">1. 线框模型的致命缺陷<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>线框模型（Wireframe Model）是最早的三维表示方式，仅存储物体的<strong>边</strong>（点、直线、曲线）。   </p>
+<p><strong>例子</strong>：一个立方体在线框模型中只有 12 条边，没有面的概念。  </p>
+<h3 id="6">线框模型无法完成的 6 类任务<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>方案大类</th>
-<th>具体方法</th>
-<th>特点</th>
+<th>任务</th>
+<th>为什么做不到</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>分解表示</strong></td>
-<td>Spatial Enumeration, Octree</td>
+<td><strong>质量/体积计算</strong></td>
+<td>不知道哪些空间被占据 → 无法算重量</td>
+</tr>
+<tr>
+<td><strong>消隐线/面生成</strong></td>
+<td>不知道哪个面在前 → 无法正确消影</td>
+</tr>
+<tr>
+<td><strong>着色渲染</strong></td>
+<td>没有面的概念 → 无法 Phong/Gouraud 着色</td>
+</tr>
+<tr>
+<td><strong>干涉与间隙分析</strong></td>
+<td>无法判断两物体是否碰撞/嵌入</td>
+</tr>
+<tr>
+<td><strong>NC 加工路径</strong></td>
+<td>不知道材料在哪里 → 无法生成刀具路径</td>
+</tr>
+<tr>
+<td><strong>有限元网格</strong></td>
+<td>没有体积信息 → 无法剖分网格</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nonsense-objects">Nonsense Objects（无意义物体）<a class="headerlink" href="#nonsense-objects" title="Permanent link">&para;</a></h3>
+<p>线框模型可以表示出在实际三维空间中<strong>不可能存在</strong>的物体。  </p>
+<p><img alt="线框模型的问题：Nonsense Objects" src="../../img/solid_nonsense.png" />  </p>
+<p>经典例子：图中有两个立方体，线框表示完全相同（都是 12 条边），但一个是有体积的方块，另一个是"凭空悬浮"的线框。线框模型<strong>无法区分</strong>这两者。  </p>
+<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 这就引出了实体建模的核心问题：<strong>如何形式化地定义"有效实体"？</strong>    </p>
+<hr />
+<h2 id="2">2. 什么东西才算「实体」？<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>一个有效的实体对象必须同时满足以下 6 条：  </p>
+<div class="admonition danger">
+<p class="admonition-title">考试重点</p>
+<p>6 条实体判定条件必须记住：Finite、3D、Rigid、Closure、Describable、Boundary。 </p>
+</div>
+<h3 id="_1">六大条件详解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>解释</th>
+<th>反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>有限（Finite）</strong></td>
+<td>占据有限空间，不能无限延伸</td>
+<td>一根无限长的圆柱不是实体</td>
+</tr>
+<tr>
+<td><strong>均匀三维（Homogeneously 3D）</strong></td>
+<td>在任何点都有体积，不能有"纸片"</td>
+<td>一个 zero-thickness 的面不是实体</td>
+</tr>
+<tr>
+<td><strong>刚性（Rigid）</strong></td>
+<td>形状不变（在表示层面）</td>
+<td>定义上的要求，并非模拟要求</td>
+</tr>
+<tr>
+<td><strong>封闭性（Closure）</strong></td>
+<td>刚性运动和布尔运算后仍是实体</td>
+<td>两个球差集后必须是有效实体</td>
+</tr>
+<tr>
+<td><strong>有限可描述（Finitely Describable）</strong></td>
+<td>用有限数据就能表示</td>
+<td>分形表面无法有限描述</td>
+</tr>
+<tr>
+<td><strong>边界可确定（Determinable Boundary）</strong></td>
+<td>能明确区分内部和外部</td>
+<td>非流形物体不行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="questionable-objects">问题物体（Questionable Objects）<a class="headerlink" href="#questionable-objects" title="Permanent link">&para;</a></h3>
+<p>下图展示了两类不满足实体条件的物体：  </p>
+<p><img alt="Questionable Objects" src="../../img/solid_questionable.png" />  </p>
+<ul>
+<li><strong>左图（Internal Hole）</strong>：物体内部有封闭空腔 → 边界可判定，但需要区分外边界和内边界  </li>
+<li><strong>右图（Non-Manifold Edge）</strong>：一条边被三个面共享 → 存在点其邻域不等于一个圆盘 → 不是 2-Manifold   </li>
+</ul>
+<p><strong>Manifold（流形）概念</strong>：物体上任意点的无穷小邻域，在拓扑上等价于二维平面上的一个圆盘。如果某条边被三个或以上的面共享，该边上的点的邻域就是"三岔"而非圆盘，称为<strong>非流形边（Non-Manifold Edge）</strong>。 </p>
+<hr />
+<h2 id="3">3. 三大表示方案总览<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>分解表示</th>
+<th>构造表示</th>
+<th>边界表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心思想</td>
 <td>将空间划分为体素</td>
+<td>用基本操作生成实体</td>
+<td>描述物体的表面边界</td>
 </tr>
 <tr>
-<td><strong>构造表示</strong></td>
-<td>Primitive Instancing, Sweep, CSG</td>
-<td>通过基本体组合或扫掠生成</td>
+<td>代表方法</td>
+<td>Octree、Spatial Enum</td>
+<td>CSG、Sweep、Primitive Inst</td>
+<td>B-Rep、Polyhedron</td>
 </tr>
 <tr>
-<td><strong>边界表示</strong></td>
-<td>B-Rep, Polyhedron</td>
-<td>通过边界（顶点/边/面）描述</td>
+<td>精度</td>
+<td>近似</td>
+<td>精确（基元级）</td>
+<td>精确（几何级）</td>
+</tr>
+<tr>
+<td>工业应用</td>
+<td>有限元/医学影像</td>
+<td>早期 CAD</td>
+<td>现代 CAD（CATIA/SolidWorks）</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="decomposition-representations">一、分解表示（Decomposition Representations）<a class="headerlink" href="#decomposition-representations" title="Permanent link">&para;</a></h2>
+<h2 id="decomposition">一、分解表示（Decomposition）<a class="headerlink" href="#decomposition" title="Permanent link">&para;</a></h2>
 <h3 id="41-spatial-occupancy-enumeration">4.1 空间占有枚举（Spatial Occupancy Enumeration）<a class="headerlink" href="#41-spatial-occupancy-enumeration" title="Permanent link">&para;</a></h3>
-<p>将空间划分为均匀的<strong>体素（Voxel）</strong>网格，每个体素标记为"占有"或"空"。   </p>
-<ul>
-<li>✅ 简单、唯一、无歧义   </li>
-<li>❌ 存储量巨大，精度受网格分辨率限制    </li>
-</ul>
-<h3 id="42-octree">4.2 八叉树（Octree）<a class="headerlink" href="#42-octree" title="Permanent link">&para;</a></h3>
-<p>空间占有枚举的<strong>层次化变体</strong>，递归将空间八等分。  </p>
-<ul>
-<li>大幅减少存储需求  </li>
-<li>近似表示，但唯一且无歧义  </li>
-<li>节点数与物体<strong>表面积</strong>成正比  </li>
-<li>布尔运算：从根向叶并行遍历两棵树即可    </li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">八叉树原理</p>
-<p>若一个立方体内既不完全满也不完全空，则将其一分为八，递归处理。全满/全空的节点不再细分。    </p>
-</div>
-<h3 id="43-quadtree">4.3 四叉树（Quadtree）<a class="headerlink" href="#43-quadtree" title="Permanent link">&para;</a></h3>
-<p>二维版的八叉树，每层四等分。常用作八叉树的前导概念。  </p>
+<p><strong>思想</strong>：将三维空间划分为均匀立方体网格（Voxel），每个体素标记为 0（空）或 1（占）。   </p>
+<p><img alt="Spatial Enumeration 示例：环面" src="../../img/solid_spatial_enum.png" /> </p>
+<p>上图展示了环面（Torus）的空间枚举表示。可以看到，即使是光滑曲面，也只能用阶梯状体素近似。 </p>
+<p><strong>例子</strong>：一个 100×100×100 的网格表示一个球体。球内部的体素为 1，外部为 0。球的体积 ≈ 标记为 1 的体素数 × 单个体素体积。 </p>
+<p><strong>性质</strong>： 
+- ✅ 唯一且无歧义 —— 每个物体只有一种枚举结果<br />
+- ✅ 不需要有效性检查 —— 任何 0/1 组合都对应某个物体  <br />
+- ✅ 布尔运算极简单 —— 逐体素 AND/OR/NOT <br />
+- ❌ 存储需求 = <span class="arithmatex">\(O(n^3)\)</span>（分辨率 <span class="arithmatex">\(n\)</span> 时需 <span class="arithmatex">\(n^3\)</span> 个体素） <br />
+- ❌ 精度由分辨率决定，无法精确表示曲面法向 </p>
+<h3 id="42">4.2 空间划分方案<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p><img alt="空间划分方案对比" src="../../img/solid_spatial_schemes.png" />   </p>
+<p>上图对比了多种空间划分策略：<br />
+- <strong>均匀网格</strong>：所有体素大小相同，浪费严重  <br />
+- <strong>层次划分</strong>：大块全空/全满不再细分 → 大幅压缩   </p>
+<h3 id="43-quadtree">4.3 四叉树（Quadtree）— 二维先行<a class="headerlink" href="#43-quadtree" title="Permanent link">&para;</a></h3>
+<p>四叉树是八叉树的二维版本，每层四等分矩形。下图展示了四叉树的数据结构： </p>
+<p><img alt="四叉树数据结构" src="../../img/solid_quadtree.png" />   </p>
+<p><strong>例子</strong>：一个 8×8 的网格表示一个 L 形区域。左上角 4×4 全白 → 一个节点标记为 Empty。右下角 4×4 全黑 → 一个节点标记为 Full。其余区域继续四等分。 </p>
+<h3 id="44-octree">4.4 八叉树（Octree）— 三维推广<a class="headerlink" href="#44-octree" title="Permanent link">&para;</a></h3>
+<p><img alt="八叉树数据结构" src="../../img/solid_octree.png" /> </p>
+<p><strong>递归规则</strong>：   </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>对每个立方体节点：   
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  if 完全在物体内部 → 标记为 Full（黑）  
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  elif 完全在物体外部 → 标记为 Empty（白）   
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  else → 一分为八，递归处理 8 个子节点   
+</code></pre></div>
+<p><strong>性质</strong>： </p>
+<table>
+<thead>
+<tr>
+<th>性质</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储</td>
+<td>远小于均匀枚举（全满/全空不细分）</td>
+</tr>
+<tr>
+<td>精度</td>
+<td>近似，分辨率由递归深度决定</td>
+</tr>
+<tr>
+<td>唯一性</td>
+<td>✅ 唯一无歧义</td>
+</tr>
+<tr>
+<td>节点数</td>
+<td>与物体<strong>表面积</strong>成正比</td>
+</tr>
+<tr>
+<td>布尔运算</td>
+<td>从根向叶并行遍历两棵树逐节点运算</td>
+</tr>
+</tbody>
+</table>
+<p><strong>例子</strong>：一个球的八叉树表示。完全在球内部的中心大块标记为 Full。完全在球外部的角落块标记为 Empty。只有跨越球面的块才递归细分。最深层级的节点决定了球的表面精度。    </p>
+<p><strong>布尔运算示例</strong>（八叉树 A ∪ 八叉树 B）：<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Union(nodeA, nodeB):    
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    if nodeA == Full OR nodeB == Full → Full    
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    elif nodeA == Empty → nodeB 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    elif nodeB == Empty → nodeA 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    else → 递归 Union 8 个子节点  
+</code></pre></div>
+<span class="arithmatex">\(O(\text{节点数})\)</span> 复杂度，非常高效。   </p>
 <hr />
 <h2 id="constructive-representations">二、构造表示（Constructive Representations）<a class="headerlink" href="#constructive-representations" title="Permanent link">&para;</a></h2>
 <h3 id="51-primitive-instancing">5.1 基元实例化（Primitive Instancing）<a class="headerlink" href="#51-primitive-instancing" title="Permanent link">&para;</a></h3>
-<p>定义一组<strong>参数化的三维基元</strong>（如齿轮、螺栓），通过改变参数生成不同实例。  </p>
-<ul>
-<li>基元不仅可平移旋转，还有自身属性参数（如齿轮齿数、模数）  </li>
-<li>适合复杂但标准化的零件   </li>
-<li>❌ 不支持基元间的组合运算 </li>
-</ul>
+<p><strong>思想</strong>：定义一组参数化的三维基元族，通过改变参数产生不同实例。  </p>
+<p><strong>例子 — 齿轮基元</strong>：<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Gear(module=2.0, teeth=20, thickness=10mm, bore=8mm)    
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Gear(module=2.0, teeth=30, thickness=15mm, bore=10mm)   
+</code></pre></div>
+两行参数定义了两个不同的齿轮实体。   </p>
+<p><img alt="基元实例化示例" src="../../img/solid_primitive_instances.png" />    </p>
+<p><strong>特点</strong>： 
+- ✅ 适合标准化零件库（齿轮、螺栓、轴承）<br />
+- ✅ 参数化不仅是尺寸变换，还有结构特征（齿数、模数）  <br />
+- ❌ <strong>不支持基元间的组合</strong> —— 无法将基元和螺栓组装 </p>
+<div class="admonition warning">
+<p class="admonition-title">与 CSG 的区别</p>
+<p>基元实例化中，每个基元是独立的对象，<strong>没有</strong> Union/Intersection/Difference 等布尔运算能力。CSG 通过布尔运算组合基元。  </p>
+</div>
 <h3 id="52-sweep-representation">5.2 扫掠表示（Sweep Representation）<a class="headerlink" href="#52-sweep-representation" title="Permanent link">&para;</a></h3>
-<p>将点/曲线/曲面沿路径移动，其轨迹构成一维/二维/三维物体。  </p>
+<p><strong>思想</strong>：将二维截面沿路径移动，其轨迹生成三维实体。    </p>
+<h4 id="extrusion">平移扫掠（Extrusion）— 最常用<a class="headerlink" href="#extrusion" title="Permanent link">&para;</a></h4>
+<p><img alt="平移扫掠示例" src="../../img/solid_translation_sweep.png" />   </p>
+<p><strong>例子</strong>： </p>
+<ul>
+<li><strong>工字钢截面</strong>沿直线方向拉伸 → 工字钢梁   </li>
+<li><strong>圆形截面</strong>拉伸 → 圆柱体  </li>
+<li><strong>任意多边形截面</strong>拉伸 → 棱柱    </li>
+</ul>
+<p>数学表达：<span class="arithmatex">\(Sweep(P, \vec{d}, L)\)</span> = 将平面图形 <span class="arithmatex">\(P\)</span> 沿方向 <span class="arithmatex">\(\vec{d}\)</span> 移动距离 <span class="arithmatex">\(L\)</span>。 </p>
+<h4 id="revolve">旋转扫掠（Revolve）<a class="headerlink" href="#revolve" title="Permanent link">&para;</a></h4>
+<p><img alt="旋转扫掠示例" src="../../img/solid_rotational_sweep.png" />    </p>
+<p><strong>例子</strong>： </p>
+<ul>
+<li><strong>半圆绕直径旋转</strong> → 球体  </li>
+<li><strong>矩形绕一边旋转</strong> → 圆柱体 </li>
+<li><strong>花瓶截面轮廓</strong>绕中心轴旋转 → 花瓶 </li>
+</ul>
+<p>数学表达：<span class="arithmatex">\(Sweep(C, axis, \theta)\)</span> = 将曲线 <span class="arithmatex">\(C\)</span> 绕轴旋转角度 <span class="arithmatex">\(\theta\)</span>，通常 <span class="arithmatex">\(\theta = 360^\circ\)</span>。    </p>
+<h4 id="lofting">放样（Lofting）<a class="headerlink" href="#lofting" title="Permanent link">&para;</a></h4>
+<p><img alt="放样示例" src="../../img/solid_lofting.png" />   </p>
+<p><strong>例子 — 船体建模</strong>：<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>截面 1（船头）: 尖锐三角形轮廓   
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>截面 2（船中）: 宽 U 形轮廓   
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>截面 3（船尾）: 中等矩形轮廓    
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>→ Loft 将这些截面光滑连接 → 完整船体 
+</code></pre></div></p>
+<h4 id="_2">参数化扫掠<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p><img alt="参数化扫掠" src="../../img/solid_param_sweep.png" />  </p>
+<p>沿路径移动时，截面不仅可以平移旋转，还可以<strong>缩放</strong>和<strong>扭转</strong>。 
+<strong>例子</strong>：弹簧 = 圆形截面沿螺旋线路径 + 旋转跟随。  </p>
+<h4 id="_3">扫掠的陷阱 — 无效实体<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p><img alt="扫掠可能产生的无效实体" src="../../img/solid_invalid_sweep.png" />  </p>
+<p><strong>问题案例</strong>： <br />
+- 截面过大 + 路径曲率过大 → <strong>自交</strong>（物体穿透自己）  <br />
+- 平移扫掠方向平行于截面法向 → 产生<strong>退化体</strong>（无体积的面）<br />
+- 截面旋转时扭曲过度 → 产生非流形结构   </p>
+<h3 id="53-csg">5.3 CSG（构造实体几何）— 布尔运算的威力<a class="headerlink" href="#53-csg" title="Permanent link">&para;</a></h3>
+<p><strong>思想</strong>：用正则布尔运算组合简单基元（球、圆柱、方块等），构建复杂实体。  </p>
+<div class="admonition tip">
+<p class="admonition-title">正则布尔运算是什么？</p>
+<p>普通布尔运算可能产生悬边、悬面、零体积结构。<strong>正则化（Regularization）</strong> = 取内部点的闭包：<span class="arithmatex">\(A \otimes B = \text{closure}(\text{interior}(A \text{ op } B))\)</span>，自动消除这些异常。  </p>
+</div>
+<h4 id="_4">三种基本布尔运算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p><img alt="布尔运算示意图" src="../../img/solid_boolean_ops.png" />    </p>
 <table>
 <thead>
 <tr>
-<th>扫掠类型</th>
-<th>方法</th>
-<th>示例</th>
+<th>运算</th>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>平移扫掠（Extrusion）</strong></td>
-<td>平面图形沿直线拉伸</td>
-<td>柱体</td>
+<td><strong>并集（Union）</strong></td>
+<td><span class="arithmatex">\(A \cup B\)</span></td>
+<td>两物体的全部空间</td>
+<td>桌腿 ∪ 桌面 = 桌子</td>
 </tr>
 <tr>
-<td><strong>旋转扫掠（Revolution）</strong></td>
-<td>平面图形绕轴旋转</td>
-<td>花瓶、轮子</td>
+<td><strong>交集（Intersection）</strong></td>
+<td><span class="arithmatex">\(A \cap B\)</span></td>
+<td>两物体的公共空间</td>
+<td>球 ∩ 立方体 = 圆角方块</td>
 </tr>
 <tr>
-<td><strong>放样（Lofting）</strong></td>
-<td>将多个截面轮廓光滑连接</td>
-<td>船体、机翼</td>
-</tr>
-<tr>
-<td><strong>一般扫掠</strong></td>
-<td>沿任意曲线 + 截面可缩放旋转</td>
-<td>弹簧、管道</td>
+<td><strong>差集（Difference）</strong></td>
+<td><span class="arithmatex">\(A - B\)</span></td>
+<td>A 中去掉 B 的部分</td>
+<td>方块 − 圆柱 = 带孔的方块</td>
 </tr>
 </tbody>
 </table>
-<p>⚠️ 扫掠过程中可能产生<strong>自交</strong>或<strong>非流形</strong>的无效实体。    </p>
-<h3 id="53-csg-constructive-solid-geometry">5.3 构造实体几何（CSG — Constructive Solid Geometry）<a class="headerlink" href="#53-csg-constructive-solid-geometry" title="Permanent link">&para;</a></h3>
-<p>用<strong>正则布尔运算</strong>组合简单基元形成复杂物体。    </p>
-<h4 id="_2">基本操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>并集（Union）</strong>：<span class="arithmatex">\(A \cup B\)</span>  </li>
-<li><strong>交集（Intersection）</strong>：<span class="arithmatex">\(A \cap B\)</span>   </li>
-<li><strong>差集（Difference）</strong>：<span class="arithmatex">\(A - B\)</span>    </li>
-</ul>
+<p><strong>例子 — 用 CSG 造一个带孔的圆柱</strong>：  <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>HollowCylinder = Cylinder(R=10, H=20) − Cylinder(R=5, H=20) 
+</code></pre></div>
+外圆柱差集内圆柱，得到一个空心管。   </p>
+<p><strong>例子 — 造一个螺母</strong>： 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Body = Cylinder(r=10, h=5)  
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Hole = Cylinder(r=4, h=5)   
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Body − Hole → 带孔的圆盘 
+</code></pre></div>
+然后再用六角棱柱做差集 → 六角形外轮廓。   </p>
 <h4 id="csg">CSG 树<a class="headerlink" href="#csg" title="Permanent link">&para;</a></h4>
+<p><img alt="CSG 树示例" src="../../img/solid_csg_tree.png" />   </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>                ∪ (Union)   
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>               /    \   
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>              ∩      B  
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>            /   \   
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>           A     C  
+</code></pre></div>
 <ul>
-<li>内部节点：布尔运算或几何变换    </li>
-<li>叶节点：基元（半空间、长方体、圆柱、球等） </li>
-<li>树的边有序，表达运算优先级 </li>
+<li><strong>内部节点</strong>：布尔运算（∪, ∩, −）或几何变换（平移/旋转/缩放） </li>
+<li><strong>叶节点</strong>：基元（Block, Cylinder, Sphere, Cone, Torus, Wedge）   </li>
+<li><strong>树边有序</strong>：区分左右子树（差集 A − B ≠ B − A） </li>
 </ul>
-<h4 id="_3">特点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<ul>
-<li>✅ 数据结构简单、紧凑   </li>
-<li>✅ 基元有效 → 结果始终有效   </li>
-<li>✅ 方便编辑/删除/添加子树    </li>
-<li>❌ 局部操作困难  </li>
-<li>❌ 生成图像需要时间（需求交计算） </li>
-<li>⚡ 线集分类可通过 Ray Casting 完成  </li>
-<li>通常可转换为 B-Rep  </li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">正则布尔运算</p>
-<p>普通布尔运算可能产生悬边、悬面等非实体结构。<strong>正则化</strong>（Regularization）通过取内点集的闭包来消除这些异常。  </p>
-</div>
+<p><strong>性质总结</strong>：   </p>
+<table>
+<thead>
+<tr>
+<th>✅ 优点</th>
+<th>❌ 缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据结构极简单（二叉树）</td>
+<td>局部操作困难（改螺母螺纹需重建树）</td>
+</tr>
+<tr>
+<td>基元有效 → 结果始终有效</td>
+<td>渲染需反复求交（Ray Casting）</td>
+</tr>
+<tr>
+<td>历史记录完整，可回退编辑</td>
+<td>不唯一（同一物体多种 CSG 树）</td>
+</tr>
+<tr>
+<td>存储紧凑</td>
+<td>无法直接访问边界信息</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="b-rep-boundary-representation">三、边界表示（B-Rep — Boundary Representation）<a class="headerlink" href="#b-rep-boundary-representation" title="Permanent link">&para;</a></h2>
-<p>通过物体的<strong>表面边界</strong>（顶点、边、面）来表示实体。 </p>
-<h3 id="61">6.1 基本概念<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
-<ul>
-<li>大多数系统只支持<strong>平面多边形面</strong>，曲面通过多边形近似  </li>
-<li>边界必须是<strong>二维流形（2-Manifold）</strong>：物体上任意点的邻域拓扑等价于二维平面上的一个圆盘    </li>
-</ul>
+<h2 id="b-rep">三、边界表示（B-Rep）<a class="headerlink" href="#b-rep" title="Permanent link">&para;</a></h2>
+<p>边界表示是现代 CAD 软件（CATIA、SolidWorks、Nx）的核心表示方式。 </p>
+<h3 id="61">6.1 核心思想<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p><strong>不直接存储体积</strong>，而是存储物体的<strong>边界</strong>（面、边、顶点）。通过边界隐式定义体积。   </p>
+<p><strong>类比</strong>：鸡蛋壳的形状定义了鸡蛋。如果蛋壳完整封闭，里面就是蛋黄。B-Rep 就是这个"蛋壳"。  </p>
 <h3 id="62">6.2 多面体与欧拉公式<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
-<p><strong>多面体（Polyhedron）</strong>：由多边形面围成的实体，每条边恰好被两个面共享。 </p>
-<p><strong>简单多面体</strong>（可变形为球体）满足欧拉公式：    </p>
-<div class="arithmatex">\[V - E + F = 2\]</div>
-<ul>
-<li><span class="arithmatex">\(V\)</span>：顶点数，<span class="arithmatex">\(E\)</span>：边数，<span class="arithmatex">\(F\)</span>：面数 </li>
-</ul>
-<p><strong>广义欧拉公式</strong>（带孔洞和凹陷）： </p>
-<div class="arithmatex">\[V - E + F - L = 2(S - G)\]</div>
-<ul>
-<li><span class="arithmatex">\(L\)</span>：面上的环数（内环/孔洞）  </li>
-<li><span class="arithmatex">\(S\)</span>：壳体数   </li>
-<li><span class="arithmatex">\(G\)</span>：贯穿孔数（Genus）   </li>
-</ul>
+<p><strong>多面体（Polyhedron）</strong> = 由平面多边形围成的实体。每条边恰好被两个面共享，且可以遍历所有面而不"跳跃"。   </p>
 <div class="admonition danger">
 <p class="admonition-title">考试重点</p>
-<p>欧拉公式 <span class="arithmatex">\(V - E + F = 2\)</span> 和广义公式 <span class="arithmatex">\(V - E + F - L = 2(S - G)\)</span> 是高频考点。记住它既是<strong>有效性判据</strong>也是<strong>拓扑不变性</strong>的体现。   </p>
+<p><span class="arithmatex">\(V - E + F = 2\)</span> 是必考公式。对任意简单多面体（可变形为球体）恒成立。  </p>
 </div>
-<h3 id="63">6.3 两类数据<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<p><strong>验证 — 正方体</strong>： <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>V = 8（顶点）   
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>E = 12（边）   
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>F = 6（面）    
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>V − E + F = 8 − 12 + 6 = 2 ✓    
+</code></pre></div></p>
+<p><strong>验证 — 四棱锥（金字塔）</strong>：<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>V = 5（4 底顶点 + 1 顶顶点）    
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>E = 8（4 底边 + 4 斜边）  
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>F = 5（1 底面 + 4 侧面）  
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>V − E + F = 5 − 8 + 5 = 2 ✓ 
+</code></pre></div></p>
+<h4 id="_5">广义欧拉公式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>真实零件常有孔洞和空腔：    </p>
+<div class="arithmatex">\[V - E + F - L = 2(S - G)\]</div>
 <table>
 <thead>
 <tr>
-<th>数据类型</th>
-<th>内容</th>
-<th>示例</th>
+<th>符号</th>
+<th>含义</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>几何数据（Geometric）</strong></td>
-<td>基本形状定义参数</td>
-<td>双三次曲面系数、顶点坐标</td>
+<td><span class="arithmatex">\(V\)</span></td>
+<td>顶点数</td>
+<td>—</td>
 </tr>
 <tr>
-<td><strong>拓扑数据（Topological）</strong></td>
-<td>组件间的连接关系</td>
-<td>哪条边属于哪个面</td>
+<td><span class="arithmatex">\(E\)</span></td>
+<td>边数</td>
+<td>—</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(F\)</span></td>
+<td>面数</td>
+<td>—</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(L\)</span></td>
+<td>面上的内环数（Loop / Hole）</td>
+<td>每个通孔在每个面上产生一个环</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(S\)</span></td>
+<td>独立的壳体数（Shell）</td>
+<td>一般来说为 1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(G\)</span></td>
+<td>贯穿孔数（Genus / 亏格）</td>
+<td>环面 <span class="arithmatex">\(G=1\)</span>，球 <span class="arithmatex">\(G=0\)</span></td>
 </tr>
 </tbody>
 </table>
-<h3 id="64-euler-operators">6.4 欧拉算子（Euler Operators）<a class="headerlink" href="#64-euler-operators" title="Permanent link">&para;</a></h3>
-<p>B-Rep 模型的创建和编辑可封装为一组基本操作，称为<strong>欧拉算子</strong>，它们保证拓扑有效性。  </p>
-<p>五个基本欧拉算子（每个有对应逆操作）： </p>
+<p><strong>例子 — 带一个通孔的方块</strong>：<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>可以想象为方块挖了一个圆柱洞。洞穿过了 2 个面 → 每个面上多了一条内环。  
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>假设：V=16, E=24, F=10, L=2（两个面上的孔环）, S=1, G=1 
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>验证：V − E + F − L = 16 − 24 + 10 − 2 = 0 
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>      2(S − G) = 2(1 − 1) = 0 ✓ 
+</code></pre></div></p>
+<p><strong>例子 — 环面（Torus / 甜甜圈）</strong>： <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>假设一个多边形化的环面：V=9, E=18, F=9, L=0, S=1, G=1   
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>验证：V − E + F − L = 9 − 18 + 9 − 0 = 0   
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>      2(1 − 1) = 0 ✓    
+</code></pre></div></p>
+<h3 id="63-facetted-model">6.3 Facetted Model（面片模型）<a class="headerlink" href="#63-facetted-model" title="Permanent link">&para;</a></h3>
+<p><img alt="Facetted Model 示例" src="../../img/solid_facetted_model.png" />   </p>
+<p>曲面物体被近似为许多小平面的集合。三角形的密度决定了逼近精度。 </p>
+<p><strong>例子</strong>：一个球体用 1000 个三角形近似。三角形越多越接近真球，但数据量也越大。    </p>
+<h3 id="64-b-rep">6.4 B-Rep 的数据组织<a class="headerlink" href="#64-b-rep" title="Permanent link">&para;</a></h3>
+<p>B-Rep 存储<strong>两类数据</strong>：   </p>
+<h4 id="geometric-data">几何数据（Geometric Data）<a class="headerlink" href="#geometric-data" title="Permanent link">&para;</a></h4>
+<p>物体的"坐标"——决定了物体的<strong>形状</strong>：<br />
+- 顶点坐标 <span class="arithmatex">\((x, y, z)\)</span><br />
+- 曲线控制点（Bézier / NURBS） 
+- 曲面控制网格参数  </p>
+<h4 id="topological-data">拓扑数据（Topological Data）<a class="headerlink" href="#topological-data" title="Permanent link">&para;</a></h4>
+<p>组件的"连接关系"——决定了物体的<strong>结构</strong>：    </p>
+<p><img alt="B-Rep 实体层次" src="../../img/solid_brep_entities.png" />   </p>
+<p>层次结构： <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Solid（实体）   
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a> └── Shell（壳体）— 包围体积的封闭面集合  
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>      └── Face（面）— 边界上的一个面  
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>           └── Loop（环）— 面的边界（外环/内环） 
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>                └── Edge（边）— 两个面的交线 
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>                     └── Vertex（顶点）— 边的端点   
+</code></pre></div></p>
+<p><strong>例子</strong>：一个方块（6 个面）→ 每个面有 1 个外环（4 条边）→ 每条边 2 个端点。所有数据既有几何坐标又有拓扑关系。    </p>
+<p><img alt="边界表示结构" src="../../img/solid_brep.png" />    </p>
+<div class="admonition warning">
+<p class="admonition-title">几何 vs 拓扑</p>
+<p>几何确定「在哪里」，拓扑确定「谁连着谁」。同一拓扑可以对应不同几何（方块 vs 斜方块）。<strong>修改几何不影响拓扑，修改拓扑必须重新验证</strong>。  </p>
+</div>
+<h3 id="65-euler-operators">6.5 欧拉算子（Euler Operators）<a class="headerlink" href="#65-euler-operators" title="Permanent link">&para;</a></h3>
+<p>B-Rep 模型的所有合法编辑操作可以归结为 5 个基本算子 + 它们的逆操作。    </p>
 <table>
 <thead>
 <tr>
 <th>算子</th>
 <th>全称</th>
 <th>功能</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>MEV</strong></td>
 <td>Make Edge and Vertex</td>
-<td>创建一条边和一个新顶点</td>
+<td>在已有边上加一个新顶点，创建新边</td>
+<td>将一条边一分为二</td>
 </tr>
 <tr>
 <td><strong>MFE</strong></td>
 <td>Make Face and Edge</td>
-<td>创建一个面连接两条已有边</td>
+<td>连接两条已有边，创建一个新面</td>
+<td>在长方体上切出一个斜面</td>
 </tr>
 <tr>
 <td><strong>MBFV</strong></td>
 <td>Make Body Face Vertex</td>
-<td>创建物体+面+顶点（初始化）</td>
+<td>从零开始创建实体、面和顶点</td>
+<td>创建第一个点 → 整个模型的起点</td>
 </tr>
 <tr>
 <td><strong>MRB</strong></td>
 <td>Make Ring Body</td>
-<td>创建内环/打通孔洞</td>
+<td>创建内环（孔洞）</td>
+<td>在面上开一个孔</td>
 </tr>
 <tr>
 <td><strong>ME-KH</strong></td>
 <td>Make Edge, Kill Hole</td>
-<td>用边填充/消除孔洞</td>
+<td>消除孔洞（连接内环）</td>
+<td>把面中间的内环用边连起来消除</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 这五个基本操作的线性组合可以表达<strong>任意合法的拓扑变换</strong>。    </p>
+<p><strong>关键性质</strong>：任何合法的拓扑变换都可以用这 5 个基本操作的组合来实现。欧拉算子<strong>保证</strong>每次操作后欧拉公式始终成立 — 即保证拓扑有效性。   </p>
+<p><strong>例子 — 用欧拉算子构建方块</strong>： 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MBFV → 创建初始实体 + 第一个面 + 第一个顶点    
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>3 × MEV → 在同一面上创建另外 3 个顶点和 3 条边 
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>MFE → 连接第 4 条边，封闭第一个面   
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>继续 MEV + MFE → 构建其余 5 个面    
+</code></pre></div>
+这样 6 个面的方块就构建好了，且每个中间步骤都是有效实体。  </p>
+<p><strong>例子 — 给方块钻孔</strong>： 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MRB → 在顶面创建内环（孔的外边界）    
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>MEV × 4 → 在内环上创建顶点和边    
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>继续 MEV + MFE → 将孔延伸到对面  
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>MRB → 在底面创建内环   
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>ME-KH → 如果需要填充这个孔   
+</code></pre></div>
+每一步都保证 <span class="arithmatex">\(V - E + F - L = 2(S - G)\)</span> 成立。   </p>
 <hr />
-<h2 id="_4">四、表示方案对比<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_6">四、表示方案深度对比<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>维度</th>
-<th style="text-align: center;">空间划分/八叉树</th>
+<th style="text-align: center;">空间枚举</th>
+<th style="text-align: center;">八叉树</th>
 <th style="text-align: center;">基元实例化</th>
+<th style="text-align: center;">Sweep</th>
 <th style="text-align: center;">CSG</th>
 <th style="text-align: center;">B-Rep</th>
 </tr>
@@ -3957,47 +4592,88 @@
 <tr>
 <td><strong>精度</strong></td>
 <td style="text-align: center;">近似</td>
+<td style="text-align: center;">近似</td>
+<td style="text-align: center;">精确</td>
+<td style="text-align: center;">精确</td>
 <td style="text-align: center;">精确</td>
 <td style="text-align: center;">精确（曲面）</td>
-<td style="text-align: center;">多边形近似 / 曲面精确</td>
 </tr>
 <tr>
 <td><strong>定义域</strong></td>
-<td style="text-align: center;">任意实体</td>
-<td style="text-align: center;">有限</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;">有限族</td>
+<td style="text-align: center;">扫掠可达域</td>
 <td style="text-align: center;">广</td>
-<td style="text-align: center;">广（封闭）</td>
+<td style="text-align: center;">广</td>
 </tr>
 <tr>
 <td><strong>唯一性</strong></td>
-<td style="text-align: center;">✅ 唯一</td>
-<td style="text-align: center;">基元选得好则唯一</td>
-<td style="text-align: center;">不唯一</td>
-<td style="text-align: center;">不唯一</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">基元选好则✅</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">否</td>
 </tr>
 <tr>
 <td><strong>有效性检查</strong></td>
-<td style="text-align: center;">不需要</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">局部检查</td>
+<td style="text-align: center;">无需</td>
+<td style="text-align: center;">无需</td>
+<td style="text-align: center;">定义保证</td>
 <td style="text-align: center;">困难</td>
+<td style="text-align: center;">局部检查</td>
+<td style="text-align: center;">极困难</td>
 </tr>
 <tr>
 <td><strong>布尔运算封闭</strong></td>
 <td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅</td>
-<td style="text-align: center;">✅ 一般封闭</td>
+<td style="text-align: center;">✅</td>
 </tr>
 <tr>
 <td><strong>局部操作</strong></td>
-<td style="text-align: center;">容易</td>
+<td style="text-align: center;">易</td>
+<td style="text-align: center;">易</td>
+<td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">困难</td>
-<td style="text-align: center;">容易</td>
+<td style="text-align: center;">易</td>
+</tr>
+<tr>
+<td><strong>存储效率</strong></td>
+<td style="text-align: center;">低</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">高</td>
+<td style="text-align: center;">中</td>
+</tr>
+<tr>
+<td><strong>渲染速度</strong></td>
+<td style="text-align: center;">慢</td>
+<td style="text-align: center;">中</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">需求交</td>
+<td style="text-align: center;">快</td>
 </tr>
 </tbody>
 </table>
+<h3 id="_7">工业实践<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CAD 建模</strong>（SolidWorks, CATIA）：B-Rep 为主 + CSG 历史树辅助    </li>
+<li><strong>医学影像 / 有限元</strong>：八叉树 + 空间枚举（从 CT/MRI 直接生成）  </li>
+<li><strong>游戏引擎</strong>：B-Rep 转三角面片（Facetted Model）  </li>
+<li><strong>3D 打印</strong>：B-Rep → STL（三角面片）→ 切片 → G-Code  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">总结</p>
+<p>没有"最好"的表示方案，只有最合适的。现代 CAD 系统通常<strong>混合使用</strong>多种方案：CSG 构建 + B-Rep 存储 + 三角面片渲染。</p>
+</div>
 
 
 
@@ -4020,7 +4696,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月11日 18:26:44 CST">2026年6月11日 18:26:44</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月11日 18:40:41 CST">2026年6月11日 18:40:41</span>
   </span>
 
     

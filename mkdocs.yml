@@ -1,191 +1,192 @@
-﻿site_name: 一只烤鱼的笔记本
-
-site_url: https://mooncreater.github.io/Notebook/
-repo_name: Mooncreater/Notebook
-repo_url: https://github.com/Mooncreater/Notebook
-
-theme:
-  name: material
-  custom_dir: overrides
-  language: zh
-  favicon: log.jpg
-  logo: log.jpg
-  font:
-    text: LXGW WenKai Screen
-    code: JetBrains Mono
-
-  features:
-    - content.code.annotate
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.path
-    - navigation.indexes
-    - navigation.tabs.sticky
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: brown
-      accent: brown
-      toggle:
-        icon: material/weather-sunny
-        name: 切换到暗色模式
-
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: brown
-      accent: brown
-      toggle:
-        icon: material/weather-night
-        name: 切换到亮色模式
-
-plugins:
-  - statistics
-  - search
-  - changelog
-
-  - git-revision-date-localized:
-      type: datetime
-      timezone: Asia/Shanghai
-      locale: zh
-      enable_creation_date: true
-
-markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 4
-  - footnotes
-  - meta
-  - def_list
-  - attr_list
-  - md_in_html
-  - sane_lists
-  - admonition
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.snippets
-  - pymdownx.magiclink
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.smartsymbols
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.arithmatex:
-      generic: true
-
-extra_javascript:
-  - js/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - js/baidu-tongji.js
-  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
-  - js/katex.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-extra_css:
-  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
-  - fonts/title.css
-  - stylesheets/extra.css
-
-nav:
-  - Home:
-    - index.md
-    - 更新日志: changelog.md
-    - 许可证: license.md
-
-  - AI相关:
-    - 自然语言处理导论:
-      - notes/perfessional/NLP/note/index.md
-      - 基础概念: notes/perfessional/NLP/note/abstruct.md
-      - 深度学习: notes/perfessional/NLP/note/ml.md
-      - 词嵌入: notes/perfessional/NLP/note/word_embeddings.md
-      - 循环神经网络: notes/perfessional/NLP/note/rnn.md
-      - 自然语言生成与机器翻译: notes/perfessional/NLP/note/nlg_nmt.md
-      - Transformer: notes/perfessional/NLP/note/transformers.md
-      - 大模型训练: notes/perfessional/NLP/note/train_llm.md
-      - 模型压缩与高效微调: notes/perfessional/NLP/note/model_compression.md
-      - 深度强化学习: notes/perfessional/NLP/note/drl.md
-      - GPTs与对齐: notes/perfessional/NLP/note/duiqi.md
-
-    - 人工智能芯片:
-      - notes/perfessional/AI/note/course1.md
-      - 流水线与RecordBuffer: notes/perfessional/AI/note/course2.md
-      - 托马斯算法: notes/perfessional/AI/note/course3.md
-      - 超标量与向量化: notes/perfessional/AI/note/course4.md
-      - 内存: notes/perfessional/AI/note/course5.md
-      - GPU: notes/perfessional/AI/note/course6.md
-
-    - 计算机图形学:
-      - notes/perfessional/CG/note/index.md
-      - 数学基础: notes/perfessional/CG/note/basic.md
-      - 二维图元算法: notes/perfessional/CG/note/2d.md
-      - 消影算法: notes/perfessional/CG/note/warnock.md
-      - 光影渲染: notes/perfessional/CG/note/light_shading.md
-      - 光照 (全局): notes/perfessional/CG/note/light.md
-      - 纹理映射: notes/perfessional/CG/note/texture_mapping.md
-      - 剔除与裁剪: notes/perfessional/CG/note/outter_dectected.md
-
-    - 数据挖掘:
-      - notes/perfessional/DM/note/index.md
-      - 数据清洗: notes/perfessional/DM/note/Data_cleaning.md
-      - 数据存储: notes/perfessional/DM/note/Data_Store.md
-      - 分类器: notes/perfessional/DM/note/classification.md
-      - 聚类: notes/perfessional/DM/note/clustering.md
-
-    - 机器学习:
-      - notes/perfessional/ML/index.md
-      - 概念: notes/perfessional/ML/abstruct.md
-      - 基本术语和模型评估: notes/perfessional/ML/base.md
-      - 线性模型: notes/perfessional/ML/chapter3.md
-      - 决策树: notes/perfessional/ML/chapter4.md
-      - 神经网络: notes/perfessional/ML/chapter5.md
-      - 支持向量机: notes/perfessional/ML/chapter6.md
-      - 贝叶斯分类器: notes/perfessional/ML/chapter7.md
-      - 集成方法: notes/perfessional/ML/chapter8.md
-      - 聚类: notes/perfessional/ML/chapter9.md
-      - 降维与度量学习: notes/perfessional/ML/chapter10.md
-      - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
-      - 半监督学习: notes/perfessional/ML/chapter12.md
-
-
-  - 网络与浏览器:
-    - 浏览器输入URL到页面渲染:
-      - 全景图: notes/Intern/browser/00-overview.md
-      - ① URL解析: notes/Intern/browser/01-url-parsing.md
-      - ② DNS查询: notes/Intern/browser/02-dns-lookup.md
-      - ③ TCP三次握手: notes/Intern/browser/03-tcp-handshake.md
-      - ④ TLS加密: notes/Intern/browser/04-tls-handshake.md
-      - ⑤ HTTP请求: notes/Intern/browser/05-http-request.md
-      - ⑥ 服务器处理: notes/Intern/browser/06-server-processing.md
-      - ⑦ 浏览器渲染: notes/Intern/browser/07-browser-rendering.md
-
-  - 加密与安全:
-    - 手把手学加密:
-      - notes/computer_scinece/README.md
-      - 凯撒密码: notes/computer_scinece/01-凯撒密码.md
-      - Base64编码: notes/computer_scinece/02-Base64.md
-      - AES对称加密: notes/computer_scinece/03-AES-对称加密.md
-      - RSA非对称加密: notes/computer_scinece/04-RSA-非对称加密.md
-      - HTTPS综合实战: notes/computer_scinece/05-HTTPS-综合实战.md
-    - CTF 入门指南: notes/computer_scinece/CTF-入门指南.md
-
-  - 规范:
-    - git规范:
-      - standard/git/index.md
+site_name: 一只烤鱼的笔记本
+
+site_url: https://mooncreater.github.io/Notebook/
+repo_name: Mooncreater/Notebook
+repo_url: https://github.com/Mooncreater/Notebook
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: zh
+  favicon: log.jpg
+  logo: log.jpg
+  font:
+    text: LXGW WenKai Screen
+    code: JetBrains Mono
+
+  features:
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.path
+    - navigation.indexes
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: brown
+      accent: brown
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色模式
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: brown
+      accent: brown
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+
+plugins:
+  - statistics
+  - search
+  - changelog
+
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_git_follow: false
+      enable_creation_date: true
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - footnotes
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - js/baidu-tongji.js
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
+  - js/katex.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - fonts/title.css
+  - stylesheets/extra.css
+
+nav:
+  - Home:
+    - index.md
+    - 更新日志: changelog.md
+    - 许可证: license.md
+
+  - AI相关:
+    - 自然语言处理导论:
+      - notes/perfessional/NLP/note/index.md
+      - 基础概念: notes/perfessional/NLP/note/abstruct.md
+      - 深度学习: notes/perfessional/NLP/note/ml.md
+      - 词嵌入: notes/perfessional/NLP/note/word_embeddings.md
+      - 循环神经网络: notes/perfessional/NLP/note/rnn.md
+      - 自然语言生成与机器翻译: notes/perfessional/NLP/note/nlg_nmt.md
+      - Transformer: notes/perfessional/NLP/note/transformers.md
+      - 大模型训练: notes/perfessional/NLP/note/train_llm.md
+      - 模型压缩与高效微调: notes/perfessional/NLP/note/model_compression.md
+      - 深度强化学习: notes/perfessional/NLP/note/drl.md
+      - GPTs与对齐: notes/perfessional/NLP/note/duiqi.md
+
+    - 人工智能芯片:
+      - notes/perfessional/AI/note/course1.md
+      - 流水线与RecordBuffer: notes/perfessional/AI/note/course2.md
+      - 托马斯算法: notes/perfessional/AI/note/course3.md
+      - 超标量与向量化: notes/perfessional/AI/note/course4.md
+      - 内存: notes/perfessional/AI/note/course5.md
+      - GPU: notes/perfessional/AI/note/course6.md
+
+    - 计算机图形学:
+      - notes/perfessional/CG/note/index.md
+      - 数学基础: notes/perfessional/CG/note/basic.md
+      - 二维图元算法: notes/perfessional/CG/note/2d.md
+      - 消影算法: notes/perfessional/CG/note/warnock.md
+      - 光影渲染: notes/perfessional/CG/note/light_shading.md
+      - 光照 (全局): notes/perfessional/CG/note/light.md
+      - 纹理映射: notes/perfessional/CG/note/texture_mapping.md
+      - 剔除与裁剪: notes/perfessional/CG/note/outter_dectected.md`n      - 实体建模: notes/perfessional/CG/note/solid.md
+
+    - 数据挖掘:
+      - notes/perfessional/DM/note/index.md
+      - 数据清洗: notes/perfessional/DM/note/Data_cleaning.md
+      - 数据存储: notes/perfessional/DM/note/Data_Store.md
+      - 分类器: notes/perfessional/DM/note/classification.md
+      - 聚类: notes/perfessional/DM/note/clustering.md
+
+    - 机器学习:
+      - notes/perfessional/ML/index.md
+      - 概念: notes/perfessional/ML/abstruct.md
+      - 基本术语和模型评估: notes/perfessional/ML/base.md
+      - 线性模型: notes/perfessional/ML/chapter3.md
+      - 决策树: notes/perfessional/ML/chapter4.md
+      - 神经网络: notes/perfessional/ML/chapter5.md
+      - 支持向量机: notes/perfessional/ML/chapter6.md
+      - 贝叶斯分类器: notes/perfessional/ML/chapter7.md
+      - 集成方法: notes/perfessional/ML/chapter8.md
+      - 聚类: notes/perfessional/ML/chapter9.md
+      - 降维与度量学习: notes/perfessional/ML/chapter10.md
+      - 特征选择与稀疏学习: notes/perfessional/ML/chapter11.md
+      - 半监督学习: notes/perfessional/ML/chapter12.md
+
+
+  - 网络与浏览器:
+    - 浏览器输入URL到页面渲染:
+      - 全景图: notes/Intern/browser/00-overview.md
+      - ① URL解析: notes/Intern/browser/01-url-parsing.md
+      - ② DNS查询: notes/Intern/browser/02-dns-lookup.md
+      - ③ TCP三次握手: notes/Intern/browser/03-tcp-handshake.md
+      - ④ TLS加密: notes/Intern/browser/04-tls-handshake.md
+      - ⑤ HTTP请求: notes/Intern/browser/05-http-request.md
+      - ⑥ 服务器处理: notes/Intern/browser/06-server-processing.md
+      - ⑦ 浏览器渲染: notes/Intern/browser/07-browser-rendering.md
+
+  - 加密与安全:
+    - 手把手学加密:
+      - notes/computer_scinece/README.md
+      - 凯撒密码: notes/computer_scinece/01-凯撒密码.md
+      - Base64编码: notes/computer_scinece/02-Base64.md
+      - AES对称加密: notes/computer_scinece/03-AES-对称加密.md
+      - RSA非对称加密: notes/computer_scinece/04-RSA-非对称加密.md
+      - HTTPS综合实战: notes/computer_scinece/05-HTTPS-综合实战.md
+    - CTF 入门指南: notes/computer_scinece/CTF-入门指南.md
+
+  - 规范:
+    - git规范:
+      - standard/git/index.md
       - commit: standard/git/commit.md

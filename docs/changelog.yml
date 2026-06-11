@@ -1,7 +1,12 @@
 # 更新日志
-# 自动生成时间: 2026-06-01 14:30:00
+# 自动生成时间: 2026-06-11 14:30:00
 
 - 2026:
+  - "2026-06-11":
+      - "newpage":
+          text: "新增计算机图形学笔记：实体建模 (Solid Modelling)"
+          href: /Notebook/notes/perfessional/CG/note/solid
+
   - "2026-06-01":
       - "function": "修复 polyfill.io 安全漏洞，移除恶意域名"
       - "pageupdate":

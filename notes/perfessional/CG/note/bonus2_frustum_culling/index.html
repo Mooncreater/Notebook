@@ -8,31 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/">
+        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/CG/note/bonus2_frustum_culling/">
       
       
-        <link rel="prev" href="../../AI/note/course6/">
-      
-      
-        <link rel="next" href="basic/">
       
       
         
       
       
-      <link rel="icon" href="../../../../log.jpg">
+      <link rel="icon" href="../../../../../log.jpg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>计算机图形学 - 一只烤鱼的笔记本</title>
+        <title>Bonus2 — 视锥体裁剪（Frustum Culling） - 一只烤鱼的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +47,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/timeline.css">
+      <link rel="stylesheet" href="../../../../../css/timeline.css">
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
@@ -59,11 +55,11 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-      <link rel="stylesheet" href="../../../../fonts/title.css">
+      <link rel="stylesheet" href="../../../../../fonts/title.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -88,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#bonus2-frustum-culling" class="md-skip">
           跳转至
         </a>
       
@@ -104,9 +100,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="一只烤鱼的笔记本" class="md-header__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+    <a href="../../../../.." title="一只烤鱼的笔记本" class="md-header__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
       
-  <img src="../../../../log.jpg" alt="logo">
+  <img src="../../../../../log.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              计算机图形学
+              Bonus2 — 视锥体裁剪（Frustum Culling）
             
           </span>
         </div>
@@ -232,7 +228,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../.." class="md-tabs__link">
+        <a href="../../../../.." class="md-tabs__link">
           
   
   
@@ -250,8 +246,6 @@
   
   
   
-    
-  
   
     
     
@@ -259,13 +253,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../NLP/note/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../NLP/note/" class="md-tabs__link">
           
   
   
@@ -297,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Intern/browser/00-overview/" class="md-tabs__link">
+        <a href="../../../../Intern/browser/00-overview/" class="md-tabs__link">
           
   
   
@@ -329,7 +321,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../computer_scinece/" class="md-tabs__link">
+        <a href="../../../../computer_scinece/" class="md-tabs__link">
           
   
   
@@ -361,7 +353,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../standard/git/" class="md-tabs__link">
+        <a href="../../../../../standard/git/" class="md-tabs__link">
           
   
   
@@ -406,9 +398,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="一只烤鱼的笔记本" class="md-nav__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
+    <a href="../../../../.." title="一只烤鱼的笔记本" class="md-nav__button md-logo" aria-label="一只烤鱼的笔记本" data-md-component="logo">
       
-  <img src="../../../../log.jpg" alt="logo">
+  <img src="../../../../../log.jpg" alt="logo">
 
     </a>
     一只烤鱼的笔记本
@@ -460,7 +452,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../.." class="md-nav__link ">
+            <a href="../../../../.." class="md-nav__link ">
               
   
   
@@ -504,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../changelog/" class="md-nav__link">
+      <a href="../../../../../changelog/" class="md-nav__link">
         
   
   
@@ -532,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../license/" class="md-nav__link">
+      <a href="../../../../../license/" class="md-nav__link">
         
   
   
@@ -564,10 +556,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -585,20 +575,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -616,7 +603,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -675,7 +662,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../NLP/note/" class="md-nav__link ">
+            <a href="../../../NLP/note/" class="md-nav__link ">
               
   
   
@@ -719,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/abstruct/" class="md-nav__link">
+      <a href="../../../NLP/note/abstruct/" class="md-nav__link">
         
   
   
@@ -747,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/ml/" class="md-nav__link">
+      <a href="../../../NLP/note/ml/" class="md-nav__link">
         
   
   
@@ -775,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/word_embeddings/" class="md-nav__link">
+      <a href="../../../NLP/note/word_embeddings/" class="md-nav__link">
         
   
   
@@ -803,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/rnn/" class="md-nav__link">
+      <a href="../../../NLP/note/rnn/" class="md-nav__link">
         
   
   
@@ -831,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/nlg_nmt/" class="md-nav__link">
+      <a href="../../../NLP/note/nlg_nmt/" class="md-nav__link">
         
   
   
@@ -859,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/transformers/" class="md-nav__link">
+      <a href="../../../NLP/note/transformers/" class="md-nav__link">
         
   
   
@@ -887,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/train_llm/" class="md-nav__link">
+      <a href="../../../NLP/note/train_llm/" class="md-nav__link">
         
   
   
@@ -915,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/model_compression/" class="md-nav__link">
+      <a href="../../../NLP/note/model_compression/" class="md-nav__link">
         
   
   
@@ -943,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/drl/" class="md-nav__link">
+      <a href="../../../NLP/note/drl/" class="md-nav__link">
         
   
   
@@ -971,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../NLP/note/duiqi/" class="md-nav__link">
+      <a href="../../../NLP/note/duiqi/" class="md-nav__link">
         
   
   
@@ -1071,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course1/" class="md-nav__link">
+      <a href="../../../AI/note/course1/" class="md-nav__link">
         
   
   
@@ -1099,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course2/" class="md-nav__link">
+      <a href="../../../AI/note/course2/" class="md-nav__link">
         
   
   
@@ -1127,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course3/" class="md-nav__link">
+      <a href="../../../AI/note/course3/" class="md-nav__link">
         
   
   
@@ -1155,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course4/" class="md-nav__link">
+      <a href="../../../AI/note/course4/" class="md-nav__link">
         
   
   
@@ -1183,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course5/" class="md-nav__link">
+      <a href="../../../AI/note/course5/" class="md-nav__link">
         
   
   
@@ -1211,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/note/course6/" class="md-nav__link">
+      <a href="../../../AI/note/course6/" class="md-nav__link">
         
   
   
@@ -1244,8 +1231,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1278,15 +1263,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1304,13 +1289,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1330,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="basic/" class="md-nav__link">
+      <a href="../basic/" class="md-nav__link">
         
   
   
@@ -1358,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="2d/" class="md-nav__link">
+      <a href="../2d/" class="md-nav__link">
         
   
   
@@ -1386,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="warnock/" class="md-nav__link">
+      <a href="../warnock/" class="md-nav__link">
         
   
   
@@ -1414,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="light_shading/" class="md-nav__link">
+      <a href="../light_shading/" class="md-nav__link">
         
   
   
@@ -1442,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="light/" class="md-nav__link">
+      <a href="../light/" class="md-nav__link">
         
   
   
@@ -1470,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="texture_mapping/" class="md-nav__link">
+      <a href="../texture_mapping/" class="md-nav__link">
         
   
   
@@ -1498,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="outter_dectected/" class="md-nav__link">
+      <a href="../outter_dectected/" class="md-nav__link">
         
   
   
@@ -1526,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solid/" class="md-nav__link">
+      <a href="../solid/" class="md-nav__link">
         
   
   
@@ -1591,7 +1576,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../DM/note/" class="md-nav__link ">
+            <a href="../../../DM/note/" class="md-nav__link ">
               
   
   
@@ -1635,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DM/note/Data_cleaning/" class="md-nav__link">
+      <a href="../../../DM/note/Data_cleaning/" class="md-nav__link">
         
   
   
@@ -1663,7 +1648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DM/note/Data_Store/" class="md-nav__link">
+      <a href="../../../DM/note/Data_Store/" class="md-nav__link">
         
   
   
@@ -1691,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DM/note/classification/" class="md-nav__link">
+      <a href="../../../DM/note/classification/" class="md-nav__link">
         
   
   
@@ -1719,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DM/note/clustering/" class="md-nav__link">
+      <a href="../../../DM/note/clustering/" class="md-nav__link">
         
   
   
@@ -1800,7 +1785,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ML/" class="md-nav__link ">
+            <a href="../../../ML/" class="md-nav__link ">
               
   
   
@@ -1844,7 +1829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/abstruct/" class="md-nav__link">
+      <a href="../../../ML/abstruct/" class="md-nav__link">
         
   
   
@@ -1872,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/base/" class="md-nav__link">
+      <a href="../../../ML/base/" class="md-nav__link">
         
   
   
@@ -1900,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter3/" class="md-nav__link">
+      <a href="../../../ML/chapter3/" class="md-nav__link">
         
   
   
@@ -1928,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter4/" class="md-nav__link">
+      <a href="../../../ML/chapter4/" class="md-nav__link">
         
   
   
@@ -1956,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter5/" class="md-nav__link">
+      <a href="../../../ML/chapter5/" class="md-nav__link">
         
   
   
@@ -1984,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter6/" class="md-nav__link">
+      <a href="../../../ML/chapter6/" class="md-nav__link">
         
   
   
@@ -2012,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter7/" class="md-nav__link">
+      <a href="../../../ML/chapter7/" class="md-nav__link">
         
   
   
@@ -2040,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter8/" class="md-nav__link">
+      <a href="../../../ML/chapter8/" class="md-nav__link">
         
   
   
@@ -2068,7 +2053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter9/" class="md-nav__link">
+      <a href="../../../ML/chapter9/" class="md-nav__link">
         
   
   
@@ -2096,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter10/" class="md-nav__link">
+      <a href="../../../ML/chapter10/" class="md-nav__link">
         
   
   
@@ -2124,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter11/" class="md-nav__link">
+      <a href="../../../ML/chapter11/" class="md-nav__link">
         
   
   
@@ -2152,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ML/chapter12/" class="md-nav__link">
+      <a href="../../../ML/chapter12/" class="md-nav__link">
         
   
   
@@ -2317,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/00-overview/" class="md-nav__link">
+      <a href="../../../../Intern/browser/00-overview/" class="md-nav__link">
         
   
   
@@ -2345,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/01-url-parsing/" class="md-nav__link">
+      <a href="../../../../Intern/browser/01-url-parsing/" class="md-nav__link">
         
   
   
@@ -2373,7 +2358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/02-dns-lookup/" class="md-nav__link">
+      <a href="../../../../Intern/browser/02-dns-lookup/" class="md-nav__link">
         
   
   
@@ -2401,7 +2386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/03-tcp-handshake/" class="md-nav__link">
+      <a href="../../../../Intern/browser/03-tcp-handshake/" class="md-nav__link">
         
   
   
@@ -2429,7 +2414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/04-tls-handshake/" class="md-nav__link">
+      <a href="../../../../Intern/browser/04-tls-handshake/" class="md-nav__link">
         
   
   
@@ -2457,7 +2442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/05-http-request/" class="md-nav__link">
+      <a href="../../../../Intern/browser/05-http-request/" class="md-nav__link">
         
   
   
@@ -2485,7 +2470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/06-server-processing/" class="md-nav__link">
+      <a href="../../../../Intern/browser/06-server-processing/" class="md-nav__link">
         
   
   
@@ -2513,7 +2498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Intern/browser/07-browser-rendering/" class="md-nav__link">
+      <a href="../../../../Intern/browser/07-browser-rendering/" class="md-nav__link">
         
   
   
@@ -2643,7 +2628,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../computer_scinece/" class="md-nav__link ">
+            <a href="../../../../computer_scinece/" class="md-nav__link ">
               
   
   
@@ -2687,7 +2672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/01-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../../../../computer_scinece/01-%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
   
   
@@ -2715,7 +2700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/02-Base64/" class="md-nav__link">
+      <a href="../../../../computer_scinece/02-Base64/" class="md-nav__link">
         
   
   
@@ -2743,7 +2728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+      <a href="../../../../computer_scinece/03-AES-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
         
   
   
@@ -2771,7 +2756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
+      <a href="../../../../computer_scinece/04-RSA-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" class="md-nav__link">
         
   
   
@@ -2799,7 +2784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/" class="md-nav__link">
+      <a href="../../../../computer_scinece/05-HTTPS-%E7%BB%BC%E5%90%88%E5%AE%9E%E6%88%98/" class="md-nav__link">
         
   
   
@@ -2835,7 +2820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../computer_scinece/CTF-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
+      <a href="../../../../computer_scinece/CTF-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   
@@ -2947,7 +2932,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../standard/git/" class="md-nav__link ">
+            <a href="../../../../../standard/git/" class="md-nav__link ">
               
   
   
@@ -2991,7 +2976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../standard/git/commit/" class="md-nav__link">
+      <a href="../../../../../standard/git/commit/" class="md-nav__link">
         
   
   
@@ -3054,10 +3039,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        课程笔记
+        0. 前置知识
       
     </span>
   </a>
@@ -3065,10 +3050,260 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bonus" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bonus 项目笔记
+        1. 为什么需要视锥体裁剪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 为什么需要视锥体裁剪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 问题场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 裁剪的本质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. CPU 端裁剪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CPU 端裁剪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 预计算包围盒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 视锥体提取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-aabb-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 AABB vs 视锥体测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 绘制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GPU 端裁剪
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GPU 端裁剪">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 为什么要上 GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-transform-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Transform Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-frustum_cullingverttodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 frustum_culling.vert（TODO）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-indirect-draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Indirect Draw（间接绘制）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 显示包围盒
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 显示包围盒">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 调试功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 相机控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 动手实操
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 动手实操">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 编译运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 实验
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-todo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 核心 TODO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 知识延伸
       
     </span>
   </a>
@@ -3091,57 +3326,6 @@
 
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../NLP/note/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    AI相关
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="./" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    计算机图形学
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3152,37 +3336,171 @@
   
 
 
-<h1 id="_1">计算机图形学<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="bonus2-frustum-culling">Bonus2 — 视锥体裁剪（Frustum Culling）<a class="headerlink" href="#bonus2-frustum-culling" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 113 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间不到 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 910 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 69 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 4 分钟</p>
 </div>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>这里是浙江大学 <strong><em>计算机图形学</em></strong> 课程笔记及相关知识
-老师:
-参考:</p>
-<ul>
-<li>老师上课的 PPT</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">核心要点</p>
+<p>场景里 10000 个小行星，相机只能看到其中一小部分。视锥体裁剪 = 在画之前就丢掉视野外的物体，CPU 端用数学判断，GPU 端用 Transform Feedback 并行判断 + 间接绘制。</p>
 </div>
-<h2 id="_2">课程笔记<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="0">0. 前置知识<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="basic/">基础概念</a></li>
-<li><a href="2d/">2D 图形学</a></li>
-<li><a href="light_shading/">光影与着色</a></li>
-<li><a href="light/">光照模型</a></li>
-<li><a href="texture_mapping/">纹理映射</a></li>
-<li><a href="solid/">实体建模</a></li>
-<li><a href="warnock/">Warnock 算法</a></li>
-<li><a href="outter_dectected/">外轮廓检测</a></li>
+<li><strong>视锥体（Frustum）</strong>：相机能看到的空间范围，由近平面、远平面和四个侧面围成的六面体。</li>
+<li><strong>AABB（轴对齐包围盒）</strong>：包裹物体的最小长方体，六个面平行于坐标轴，用 (min, max) 两个点表示。</li>
+<li><strong>平面方程</strong>：<span class="arithmatex">\(Ax + By + Cz + D = 0\)</span>，点 (x,y,z) 代入得距离。负值 = 在平面背面。</li>
+<li><strong>Instanced Rendering</strong>：一个 draw call 画 N 个相同模型，每个实例有自己的变换矩阵。</li>
 </ul>
-<h2 id="bonus">Bonus 项目笔记<a class="headerlink" href="#bonus" title="Permanent link">&para;</a></h2>
+<h2 id="1">1. 为什么需要视锥体裁剪<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 问题场景<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>一个中心行星 + 10000 个随机分布的小行星。相机在场景中自由移动旋转，一次只能看到几十到几百个小行星。</p>
+<p>如果画 10000 个：
+- 每个 500 面 → 500 万三角形
+- 大部分在屏幕外，GPU 顶点处理完后 → 裁剪阶段丢弃
+- 浪费了大量顶点着色器时间</p>
+<h3 id="12">1.2 裁剪的本质<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>for each 物体:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    if 物体的包围盒和视锥体有交集:
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        画它
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    else:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        跳过
+</code></pre></div>
+<hr />
+<h2 id="2-cpu">2. CPU 端裁剪<a class="headerlink" href="#2-cpu" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 预计算包围盒<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>小行星模型（rock.obj）加载时提取 AABB：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// 从模型顶点计算 AABB</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">BoundingBox</span><span class="w"> </span><span class="n">box</span><span class="p">;</span><span class="w">  </span><span class="c1">// { min: (x1,y1,z1), max: (x2,y2,z2) }</span>
+</code></pre></div>
+<h3 id="22">2.2 视锥体提取<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>每帧从相机的 view-projection 矩阵提取 6 个平面：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 视锥体 = 6 个平面的交集</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">// 左平面、右平面、底平面、顶平面、近平面、远平面</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Frustum</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Plane</span><span class="w"> </span><span class="n">planes</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w">  </span><span class="c1">// 每个平面: normal + signedDistance</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">};</span>
+</code></pre></div>
+<h3 id="23-aabb-vs">2.3 AABB vs 视锥体测试<a class="headerlink" href="#23-aabb-vs" title="Permanent link">&para;</a></h3>
+<p>对每个小行星：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">_amount</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="c1">// 把 AABB 转换到世界空间</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">BoundingBox</span><span class="w"> </span><span class="n">worldBox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">localBox</span><span class="p">,</span><span class="w"> </span><span class="n">_modelMatrices</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 测试世界空间 AABB 和视锥体</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">intersects</span><span class="p">(</span><span class="n">worldBox</span><span class="p">,</span><span class="w"> </span><span class="n">frustum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">_visibles</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// 在视野内，记录</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>AABB-平面测试</strong>：取 AABB 的 8 个顶点，如果所有顶点都在某个平面背面 → 完全在外面 → 丢弃。</p>
+<h3 id="24">2.4 绘制<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 只画可见的</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_visibles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">_lambertShader</span><span class="o">-&gt;</span><span class="n">setUniformMat4</span><span class="p">(</span><span class="s">&quot;model&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">_modelMatrices</span><span class="p">[</span><span class="n">idx</span><span class="p">]);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">_asternoid</span><span class="o">-&gt;</span><span class="n">draw</span><span class="p">();</span><span class="w">  </span><span class="c1">// 一个一个画</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>_drawAsternoidCount</code> 显示实际画了多少个。</p>
+<hr />
+<h2 id="3-gpu">3. GPU 端裁剪<a class="headerlink" href="#3-gpu" title="Permanent link">&para;</a></h2>
+<h3 id="31-gpu">3.1 为什么要上 GPU<a class="headerlink" href="#31-gpu" title="Permanent link">&para;</a></h3>
+<p>CPU 裁剪 10000 个物体是 O(n) 串行判断，虽然快但：
+- 10000 次包围盒变换（矩阵乘法）
+- 10000 × 6 次平面-AABB 测试
+- 结果还要从 CPU 传回 GPU 去画</p>
+<p>GPU 裁剪：所有物体的包围盒在顶点着色器里<strong>并行</strong>判断。</p>
+<h3 id="32-transform-feedback">3.2 Transform Feedback<a class="headerlink" href="#32-transform-feedback" title="Permanent link">&para;</a></h3>
+<p>Transform Feedback = GPU 能把顶点着色器的输出捕获到 buffer 里，而不是继续走光栅化。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 1. 创建 Transform Feedback buffer</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">glGenBuffers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_transformFeedbackResultBuffer</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">glBindBuffer</span><span class="p">(</span><span class="n">GL_TRANSFORM_FEEDBACK_BUFFER</span><span class="p">,</span><span class="w"> </span><span class="n">_transformFeedbackResultBuffer</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// 2. 指定捕获变量</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">varyings</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;visible&quot;</span><span class="p">};</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">glTransformFeedbackVaryings</span><span class="p">(</span><span class="n">program</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">varyings</span><span class="p">,</span><span class="w"> </span><span class="n">GL_INTERLEAVED_ATTRIBS</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="33-frustum_cullingverttodo">3.3 frustum_culling.vert（TODO）<a class="headerlink" href="#33-frustum_cullingverttodo" title="Permanent link">&para;</a></h3>
+<p>Vertex shader 对每个实例判断其包围盒是否在视锥体内：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#version 330 core</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">vec3</span><span class="w"> </span><span class="n">aPosition</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">layout</span><span class="p">(</span><span class="n">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">mat4</span><span class="w"> </span><span class="n">aInstanceMatrix</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">flat</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">visible</span><span class="p">;</span><span class="w">  </span><span class="c1">// ★ Transform Feedback 捕获这个</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">struct</span><span class="w"> </span><span class="n">BoundingBox</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">vec3</span><span class="w"> </span><span class="n">min</span><span class="p">;</span><span class="w"> </span><span class="kt">vec3</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">struct</span><span class="w"> </span><span class="n">Plane</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">vec3</span><span class="w"> </span><span class="n">normal</span><span class="p">;</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">signedDistance</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">struct</span><span class="w"> </span><span class="n">Frustum</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Plane</span><span class="w"> </span><span class="n">planes</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">uniform</span><span class="w"> </span><span class="n">BoundingBox</span><span class="w"> </span><span class="n">boundingBox</span><span class="p">;</span><span class="w">    </span><span class="c1">// 小行星的局部空间 AABB</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">uniform</span><span class="w"> </span><span class="n">Frustum</span><span class="w"> </span><span class="n">frustum</span><span class="p">;</span><span class="w">           </span><span class="c1">// 当前帧的视锥体</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="c1">// TODO: 实现 GPU 视锥体裁剪判断</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="c1">// 思路：</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="c1">// 1. 用 aInstanceMatrix 把 boundingBox 变换到世界空间</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="c1">// 2. 对 frustum 的 6 个平面：检查变换后的 AABB</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="c1">// 3. 如果 AABB 完全在任何一个平面背面 → visible = 0</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="c1">// 4. 否则 visible = 1</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="n">visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="34-indirect-draw">3.4 Indirect Draw（间接绘制）<a class="headerlink" href="#34-indirect-draw" title="Permanent link">&para;</a></h3>
+<p>Transform Feedback 结果存了每个物体的 visible 标记，但怎么只画 visible=1 的？</p>
+<p><strong>Indirect Draw</strong>：绘制参数（顶点数、实例数等）存在 GPU buffer 里，GPU 自己读取，CPU 不参与。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">DrawElementsIndirectCommand</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w">          </span><span class="c1">// 顶点数</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">instanceCount</span><span class="p">;</span><span class="w">  </span><span class="c1">// 实例数</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">firstIndex</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">baseVertex</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">baseInstance</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">};</span>
+</code></pre></div>
+<p>每个 visible=1 的物体生成一个 command，visible=0 的 instanceCount=0（不画）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">glDrawElementsIndirect</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="w"> </span><span class="n">GL_UNSIGNED_INT</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="n">_indirectDrawCmds</span><span class="p">.</span><span class="n">data</span><span class="p">()));</span>
+</code></pre></div>
+<hr />
+<h2 id="4">4. 显示包围盒<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 调试功能<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>绿色线框显示每个小行星的 AABB，帮助理解裁剪范围：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_showBoundingBox</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="c1">// 用 instanced 线框着色器画 10000 个绿色立方体线框</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">_lineInstancedShader</span><span class="o">-&gt;</span><span class="n">use</span><span class="p">();</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">_lineInstancedShader</span><span class="o">-&gt;</span><span class="n">setUniformVec3</span><span class="p">(</span><span class="s">&quot;material.color&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">_instancedAsternoids</span><span class="o">-&gt;</span><span class="n">draw</span><span class="p">();</span><span class="w">  </span><span class="c1">// 每个实例画一个 AABB 线框</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="42">4.2 相机控制<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>WASD 移动，鼠标旋转，自由飞行观察裁剪效果：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// _cameraMoveSpeed = 10.0f</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">// _cameraRotateSpeed = 0.05f</span>
+</code></pre></div>
+<hr />
+<h2 id="5">5. 动手实操<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 编译运行<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="n">build</span> <span class="p">-</span><span class="n">-target</span> <span class="n">bonus2</span> <span class="p">-</span><span class="n">-config</span> <span class="n">Release</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">.\</span><span class="n">build</span><span class="p">\</span><span class="n">bin</span><span class="p">\</span><span class="n">Release</span><span class="p">\</span><span class="n">bonus2</span><span class="p">.</span><span class="n">exe</span>
+</code></pre></div>
+<h3 id="52">5.2 实验<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>切换 CPU / GPU 模式</strong>：ImGui 里切换，观察 <code>drawAsternoidCount</code> 的变化</li>
+<li><strong>开启包围盒显示</strong>：绿色线框 = 每个小行星的 AABB，只有和视锥体相交的才画</li>
+<li><strong>飞行探索</strong>：WASD + 鼠标在场景中飞行，看远处的小行星随相机移动被裁剪</li>
+<li><strong>开/关 Indirect Draw</strong>：对比传统 draw call 和间接绘制的性能差异</li>
+</ol>
+<h3 id="53-todo">5.3 核心 TODO<a class="headerlink" href="#53-todo" title="Permanent link">&para;</a></h3>
+<p><code>frustum_culling.vert</code> 里的 GPU 裁剪逻辑。思路：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>对 6 个平面依次测试：
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  对 AABB 每个顶点（变换到世界空间后）：
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    计算 signedDistance = dot(normal, point) + distance
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  如果所有 8 个顶点 signedDistance 都 &lt; 0（全在背面）→ 丢弃
+</code></pre></div></p>
+<hr />
+<h2 id="6">6. 知识延伸<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="bonus1_transparency/">Bonus1 — 透明物体绘制</a></li>
-<li><a href="bonus2_frustum_culling/">Bonus2 — 视锥体裁剪</a></li>
-<li><a href="bonus3_post_processing/">Bonus3 — 后处理特效 (SSAO + Bloom)</a></li>
-<li><a href="bonus4_shadow_mapping/">Bonus4 — 阴影映射</a></li>
-<li><a href="bonus5_raytracing/">Bonus5 — GPU 光线追踪</a></li>
+<li><strong>Hierarchical Z-Buffer Culling</strong>：用 z-buffer 的金字塔加速遮挡剔除</li>
+<li><strong>Bounding Volume Hierarchy</strong>：更紧凑的包围体（OBB、包围球）</li>
+<li><strong>Spatial Partitioning</strong>：八叉树、BSP 树预先划分空间，裁剪从 O(n) 降到 O(log n)</li>
 </ul>
 
 
@@ -3216,7 +3534,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年5月13日 15:00:42 CST">2026年5月13日 15:00:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月30日 01:59:53 CST">2026年6月30日 01:59:53</span>
   </span>
 
     
@@ -3307,20 +3625,20 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../js/mathjax.js"></script>
+        <script src="../../../../../js/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../../../js/baidu-tongji.js"></script>
+        <script src="../../../../../js/baidu-tongji.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
-        <script src="../../../../js/katex.js"></script>
+        <script src="../../../../../js/katex.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       

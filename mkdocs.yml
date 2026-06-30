@@ -262,6 +262,13 @@ nav:
       - 内存: notes/perfessional/AI/note/course5.md
 
       - GPU: notes/perfessional/AI/note/course6.md
+      - GPU优化: notes/perfessional/AI/note/course7.md
+      - Cache系统: notes/perfessional/AI/note/course8.md
+      - AI加速器: notes/perfessional/AI/note/course11.md
+      - 昇腾与TPU: notes/perfessional/AI/note/course12.md
+      - CANN与MindSpore: notes/perfessional/AI/note/course13.md
+      - 并行训练: notes/perfessional/AI/note/course14.md
+      - 总复习: notes/perfessional/AI/note/course16.md
 
 
 

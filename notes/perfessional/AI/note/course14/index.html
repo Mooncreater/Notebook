@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course2/">
+        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course14/">
       
       
-        <link rel="prev" href="../course1/">
-      
-      
-        <link rel="next" href="../course3/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>流水线与RecordBuffer - 一只烤鱼的笔记本</title>
+        <title>并行训练（Parallel Training） - 一只烤鱼的笔记本</title>
       
     
     
@@ -88,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#parallel-training" class="md-skip">
           跳转至
         </a>
       
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              流水线与RecordBuffer
+              并行训练（Parallel Training）
             
           </span>
         </div>
@@ -250,8 +246,6 @@
   
   
   
-    
-  
   
     
     
@@ -259,12 +253,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../../NLP/note/" class="md-tabs__link">
           
   
@@ -564,10 +556,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -585,20 +575,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -616,7 +603,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1004,10 +991,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1030,11 +1015,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -1055,7 +1040,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1098,37 +1083,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    流水线与RecordBuffer
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../course2/" class="md-nav__link">
         
   
   
@@ -1144,187 +1102,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        流水线基础
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        流水线冲突
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="流水线冲突">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structural-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        结构冲突（Structural Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据冲突（Data Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        控制冲突（Control Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reorder-buffer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reorder Buffer（重排序缓冲）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Reorder Buffer（重排序缓冲）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob-entry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB Entry
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        寄存器重命名
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rob" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 设计详解（实验相关）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROB 设计详解（实验相关）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 循环队列结构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 深度计算
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 工作流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据转发
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3474,10 +3251,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么需要分布式训练？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        流水线基础
+        并行策略分类
       
     </span>
   </a>
@@ -3485,22 +3273,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#1-data-parallel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        流水线冲突
+        1. Data Parallel（数据并行）
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="流水线冲突">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pipeline-parallel-inter-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pipeline Parallel（流水线并行 / Inter-layer）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tensor-parallel-intra-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tensor Parallel（张量并行 / Intra-layer）🔥 考试重点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tensor Parallel（张量并行 / Intra-layer）🔥 考试重点">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#structural-hazard" class="md-nav__link">
+  <a href="#31-row-wise-partitioning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结构冲突（Structural Hazard）
+        3.1 按行切分（Row-wise Partitioning）
       
     </span>
   </a>
@@ -3508,10 +3318,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-hazard" class="md-nav__link">
+  <a href="#32-column-wise-partitioning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据冲突（Data Hazard）
+        3.2 按列切分（Column-wise Partitioning）
       
     </span>
   </a>
@@ -3519,10 +3329,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#control-hazard" class="md-nav__link">
+  <a href="#33" class="md-nav__link">
     <span class="md-ellipsis">
       
-        控制冲突（Control Hazard）
+        3.3 通信模式总结
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-alternative-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Alternative Partitioning（交替切分）🔥 重要！
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-transformer-tensor-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Transformer 中的 Tensor Parallel
       
     </span>
   </a>
@@ -3535,22 +3367,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reorder-buffer" class="md-nav__link">
+  <a href="#4-allreduce" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reorder Buffer（重排序缓冲）
+        4. AllReduce 通信详解 🔥 考试重点
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Reorder Buffer（重排序缓冲）">
+    <nav class="md-nav" aria-label="4. AllReduce 通信详解 🔥 考试重点">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rob-entry" class="md-nav__link">
+  <a href="#41-ring-allreduce" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ROB Entry
+        4.1 Ring AllReduce（百度）
       
     </span>
   </a>
@@ -3558,10 +3390,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#42-in-switch-allreduce" class="md-nav__link">
     <span class="md-ellipsis">
       
-        寄存器重命名
+        4.2 In-Switch AllReduce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-allreduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 两种 AllReduce 对比
       
     </span>
   </a>
@@ -3574,63 +3417,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rob" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ROB 设计详解（实验相关）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROB 设计详解（实验相关）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 循环队列结构
+        5. 通信模式总对比
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_2" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#6-zerozero-redundancy-optimizer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ROB 深度计算
+        6. ZeRO（Zero Redundancy Optimizer）
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_3" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ROB 工作流程
+        7. 实际训练策略选择
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据转发
+        8. 并行训练公式记忆
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3650,57 +3476,6 @@
 
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../../NLP/note/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    AI相关
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../course1/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    人工智能芯片
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3711,142 +3486,356 @@
   
 
 
-<h1 id="_1">流水线与乱序执行<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="parallel-training">并行训练（Parallel Training）<a class="headerlink" href="#parallel-training" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 685 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 2 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1655 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 6 分钟</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">核心要点</p>
-<p>流水线通过并行提高吞吐，但引入三种冲突。数据冲突用转发解决，控制冲突用分支预测，乱序执行 + ROB 保证顺序提交。  </p>
+<p>大模型训练的四种并行策略：Data Parallel（数据并行）→ Model Parallel（模型并行）→ Pipeline Parallel（流水线并行）→ Tensor Parallel（张量并行）。考试重点是 Tensor Parallel 的切分方式与通信模式。</p>
 </div>
-<h2 id="_2">流水线基础<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>经典五级流水线：    </p>
-<table>
-<thead>
-<tr>
-<th>阶段</th>
-<th>名称</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>IF</td>
-<td>Instruction Fetch</td>
-<td>取指令</td>
-</tr>
-<tr>
-<td>ID</td>
-<td>Instruction Decode</td>
-<td>译码 + 读寄存器</td>
-</tr>
-<tr>
-<td>EX</td>
-<td>Execute</td>
-<td>执行运算</td>
-</tr>
-<tr>
-<td>MEM</td>
-<td>Memory Access</td>
-<td>访存</td>
-</tr>
-<tr>
-<td>WB</td>
-<td>Write Back</td>
-<td>写回寄存器</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_3">流水线冲突<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="structural-hazard">结构冲突（Structural Hazard）<a class="headerlink" href="#structural-hazard" title="Permanent link">&para;</a></h3>
-<p>硬件资源不够同时支持多条指令。 </p>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 增加硬件（如分离指令/数据 Cache）  </p>
-<h3 id="data-hazard">数据冲突（Data Hazard）<a class="headerlink" href="#data-hazard" title="Permanent link">&para;</a></h3>
-<p>指令之间存在数据依赖： </p>
+<h2 id="_1">为什么需要分布式训练？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>RAW（Read After Write）</strong>：真正依赖，必须等待   </li>
-<li><strong>WAR（Write After Read）</strong>：反依赖（假依赖）    </li>
-<li><strong>WAW（Write After Write）</strong>：输出依赖（假依赖）  </li>
+<li>模型越来越大（GPT-3: 175B 参数），单 GPU 装不下</li>
+<li>训练数据越来越大，单 GPU 算不完</li>
+<li>GPT-3 训练显存需求：Optimizer States ~3259 GB，远超单卡容量</li>
 </ul>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 解决：<strong>转发（Forwarding / Bypassing）</strong>—— 不等 WB 阶段，EX 阶段结果直接转发到下一条指令。   </p>
-<h3 id="control-hazard">控制冲突（Control Hazard）<a class="headerlink" href="#control-hazard" title="Permanent link">&para;</a></h3>
-<p>分支指令导致 PC 不确定取哪条指令。 </p>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 解决：<strong>分支预测</strong>（Branch Prediction）—— 静态预测（如 predict-not-taken）或动态预测（如 2-bit 饱和计数器）。   </p>
-<div class="admonition warning">
-<p class="admonition-title">常见误区</p>
-<p>RAW 是真依赖，必须等。WAR 和 WAW 是假依赖，可以通过<strong>寄存器重命名</strong>彻底消除，不需要等待。   </p>
-</div>
-<h2 id="reorder-buffer">Reorder Buffer（重排序缓冲）<a class="headerlink" href="#reorder-buffer" title="Permanent link">&para;</a></h2>
-<p>定义：指令完成后，结果暂存于 ROB 中。ROB 确保指令<strong>按程序顺序提交</strong>，即使执行顺序不同。  </p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 执行时允许乱序完成 </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 提交时严格按程序顺序    </li>
-</ul>
-<p>从而达成：<strong>顺序发射 → 乱序执行 → 顺序提交</strong> </p>
-<p><img alt="alt text" src="../../img/image.png" />   </p>
-<h3 id="rob-entry">ROB Entry<a class="headerlink" href="#rob-entry" title="Permanent link">&para;</a></h3>
-<p>包含：指令类型、目标寄存器、结果值、完成状态。 </p>
-<p><img alt="alt text" src="../../img/%7B971D100F-57EC-4D9E-82AF-FEE6DF32E46E%7D.png" />  </p>
-<h3 id="_4">寄存器重命名<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>用 ROB 条目 Tag 替代寄存器名，消除假依赖（WAR / WAW）。</p>
-<hr />
-<h2 id="rob">ROB 设计详解（实验相关）<a class="headerlink" href="#rob" title="Permanent link">&para;</a></h2>
-<h3 id="rob_1">ROB 循环队列结构<a class="headerlink" href="#rob_1" title="Permanent link">&para;</a></h3>
+<p><strong>显存占用估算（Transformer 模型）</strong>：</p>
 <table>
 <thead>
 <tr>
-<th>字段</th>
-<th>含义</th>
+<th>组件</th>
+<th>大小</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Valid</td>
-<td>是否有待写回的数据</td>
+<td>参数 (param)</td>
+<td><code>12 × hid²</code> （每层）</td>
+</tr>
+<tr>
+<td>激活 (activation)</td>
+<td><code>20 × bsz × seq × hid + n_h × bsz × seq × seq</code></td>
+</tr>
+<tr>
+<td>Embedding param</td>
+<td><code>voc × hid</code></td>
+</tr>
+<tr>
+<td>混合精度训练</td>
+<td>FP32: param + grad + optimizer (momentum+variance) = 4×4 bytes</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>dAddr</td>
-<td>要写回的寄存器目的地址</td>
+<td>FP16: param + grad = 2×2 bytes</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>dData</td>
-<td>要写回的数据</td>
+<td>Activation: 全 FP16</td>
 </tr>
 </tbody>
 </table>
-<p>head 寄存器指向<strong>下一项待写回</strong>的表项。</p>
-<h3 id="rob_2">ROB 深度计算<a class="headerlink" href="#rob_2" title="Permanent link">&para;</a></h3>
-<p>最长指令 EXE 耗时 N 周期 → ROB 深度至少为 N。确保能覆盖所有在 EXE 阶段的指令。</p>
-<h3 id="rob_3">ROB 工作流程<a class="headerlink" href="#rob_3" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>ID 阶段</strong>：
-egWrite=1 时，ROB Tail 预分配表项地址。Tail 自增。</li>
-<li><strong>EXE 完成</strong>：
-alid=1 时，向 ROB 对应表项填入 (rdAddr, rdData)，Valid 置 1。</li>
-<li><strong>提交阶段</strong>（新增 R 阶段）：
-   - head 指向的 Valid=1 → 
-dReady=1，输出 rdAddr 和 rdData
-   - 该表项 Valid 置 0，head 自增
-   - head 指向的 Valid=0 → 
-dReady=0，停止提交</li>
-</ol>
-<h3 id="_5">数据转发<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>RegFile 中记录数据是否就位 
-alid 及 ROB 表项序号 
-obAddr。
-若 ID 阶段源操作数 
-alid=0 → 从对应 ROB 表项取数据（转发）。</p>
+<hr />
+<h2 id="_2">并行策略分类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Parallel Training
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Data Parallel（数据并行）
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── Model Parallel（模型并行）
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── Pipeline Parallel（层间并行 / Inter-layer）
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    └── Tensor Parallel（层内并行 / Intra-layer）
+</code></pre></div>
+<hr />
+<h2 id="1-data-parallel">1. Data Parallel（数据并行）<a class="headerlink" href="#1-data-parallel" title="Permanent link">&para;</a></h2>
+<p><strong>思路</strong>：每个 Worker 持有完整模型副本，分配不同 mini-batch 数据。</p>
+<p><strong>流程</strong>：
+- Forward: 每个 Worker 独立计算
+- Backward: 每个 Worker 独立计算梯度
+- <strong>AllReduce 梯度</strong>：所有 Worker 同步梯度后取平均
+- 更新权重（所有 Worker 得到相同的权重）</p>
+<p><strong>通信</strong>：AllReduce of gradients
+- 可与计算重叠（overlap）</p>
+<p><strong>挑战</strong>：
+- Strong scaling（增加 Worker，固定 batch size）：BN 等层要求最小 batch size ≥ 16
+- Weak scaling（增加 batch size）：需调整超参（学习率等），达到相同精度需要更多 epochs</p>
+<hr />
+<h2 id="2-pipeline-parallel-inter-layer">2. Pipeline Parallel（流水线并行 / Inter-layer）<a class="headerlink" href="#2-pipeline-parallel-inter-layer" title="Permanent link">&para;</a></h2>
+<p><strong>思路</strong>：按层切分模型，Worker 0 负责 Layer 1-2，Worker 1 负责 Layer 3-4...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Worker 0: Layer 1 → Layer 2
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓ (activation)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Worker 1: Layer 3 → Layer 4
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓ (activation)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Worker 2: Layer 5
+</code></pre></div>
+<p><strong>问题：Idle Bubbles（空闲气泡）</strong>
+- 无优化时：N 个 Worker，空闲率 = (N-1)/N（如 3 Worker = 67% 空闲）
+- <strong>GPipe 优化</strong>：用 Sub-minibatches 填充气泡
+  - K 个 sub-minibatch，空闲率 = (N-1)/(N+K-1)
+  - K=N → 50%；K=4N → 20%</p>
+<p><strong>通信</strong>：Point-to-Point 通信 activation（forward）和 activation gradient（backward）
+- 难以与计算重叠
+- 负载均衡困难（不同层计算量不同）</p>
+<hr />
+<h2 id="3-tensor-parallel-intra-layer">3. Tensor Parallel（张量并行 / Intra-layer）🔥 考试重点<a class="headerlink" href="#3-tensor-parallel-intra-layer" title="Permanent link">&para;</a></h2>
+<p><strong>思路</strong>：在<strong>同一层内部</strong>切分权重矩阵，多个 Worker 协同完成一层计算。</p>
+<h3 id="31-row-wise-partitioning">3.1 按行切分（Row-wise Partitioning）<a class="headerlink" href="#31-row-wise-partitioning" title="Permanent link">&para;</a></h3>
+<p>将权重矩阵 W <strong>按行切分</strong>给各 Worker：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>W = [W₀; W₁; W₂]    ← 每个 Worker 持有一部分行
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Forward:  Yᵢ = Wᵢ × X    （各 Worker 独立计算部分输出）
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>          Y = [Y₀; Y₁; Y₂]  ← 需要 AllGather 拼起来
+</code></pre></div>
+<ul>
+<li><strong>Forward 通信</strong>：<strong>AllGather</strong>（收集各 Worker 的部分输出，拼成完整 Y）</li>
+<li><strong>Backward 通信</strong>：<strong>Reduce-Scatter</strong>（各 Worker 有完整 ∂L/∂Y，各自取对应行的梯度求和）</li>
+</ul>
+<h3 id="32-column-wise-partitioning">3.2 按列切分（Column-wise Partitioning）<a class="headerlink" href="#32-column-wise-partitioning" title="Permanent link">&para;</a></h3>
+<p>将权重矩阵 W <strong>按列切分</strong>给各 Worker：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>W = [W₀ | W₁ | W₂]    ← 每个 Worker 持有一部分列
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>X = [X₀; X₁; X₂]      ← 输入也要对应切分
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Forward:  Y = W₀×X₀ + W₁×X₁ + W₂×X₂  ← 需要 AllReduce
+</code></pre></div>
+<ul>
+<li><strong>Forward 通信</strong>：<strong>AllReduce</strong>（每个 Worker 的部分积求和得到完整 Y）</li>
+<li>等价于：Reduce-Scatter（或不通信直接发部分积然后 AllReduce）</li>
+</ul>
+<p>实际上：
+- <strong>Forward 通信</strong>：<strong>Reduce-Scatter</strong>（各 Worker 的部分积分发并求和）
+- <strong>Backward 通信</strong>：<strong>AllGather</strong>（各 Worker 需要完整 ∂L/∂X）</p>
+<h3 id="33">3.3 通信模式总结<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>切法</th>
+<th>Forward 通信</th>
+<th>Backward 通信</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Row-wise</strong></td>
+<td><strong>AllGather</strong>（拼输出）</td>
+<td><strong>Reduce-Scatter</strong>（散梯度）</td>
+</tr>
+<tr>
+<td><strong>Column-wise</strong></td>
+<td><strong>Reduce-Scatter</strong>（求和输出）</td>
+<td><strong>AllGather</strong>（拼梯度）</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition tip">
-<p class="admonition-title">实验关键</p>
-<p>ROB 深度设为 4（最长 EXE 3 周期 + 1 余量）。Tail 宽度 2 位（0~3）。</p>
+<p class="admonition-title">记忆技巧</p>
+<p>Row-wise Forward 需要 AllGather（因为是"分着算，拼起来"）；Column-wise Forward 需要 Reduce-Scatter（因为是"分着算，加起来"）。Backward 正好反过来。</p>
+</div>
+<h3 id="34-alternative-partitioning">3.4 Alternative Partitioning（交替切分）🔥 重要！<a class="headerlink" href="#34-alternative-partitioning" title="Permanent link">&para;</a></h3>
+<p><strong>关键想法</strong>：相邻层交替使用 Row-wise 和 Column-wise，<strong>减少同步次数</strong>！</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Layer K:   Row-wise partitioning（每 Worker 独立输出 = 下一层输入）
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Layer K+1: Column-wise partitioning（每 Worker 输入已经是分好的！）
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  → 不需要通信！
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Layer K+1: Column-wise partitioning
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Layer K+2: Row-wise partitioning
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  → 需要 AllReduce（因为 Column-wise 输出是完整的）
+</code></pre></div>
+<p><strong>效果</strong>：
+- 不交替：每层都需要通信（fwd 和 bwd 各一次）
+- 交替：<strong>每两层通信一次</strong>（AllReduce），同步减半</p>
+<p><strong>Row↔Col 交替规则</strong>：
+- Row-wise 在 Forward 是 AllGather → 在 Backward 是 Reduce-Scatter
+- Col-wise 在 Forward 是 Reduce-Scatter → 在 Backward 是 AllGather
+- 交替后：每两层做一次 AllReduce（Forward + Backward 各一次）</p>
+<h3 id="35-transformer-tensor-parallel">3.5 Transformer 中的 Tensor Parallel<a class="headerlink" href="#35-transformer-tensor-parallel" title="Permanent link">&para;</a></h3>
+<p>Transformer Block 的典型切分：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Attention:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  QKV Projection: Column-wise（切 Q/K/V 的列）
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Output Projection: Row-wise（切输出的行）
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>MLP:
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  FC1 (h→4h): Column-wise
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  FC2 (4h→h): Row-wise
+</code></pre></div></p>
+<hr />
+<h2 id="4-allreduce">4. AllReduce 通信详解 🔥 考试重点<a class="headerlink" href="#4-allreduce" title="Permanent link">&para;</a></h2>
+<p>AllReduce 的目标：所有 Worker 对各自持有的数据求和（或求平均），<strong>每个 Worker 都得到完整结果</strong>。</p>
+<h3 id="41-ring-allreduce">4.1 Ring AllReduce（百度）<a class="headerlink" href="#41-ring-allreduce" title="Permanent link">&para;</a></h3>
+<p><strong>拓扑</strong>：Worker 组成环形，每个只与两个邻居通信。</p>
+<p><strong>两阶段</strong>：</p>
+<p><strong>Phase 1: Reduce-Scatter（N-1 步）</strong>
+- 将数据分成 N 块
+- 第 k 步：每个 Worker 发送一块给下游邻居，接收上游一块并累加
+- 经过 N-1 步后，每个 Worker 持有一块<strong>完整归约结果</strong></p>
+<p><strong>Phase 2: AllGather（N-1 步）</strong>
+- 第 k 步：每个 Worker 发送自己的归约块给下游邻居
+- 经过 N-1 步后，每个 Worker 都有全部 N 块的完整结果</p>
+<p><strong>关键参数</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>总步数</td>
+<td><strong>2(N-1)</strong></td>
+</tr>
+<tr>
+<td>每步通信量</td>
+<td><strong>1/N 的数据量</strong></td>
+</tr>
+<tr>
+<td>总通信量（每 Worker）</td>
+<td><strong>2(N-1)/N × Data</strong> ≈ 2×Data</td>
+</tr>
+<tr>
+<td>同步次数</td>
+<td><strong>2(N-1)</strong> 次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例（N=4，数据 = [a,b,c,d]）</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Reduce-Scatter:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Step 1: GPU0 发 d→GPU1, GPU1 发 a→GPU2, GPU2 发 b→GPU3, GPU3 发 c→GPU0
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  Step 2: 继续传 + 累加
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  Step 3: 完成，每个 GPU 持有一块完整归约
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>AllGather:
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  Step 1-3: 每个 GPU 广播自己的归约块
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  最终：所有 GPU 都有 [Σa, Σb, Σc, Σd]
+</code></pre></div>
+<h3 id="42-in-switch-allreduce">4.2 In-Switch AllReduce<a class="headerlink" href="#42-in-switch-allreduce" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个 Worker 与交换机通信</li>
+<li><strong>仅 1 步</strong>，但每个 Worker 发送/接收 <strong>全部 N 份数据</strong></li>
+<li>所有 Worker lock-step 工作</li>
+</ul>
+<h3 id="43-allreduce">4.3 两种 AllReduce 对比<a class="headerlink" href="#43-allreduce" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Ring AllReduce</th>
+<th>In-Switch AllReduce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>步数</td>
+<td>2(N-1)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>每步数据量</td>
+<td>1/N</td>
+<td>N倍</td>
+</tr>
+<tr>
+<td>总通信量/Worker</td>
+<td>~2×Data</td>
+<td>Data</td>
+</tr>
+<tr>
+<td>适合</td>
+<td>任意拓扑有环即可</td>
+<td>有交换机支持</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. 通信模式总对比<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>并行策略</th>
+<th>通信模式</th>
+<th>能否 overlap 计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Parallel</td>
+<td>AllReduce (gradients)</td>
+<td>✅ 可以</td>
+</tr>
+<tr>
+<td>Pipeline Parallel</td>
+<td>P2P (activations + grad)</td>
+<td>❌ 困难</td>
+</tr>
+<tr>
+<td>Tensor Parallel (Row)</td>
+<td>Fwd: AllGather / Bwd: Reduce-Scatter</td>
+<td>❌ 困难</td>
+</tr>
+<tr>
+<td>Tensor Parallel (Col)</td>
+<td>Fwd: Reduce-Scatter / Bwd: AllGather</td>
+<td>❌ 困难</td>
+</tr>
+<tr>
+<td>Tensor Parallel (交替)</td>
+<td><strong>AllReduce 每两层</strong></td>
+<td>❌ 困难</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-zerozero-redundancy-optimizer">6. ZeRO（Zero Redundancy Optimizer）<a class="headerlink" href="#6-zerozero-redundancy-optimizer" title="Permanent link">&para;</a></h2>
+<p><strong>核心思想</strong>：每个 GPU 只存 Optimizer States 的一个子集，而非 Data Parallel 那样存完整副本。</p>
+<ul>
+<li>显存节省：显著减少 optimizer states 冗余</li>
+<li>代价：更多通信（更多 collectives）</li>
+<li>效果：能训练更大的模型</li>
+</ul>
+<hr />
+<h2 id="7">7. 实际训练策略选择<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐策略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型能装进单卡</td>
+<td>Data Parallel</td>
+</tr>
+<tr>
+<td>模型装不进单卡</td>
+<td>Tensor Parallel (层内) + Pipeline Parallel (层间)</td>
+</tr>
+<tr>
+<td>超大模型 (GPT-3)</td>
+<td>三者结合：DP + TP + PP</td>
+</tr>
+<tr>
+<td>1K GPU/NPU, batch=1K</td>
+<td>DP 为主，辅以 TP</td>
+</tr>
+<tr>
+<td>10K GPU/NPU, batch=1K</td>
+<td>DP + TP + PP 混合</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8">8. 并行训练公式记忆<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Data Parallel 通信量</strong>：每 Worker <code>2(N-1)/N × |Gradient|</code>（Ring AllReduce）</li>
+<li><strong>Pipeline idle 率</strong>：<code>(N-1)/(N+K-1)</code>（N=Worker数，K=sub-minibatch数）</li>
+<li><strong>Tensor Parallel 通信</strong>：不交替每层通信，交替每两层 AllReduce</li>
+<li><strong>AllReduce 轮数</strong>：Ring = 2(N-1) 步，每步 1/N 数据</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">考试重点</p>
+<ol>
+<li>Row-wise vs Column-wise 各自 Forward/Backward 的通信原语</li>
+<li>Alternative Partitioning 如何减少同步（每两层一次 AllReduce）</li>
+<li>Ring AllReduce 的轮数 2(N-1) 和每步通信量 1/N</li>
+<li>四种并行的通信模式对比表</li>
+</ol>
 </div>
 
 
@@ -3880,7 +3869,7 @@ alid=0 → 从对应 ROB 表项取数据（转发）。</p>
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年5月13日 15:00:42 CST">2026年5月13日 15:00:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月30日 13:08:13 CST">2026年6月30日 13:08:13</span>
   </span>
 
     

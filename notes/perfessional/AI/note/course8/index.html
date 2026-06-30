@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course2/">
+        <link rel="canonical" href="https://mooncreater.github.io/Notebook/notes/perfessional/AI/note/course8/">
       
       
-        <link rel="prev" href="../course1/">
-      
-      
-        <link rel="next" href="../course3/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>流水线与RecordBuffer - 一只烤鱼的笔记本</title>
+        <title>Cache 系统（Cache Hierarchy & Coherence） - 一只烤鱼的笔记本</title>
       
     
     
@@ -88,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cache-cache-hierarchy-coherence" class="md-skip">
           跳转至
         </a>
       
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              流水线与RecordBuffer
+              Cache 系统（Cache Hierarchy &amp; Coherence）
             
           </span>
         </div>
@@ -250,8 +246,6 @@
   
   
   
-    
-  
   
     
     
@@ -259,12 +253,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../../NLP/note/" class="md-tabs__link">
           
   
@@ -564,10 +556,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -585,20 +575,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -616,7 +603,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1004,10 +991,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1030,11 +1015,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -1055,7 +1040,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1098,37 +1083,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    流水线与RecordBuffer
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../course2/" class="md-nav__link">
         
   
   
@@ -1144,187 +1102,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        流水线基础
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        流水线冲突
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="流水线冲突">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structural-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        结构冲突（Structural Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据冲突（Data Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        控制冲突（Control Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reorder-buffer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reorder Buffer（重排序缓冲）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Reorder Buffer（重排序缓冲）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob-entry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB Entry
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        寄存器重命名
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rob" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 设计详解（实验相关）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="ROB 设计详解（实验相关）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 循环队列结构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 深度计算
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 工作流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据转发
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3474,33 +3251,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
-        流水线基础
+        1. Cache 基础
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        流水线冲突
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="流水线冲突">
+    <nav class="md-nav" aria-label="1. Cache 基础">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#structural-hazard" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结构冲突（Structural Hazard）
+        地址分解
       
     </span>
   </a>
@@ -3508,21 +3274,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-hazard" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据冲突（Data Hazard）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-hazard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        控制冲突（Control Hazard）
+        容量术语
       
     </span>
   </a>
@@ -3535,33 +3290,138 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reorder-buffer" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reorder Buffer（重排序缓冲）
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Reorder Buffer（重排序缓冲）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob-entry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB Entry
+        2. 三种组织方式
       
     </span>
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cache-miss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cache Miss 三种类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 替换策略
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 写策略
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 多级 Cache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cache-coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Cache Coherence（缓存一致性）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Cache Coherence（缓存一致性）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coherence-vs-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coherence vs Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coherence 三个性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MESI 协议
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-memory-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Memory Consistency（内存一致性模型）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Memory Consistency（内存一致性模型）">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        寄存器重命名
+        写缓冲区导致的重排序
       
     </span>
   </a>
@@ -3574,63 +3434,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rob" class="md-nav__link">
+  <a href="#9-gpu-cache" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ROB 设计详解（实验相关）
+        9. GPU Cache 一致性
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="ROB 设计详解（实验相关）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rob_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 循环队列结构
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 深度计算
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rob_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ROB 工作流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        数据转发
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3650,57 +3460,6 @@
 
 
 
-  <nav class="md-path" aria-label="导航栏" >
-    <ol class="md-path__list">
-      
-      
-        
-  
-  
-    
-    
-      
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../../../NLP/note/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    AI相关
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-    
-    
-      <li class="md-path__item">
-        <a href="../course1/" class="md-path__link">
-          
-  <span class="md-ellipsis">
-    人工智能芯片
-  </span>
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ol>
-  </nav>
-
               
               <article class="md-content__inner md-typeset">
                 
@@ -3711,143 +3470,390 @@
   
 
 
-<h1 id="_1">流水线与乱序执行<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="cache-cache-hierarchy-coherence">Cache 系统（Cache Hierarchy &amp; Coherence）<a class="headerlink" href="#cache-cache-hierarchy-coherence" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 685 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 2 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 991 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">核心要点</p>
-<p>流水线通过并行提高吞吐，但引入三种冲突。数据冲突用转发解决，控制冲突用分支预测，乱序执行 + ROB 保证顺序提交。  </p>
+<p>Cache 的核心设计决策：<strong>Placement</strong>（放哪）、<strong>Replacement</strong>（换谁）、<strong>Write Policy</strong>（怎么写）、<strong>Granularity</strong>（多大块）。多核下还需 <strong>Coherence</strong>（一致性）和 <strong>Consistency</strong>（一致性模型）。</p>
 </div>
-<h2 id="_2">流水线基础<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>经典五级流水线：    </p>
+<hr />
+<h2 id="1-cache">1. Cache 基础<a class="headerlink" href="#1-cache" title="Permanent link">&para;</a></h2>
+<h3 id="_1">地址分解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>给定 Cache 参数，从地址中提取 Tag / Index / Offset：</p>
 <table>
 <thead>
 <tr>
-<th>阶段</th>
-<th>名称</th>
-<th>功能</th>
+<th>参数</th>
+<th>位数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>IF</td>
-<td>Instruction Fetch</td>
-<td>取指令</td>
+<td>Block Offset</td>
+<td><span class="arithmatex">\(\log_2(block\_size)\)</span></td>
 </tr>
 <tr>
-<td>ID</td>
-<td>Instruction Decode</td>
-<td>译码 + 读寄存器</td>
+<td>Set Index</td>
+<td><span class="arithmatex">\(\log_2(\frac{cache\_size}{block\_size \times N\_way})\)</span></td>
 </tr>
 <tr>
-<td>EX</td>
-<td>Execute</td>
-<td>执行运算</td>
-</tr>
-<tr>
-<td>MEM</td>
-<td>Memory Access</td>
-<td>访存</td>
-</tr>
-<tr>
-<td>WB</td>
-<td>Write Back</td>
-<td>写回寄存器</td>
+<td>Tag</td>
+<td>_bits - index - offset$</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_3">流水线冲突<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="structural-hazard">结构冲突（Structural Hazard）<a class="headerlink" href="#structural-hazard" title="Permanent link">&para;</a></h3>
-<p>硬件资源不够同时支持多条指令。 </p>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 增加硬件（如分离指令/数据 Cache）  </p>
-<h3 id="data-hazard">数据冲突（Data Hazard）<a class="headerlink" href="#data-hazard" title="Permanent link">&para;</a></h3>
-<p>指令之间存在数据依赖： </p>
-<ul>
-<li><strong>RAW（Read After Write）</strong>：真正依赖，必须等待   </li>
-<li><strong>WAR（Write After Read）</strong>：反依赖（假依赖）    </li>
-<li><strong>WAW（Write After Write）</strong>：输出依赖（假依赖）  </li>
-</ul>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 解决：<strong>转发（Forwarding / Bypassing）</strong>—— 不等 WB 阶段，EX 阶段结果直接转发到下一条指令。   </p>
-<h3 id="control-hazard">控制冲突（Control Hazard）<a class="headerlink" href="#control-hazard" title="Permanent link">&para;</a></h3>
-<p>分支指令导致 PC 不确定取哪条指令。 </p>
-<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> 解决：<strong>分支预测</strong>（Branch Prediction）—— 静态预测（如 predict-not-taken）或动态预测（如 2-bit 饱和计数器）。   </p>
-<div class="admonition warning">
-<p class="admonition-title">常见误区</p>
-<p>RAW 是真依赖，必须等。WAR 和 WAW 是假依赖，可以通过<strong>寄存器重命名</strong>彻底消除，不需要等待。   </p>
-</div>
-<h2 id="reorder-buffer">Reorder Buffer（重排序缓冲）<a class="headerlink" href="#reorder-buffer" title="Permanent link">&para;</a></h2>
-<p>定义：指令完成后，结果暂存于 ROB 中。ROB 确保指令<strong>按程序顺序提交</strong>，即使执行顺序不同。  </p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 执行时允许乱序完成 </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 提交时严格按程序顺序    </li>
-</ul>
-<p>从而达成：<strong>顺序发射 → 乱序执行 → 顺序提交</strong> </p>
-<p><img alt="alt text" src="../../img/image.png" />   </p>
-<h3 id="rob-entry">ROB Entry<a class="headerlink" href="#rob-entry" title="Permanent link">&para;</a></h3>
-<p>包含：指令类型、目标寄存器、结果值、完成状态。 </p>
-<p><img alt="alt text" src="../../img/%7B971D100F-57EC-4D9E-82AF-FEE6DF32E46E%7D.png" />  </p>
-<h3 id="_4">寄存器重命名<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>用 ROB 条目 Tag 替代寄存器名，消除假依赖（WAR / WAW）。</p>
-<hr />
-<h2 id="rob">ROB 设计详解（实验相关）<a class="headerlink" href="#rob" title="Permanent link">&para;</a></h2>
-<h3 id="rob_1">ROB 循环队列结构<a class="headerlink" href="#rob_1" title="Permanent link">&para;</a></h3>
+<h3 id="_2">容量术语<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>字段</th>
+<th>参数</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Valid</td>
-<td>是否有待写回的数据</td>
+<td>Capacity C</td>
+<td>Cache 总数据字节数</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>Block Size b</td>
+<td>每次装入的数据字节数</td>
 </tr>
 <tr>
-<td>dAddr</td>
-<td>要写回的寄存器目的地址</td>
+<td>Blocks B</td>
+<td>C/b</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>Associativity N</td>
+<td>每组的块数</td>
 </tr>
 <tr>
-<td>dData</td>
-<td>要写回的数据</td>
+<td>Sets S</td>
+<td>B/N</td>
 </tr>
 </tbody>
 </table>
-<p>head 寄存器指向<strong>下一项待写回</strong>的表项。</p>
-<h3 id="rob_2">ROB 深度计算<a class="headerlink" href="#rob_2" title="Permanent link">&para;</a></h3>
-<p>最长指令 EXE 耗时 N 周期 → ROB 深度至少为 N。确保能覆盖所有在 EXE 阶段的指令。</p>
-<h3 id="rob_3">ROB 工作流程<a class="headerlink" href="#rob_3" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>ID 阶段</strong>：
-egWrite=1 时，ROB Tail 预分配表项地址。Tail 自增。</li>
-<li><strong>EXE 完成</strong>：
-alid=1 时，向 ROB 对应表项填入 (rdAddr, rdData)，Valid 置 1。</li>
-<li><strong>提交阶段</strong>（新增 R 阶段）：
-   - head 指向的 Valid=1 → 
-dReady=1，输出 rdAddr 和 rdData
-   - 该表项 Valid 置 0，head 自增
-   - head 指向的 Valid=0 → 
-dReady=0，停止提交</li>
-</ol>
-<h3 id="_5">数据转发<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>RegFile 中记录数据是否就位 
-alid 及 ROB 表项序号 
-obAddr。
-若 ID 阶段源操作数 
-alid=0 → 从对应 ROB 表项取数据（转发）。</p>
-<div class="admonition tip">
-<p class="admonition-title">实验关键</p>
-<p>ROB 深度设为 4（最长 EXE 3 周期 + 1 余量）。Tail 宽度 2 位（0~3）。</p>
+<hr />
+<h2 id="2">2. 三种组织方式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Direct-Mapped</th>
+<th>Set-Associative</th>
+<th>Fully-Associative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N-way</td>
+<td>1</td>
+<td>1 &lt; N &lt; B</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Sets</td>
+<td>B</td>
+<td>B/N</td>
+<td>1</td>
+</tr>
+<tr>
+<td>实现</td>
+<td>最简单</td>
+<td><strong>最佳折中</strong></td>
+<td>最复杂</td>
+</tr>
+<tr>
+<td>Conflict</td>
+<td>最高</td>
+<td>可接受</td>
+<td>无</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>简单设计</td>
+<td><strong>通用</strong></td>
+<td>小 Cache</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Ping-Pong Effect</p>
+<p>直接映射中，若 A 和 B 映射到同一 index，交替访问 A,B,A,B,... → <strong>0% hit rate</strong>（每次都是 conflict miss）。</p>
 </div>
+<hr />
+<h2 id="3-cache-miss">3. Cache Miss 三种类型<a class="headerlink" href="#3-cache-miss" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>又叫</th>
+<th>成因</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Compulsory</strong></td>
+<td>冷启动</td>
+<td>首次访问必然 miss</td>
+<td>Prefetching</td>
+</tr>
+<tr>
+<td><strong>Capacity</strong></td>
+<td>容量</td>
+<td>Cache 装不下工作集</td>
+<td>增大 Cache</td>
+</tr>
+<tr>
+<td><strong>Conflict</strong></td>
+<td>冲突</td>
+<td>多块挤同一位置</td>
+<td>提高关联度</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4. 替换策略<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>优先换 <strong>Invalid</strong> block</li>
+<li>Then：
+   - <strong>Random</strong>：简单，thrashing 场景优于 LRU
+   - <strong>FIFO</strong>：先进先出
+   - <strong>LRU</strong>：换最久未用的 → 实现复杂（需记录访问顺序）
+   - <strong>Pseudo-LRU</strong>：近似 LRU（如 8-way 用 7 bits 二叉树）
+   - <strong>Belady OPT</strong>：换未来最远访问的 → 理论上最优但<strong>无法实现</strong>
+   - <strong>Hybrid</strong>：Intel 实际用 LRU+Random 混合</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Set Thrashing</p>
+<p>当工作集大于关联度时，LRU 可能导致 0% hit。此时 <strong>Random 更好</strong>。因此实际用混合策略。</p>
+</div>
+<hr />
+<h2 id="5">5. 写策略<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>策略</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Store → Cache</td>
+<td><strong>Write-Allocate</strong></td>
+<td>Miss 时先加载到 Cache</td>
+</tr>
+<tr>
+<td></td>
+<td>Write-No-Allocate</td>
+<td>Miss 时直接写内存，绕过 Cache</td>
+</tr>
+<tr>
+<td>Cache → Memory</td>
+<td><strong>Write-Back</strong></td>
+<td>只写 Cache, evict 时写回</td>
+</tr>
+<tr>
+<td></td>
+<td>Write-Through</td>
+<td>每次同时写 Cache 和内存</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Write-Back + Write-Allocate：默认组合，性能最优</li>
+<li>Write-Through + Write-No-Allocate：PCIe/IO/Streaming 场景</li>
+</ul>
+<hr />
+<h2 id="6-cache">6. 多级 Cache<a class="headerlink" href="#6-cache" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1</td>
+<td>小、低关联度、延迟最关键、Tag+Data 并行访问、<strong>I/D 分离</strong></td>
+</tr>
+<tr>
+<td>L2/L3</td>
+<td>大、高关联度、延迟次要、Tag+Data 串行访问、<strong>I/D 统一</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>实际案例</strong>：
+- AMD Zen 3 (Ryzen 5000): L1=32KB/core, L2=512KB/core, L3=32MB shared
+- IBM POWER10: L2=2MB/core, L3=120MB shared
+- NVIDIA A100: L1/Scratchpad=192KB/SM, L2=40MB shared</p>
+<hr />
+<h2 id="7-cache-coherence">7. Cache Coherence（缓存一致性）<a class="headerlink" href="#7-cache-coherence" title="Permanent link">&para;</a></h2>
+<h3 id="coherence-vs-consistency">Coherence vs Consistency<a class="headerlink" href="#coherence-vs-consistency" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Coherence</th>
+<th>Consistency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围</td>
+<td><strong>同一内存地址</strong></td>
+<td><strong>所有内存地址</strong></td>
+</tr>
+<tr>
+<td>定义</td>
+<td>各核看到同一地址的最后写入一致</td>
+<td>所有内存操作的全局顺序约定</td>
+</tr>
+<tr>
+<td>性质</td>
+<td>局部顺序</td>
+<td>全局顺序</td>
+</tr>
+</tbody>
+</table>
+<h3 id="coherence">Coherence 三个性质<a class="headerlink" href="#coherence" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Program Order Preservation</strong>：核 C 写地址 X 后读 X，一定读到刚写的值</li>
+<li><strong>Coherent Memory View</strong>：核 C1 写 X=1 后，足够长时间后 C2 读到 1</li>
+<li><strong>Write Serialization</strong>：对同一地址的写入被所有核以相同顺序看到</li>
+</ol>
+<h3 id="mesi">MESI 协议<a class="headerlink" href="#mesi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+<th>本地读写行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M</strong>(odified)</td>
+<td>独有 + 已改</td>
+<td>直接读写，<strong>无需总线</strong></td>
+</tr>
+<tr>
+<td><strong>E</strong>(xclusive)</td>
+<td>独有 + 干净</td>
+<td>读无需总线；写 → M 也<strong>无需总线</strong></td>
+</tr>
+<tr>
+<td><strong>S</strong>(hared)</td>
+<td>多核共享</td>
+<td>读无需总线；写需 <strong>Invalidate</strong> 广播</td>
+</tr>
+<tr>
+<td><strong>I</strong>(nvalid)</td>
+<td>不在 Cache</td>
+<td>读/写需总线请求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MESI vs MSI</strong>：新增 E 状态，独占 clean block 时写操作省一次总线广播。</p>
+<h3 id="_3">实现方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Snoop（嗅探）</th>
+<th>Directory（目录）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机制</td>
+<td>所有 Cache 监听共享总线</td>
+<td>目录记录每个 block 的 sharer</td>
+</tr>
+<tr>
+<td>扩展性</td>
+<td>差（总线带宽瓶颈）</td>
+<td>好（点对点通信）</td>
+</tr>
+<tr>
+<td>适用</td>
+<td>小规模多核</td>
+<td>大规模多核</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Directory 条目</strong>（每个 cache line）：
+- 2-bit state（M/E/S/I）
+- log₂N-bit owner
+- N-bit sharer list（one-hot）</p>
+<hr />
+<h2 id="8-memory-consistency">8. Memory Consistency（内存一致性模型）<a class="headerlink" href="#8-memory-consistency" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>Load-Load</th>
+<th>Load-Store</th>
+<th>Store-Store</th>
+<th>Store-Load</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sequential Consistency</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>早期理论</td>
+</tr>
+<tr>
+<td><strong>Total Store Order (TSO)</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td><strong>x86/64</strong></td>
+</tr>
+<tr>
+<td><strong>Partial Store Order (PSO)</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td><strong>ARM</strong></td>
+</tr>
+<tr>
+<td>Weak Memory Model</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>DEC Alpha</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> <strong>越强的一致性模型 → 编程越简单，但性能越低。</strong> x86 选 TSO 是折中。</p>
+<h3 id="_4">写缓冲区导致的重排序<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><code>Core 1:              Core 2:
+A = 1                B = 1
+if (B == 0)          if (A == 0)
+  print "Hello"        print "ZJU"</code></p>
+<p>在 PSO/弱模型下，<strong>可能同时打印 "Hello" 和 "ZJU"</strong>！因为 Store 可能被重排序到了 Load 之后。</p>
+<hr />
+<h2 id="9-gpu-cache">9. GPU Cache 一致性<a class="headerlink" href="#9-gpu-cache" title="Permanent link">&para;</a></h2>
+<ul>
+<li>每个 SM 有独立 L1 Cache</li>
+<li>L1 写<strong>不会立即反映到共享 L2</strong></li>
+<li>需手动用 PTX 指令 flush 到 L2/Global Memory</li>
+<li>GPU Cache Coherence 比 CPU 弱得多</li>
+</ul>
 
 
 
@@ -3880,7 +3886,7 @@ alid=0 → 从对应 ROB 表项取数据（转发）。</p>
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年5月13日 15:00:42 CST">2026年5月13日 15:00:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年6月30日 13:08:13 CST">2026年6月30日 13:08:13</span>
   </span>
 
     

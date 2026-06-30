@@ -68,3 +68,33 @@ $$L = \lambda \times W$$
 | **IPC** | Instructions Per Cycle —— 每周期执行指令数，CPI 的倒数 |	
 | **MIPS** | Million Instructions Per Second |	
 | **FLOPS** | Floating-Point Operations Per Second |
+
+### Memory Roofline 变体
+
+不同存储层级有不同的带宽上限 → 不同"屋顶"：
+
+| 存储层级 | 带宽 | 屋顶形状 |
+|----------|------|----------|
+| DRAM | 有限 (~100 GB/s) | 低斜坡 |
+| HBM | 中等 (~1 TB/s) | 中斜坡 |
+| Cache | 大 (~10 TB/s) | 高斜坡 |
+
+应用的实际 OI 在哪一层，就受那一层带宽限制。
+
+### 经典 Roofline 解题步骤
+
+1. 计算 OI = FLOPs / Bytes
+2. 读图：找到 OI 在 X 轴的位置
+3. 向上作垂直线，与屋顶的交点 = 可达到性能
+4. 若交点在斜坡上 → Memory Bound（优化：减少访存）
+5. 若交点在平顶上 → Compute Bound（优化：更好算法/硬件）
+
+**示例**：Peak=100 GFLOPS, BW=25 GB/s, OI=2 FLOP/Byte
+Perf = \min(100, 25 \times 2) = 50\ GFLOPS
+:arrow_right: 仅达峰值 50%，Memory Bound，需优化访存！
+
+### Roofline 的作用
+
+1. **从处理器角度**：展示硬件固有上限（计算/内存）
+2. **从计算核角度**：指示优化优先级
+3. **从应用角度**：评估当前瓶颈是延迟还是吞吐

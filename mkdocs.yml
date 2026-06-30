@@ -1,4 +1,4 @@
-﻿site_name: 一只烤鱼的笔记本
+site_name: 一只烤鱼的笔记本
 
 
 
@@ -284,6 +284,13 @@ nav:
       - 剔除与裁剪: notes/perfessional/CG/note/outter_dectected.md  
       
       - 实体建模: notes/perfessional/CG/note/solid.md
+
+      - Bonus项目:
+          - Bonus1 透明物体绘制: notes/perfessional/CG/note/bonus1_transparency.md
+          - Bonus2 视锥体裁剪: notes/perfessional/CG/note/bonus2_frustum_culling.md
+          - Bonus3 后处理特效: notes/perfessional/CG/note/bonus3_post_processing.md
+          - Bonus4 阴影映射: notes/perfessional/CG/note/bonus4_shadow_mapping.md
+          - Bonus5 GPU光线追踪: notes/perfessional/CG/note/bonus5_raytracing.md
 
 
 

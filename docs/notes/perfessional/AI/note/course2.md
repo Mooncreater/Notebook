@@ -66,3 +66,44 @@ comments: true
 ### 寄存器重命名	
 	
 用 ROB 条目 Tag 替代寄存器名，消除假依赖（WAR / WAW）。
+
+---
+
+## ROB 设计详解（实验相关）
+
+### ROB 循环队列结构
+
+| 字段 | 含义 |
+|------|------|
+| Valid | 是否有待写回的数据 |
+| 
+dAddr | 要写回的寄存器目的地址 |
+| 
+dData | 要写回的数据 |
+
+head 寄存器指向**下一项待写回**的表项。
+
+### ROB 深度计算
+
+最长指令 EXE 耗时 N 周期 → ROB 深度至少为 N。确保能覆盖所有在 EXE 阶段的指令。
+
+### ROB 工作流程
+
+1. **ID 阶段**：
+egWrite=1 时，ROB Tail 预分配表项地址。Tail 自增。
+2. **EXE 完成**：alid=1 时，向 ROB 对应表项填入 (rdAddr, rdData)，Valid 置 1。
+3. **提交阶段**（新增 R 阶段）：
+   - head 指向的 Valid=1 → 
+dReady=1，输出 rdAddr 和 rdData
+   - 该表项 Valid 置 0，head 自增
+   - head 指向的 Valid=0 → 
+dReady=0，停止提交
+
+### 数据转发
+
+RegFile 中记录数据是否就位 alid 及 ROB 表项序号 
+obAddr。
+若 ID 阶段源操作数 alid=0 → 从对应 ROB 表项取数据（转发）。
+
+!!! tip "实验关键"
+    ROB 深度设为 4（最长 EXE 3 周期 + 1 余量）。Tail 宽度 2 位（0~3）。
